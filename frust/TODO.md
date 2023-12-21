@@ -1,0 +1,3 @@
+- TESTS for the serialisation
+- TESTS for each part of the pathfinding
+- TESTS for each function in each class

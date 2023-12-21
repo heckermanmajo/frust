@@ -1,0 +1,5 @@
+--- @class Soldier
+--- A soldier is a unit that is 32 * 32 pixels big.
+--- @field public x number The x position of the soldier in pixels on the map.
+--- @field public y number The y position of the soldier in pixels on the map.
+--- @field public
