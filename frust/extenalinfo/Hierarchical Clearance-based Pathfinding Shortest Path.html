@@ -1,0 +1,1585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 7]>
+<html id="ie7" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<![endif]-->
+<!--[if (gt IE 7) | (!IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-darkreader-mode="dynamic" data-darkreader-scheme="dark" data-lt-installed="true"><!--<![endif]--><head profile="http://gmpg.org/xfn/11"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%) grayscale(5%) sepia(10%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131415;
+   --darkreader-neutral-text: #d4cec4;
+   --darkreader-selection-background: #094a97;
+   --darkreader-selection-text: #e4dfd7;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">html {
+    background-color: #181919 !important;
+}
+html {
+    color-scheme: dark !important;
+}
+html, body, input, textarea, select, button, dialog {
+    background-color: #181919;
+}
+html, body, input, textarea, select, button {
+    border-color: #70685b;
+    color: #e4dfd7;
+}
+a {
+    color: #408be1;
+}
+table {
+    border-color: #545858;
+}
+::placeholder {
+    color: #aea699;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #3e4008 !important;
+    color: #e4dfd7 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202222;
+    color: #a79f92;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454848;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575b5c;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484b4c;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181919;
+}
+* {
+    scrollbar-color: #454848 #202222;
+}
+::selection {
+    background-color: #094a97 !important;
+    color: #e4dfd7 !important;
+}
+::-moz-selection {
+    background-color: #094a97 !important;
+    color: #e4dfd7 !important;
+}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hierarchical Clearance-based Pathfinding | Shortest Path</title>
+
+	<style type="text/css" media="screen">
+		@import url( https://s0.wp.com/wp-content/themes/pub/rubric/style.css );
+	</style><style class="darkreader darkreader--cors" media="screen">body{background-color:#fff;background-image:url('https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/gradient.gif');background-attachment:fixed;background-position:bottom;background-repeat:repeat-x}#content{margin-right:20em;margin-left:40px;background-color:#fff;padding:.5em;margin-top:160px;border:1px #eee solid}* html #content{margin-top:180px}#header{position:absolute;top:40px;left:0;background-image:url('https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/pen-sm.jpg');background-position:top right;background-repeat:no-repeat;width:80%;margin:0;height:150px;padding-left:45px;font-family:Georgia;font-weight:400;font-size:3em;line-height:1}#menu{width:14em;position:absolute;float:right;top:200px;right:5em;font-size:90%}* html #menu{right:5em}#menu ul{margin-top:0;padding-left:0;margin-left:0;list-style:none;font-weight:700;color:#b54141}#menu h2{font-size:1em}#menu a:link,#menu a:visited{color:#000;border:0}* html #menu a{word-wrap:break-word}#menu ul ul{margin-left:0;list-style:disc;list-style-position:inside;padding-left:.5em;text-indent:0;font-weight:400;color:#000}#menu form{margin:0}#menu form br{display:none}#content h2{font-size:.9em;color:#666;margin-bottom:0;margin-top:0}h3{font-size:1.5em;font-weight:400;margin-bottom:.33em}.storytitle{color:#b54141;margin-top:.25em}.post-categories{display:inline;margin:0;padding:0}.post-categories li{display:inline;margin-left:3px;padding:0}.post .meta{font-size:.85em;color:#666}.post .meta *{margin-top:0}.post .feedback{margin-bottom:3em;border-bottom:1px solid #ccc;padding-bottom:1px}.feedback{clear:both}.sticky{background:#f7f7f7;padding:5px 10px 10px;margin:5px 0 15px 0}.sticky a{border-color:#ccc}#reply-title{font-size:.9em;font-weight:700;color:#666;margin-bottom:0;margin-top:0}.comment-form-author,.comment-form-email,.comment-form-url{overflow:hidden;width:100%}#respond input[type=text]{float:left;margin-right:.5em}#ie7 #respond input[type=text]{float:none;margin-right:0;margin-left:.5em}.comment-form-author label,.comment-form-email label,.comment-form-url label{font-size:10px}.comment-form-comment label{display:none}p.credit{margin-right:20em;margin-left:40px;padding:.5em;font-size:90%}p.credit a:visited,p.credit a:link{border:0}body{font-family:Verdana,Tahoma,Arial,sans-serif;font-size:80%}#content div,p,td,th,li{font-size:1em;line-height:1.65em}a:link,a:visited{text-decoration:none;color:#b54141;border:1px solid #fff}a:hover{border:1px solid #ccc}#content a:hover{background-color:#eee}#comment{width:95%}* html #comment{width:400px}#commentlist li .avatar{float:right;padding:2px;border:1px solid #eee;margin-right:15px}#commentlist li .children{list-style-type:none}img.centered,img.aligncenter{display:block;margin-left:auto;margin-right:auto}img.alignright{padding:4px;margin:0 0 2px 7px;display:inline}img.alignleft{padding:4px;margin:0 7px 2px 0;display:inline}.alignright{float:right}.alignleft{float:left}.aligncenter,div.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{border:1px solid #ddd;text-align:center;background-color:#f3f3f3;padding-top:4px;margin:10px;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.wp-caption img{margin:0;padding:0;border:0}.wp-caption p.wp-caption-text{font-size:11px;line-height:17px;padding:0 4px 5px;margin:0}.linkcat h2{margin-bottom:0;margin-top:0}object,embed{max-width:100%}.comment object,.comment embed{margin:1em 0;max-width:640px}</style><style class="darkreader darkreader--sync" media="screen"></style>
+
+	<link rel="pingback" href="https://harablog.wordpress.com/xmlrpc.php">
+	<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://ced.sascdn.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="dns-prefetch" href="https://a.teads.tv/">
+<link rel="dns-prefetch" href="https://prebid.media.net/">
+<link rel="dns-prefetch" href="https://adserver-us.adtech.advertising.com/">
+<link rel="dns-prefetch" href="https://fastlane.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://prebid-server.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://hb-api.omnitagjs.com/">
+<link rel="dns-prefetch" href="https://mtrx.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://apex.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://u.openx.net/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Feed" href="https://harablog.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Comments Feed" href="https://harablog.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Hierarchical Clearance-based Pathfinding Comments Feed" href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1677072837i&ver=6.5-alpha-57144"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-0-1" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_006.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-2-1" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/style.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="wp-block-library-inline-css">
+.has-text-align-justify {
+	text-align:justify;
+}
+.wp-block-cover__image-background.has-parallax {
+	background-size: cover;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-4-1" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_005.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-6-1" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_004.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--albert-sans: 'Albert Sans', sans-serif;--wp--preset--font-family--alegreya: Alegreya, serif;--wp--preset--font-family--arvo: Arvo, serif;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda', serif;--wp--preset--font-family--cabin: Cabin, sans-serif;--wp--preset--font-family--chivo: Chivo, sans-serif;--wp--preset--font-family--commissioner: Commissioner, sans-serif;--wp--preset--font-family--cormorant: Cormorant, serif;--wp--preset--font-family--courier-prime: 'Courier Prime', monospace;--wp--preset--font-family--crimson-pro: 'Crimson Pro', serif;--wp--preset--font-family--dm-mono: 'DM Mono', monospace;--wp--preset--font-family--dm-sans: 'DM Sans', sans-serif;--wp--preset--font-family--domine: Domine, serif;--wp--preset--font-family--eb-garamond: 'EB Garamond', serif;--wp--preset--font-family--epilogue: Epilogue, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--fira-sans: 'Fira Sans', sans-serif;--wp--preset--font-family--fraunces: Fraunces, serif;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono', monospace;--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans', sans-serif;--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--josefin-sans: 'Josefin Sans', sans-serif;--wp--preset--font-family--jost: Jost, sans-serif;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville', serif;--wp--preset--font-family--libre-franklin: 'Libre Franklin', sans-serif;--wp--preset--font-family--literata: Literata, serif;--wp--preset--font-family--lora: Lora, serif;--wp--preset--font-family--merriweather: Merriweather, serif;--wp--preset--font-family--montserrat: Montserrat, sans-serif;--wp--preset--font-family--newsreader: Newsreader, serif;--wp--preset--font-family--nunito: Nunito, sans-serif;--wp--preset--font-family--open-sans: 'Open Sans', sans-serif;--wp--preset--font-family--overpass: Overpass, sans-serif;--wp--preset--font-family--petrona: Petrona, serif;--wp--preset--font-family--piazzolla: Piazzolla, serif;--wp--preset--font-family--playfair-display: 'Playfair Display', serif;--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;--wp--preset--font-family--poppins: Poppins, sans-serif;--wp--preset--font-family--raleway: Raleway, sans-serif;--wp--preset--font-family--roboto: Roboto, sans-serif;--wp--preset--font-family--roboto-slab: 'Roboto Slab', serif;--wp--preset--font-family--rubik: Rubik, sans-serif;--wp--preset--font-family--sora: Sora, sans-serif;--wp--preset--font-family--source-sans-3: 'Source Sans 3', sans-serif;--wp--preset--font-family--source-serif-4: 'Source Serif 4', serif;--wp--preset--font-family--space-mono: 'Space Mono', monospace;--wp--preset--font-family--texturina: Texturina, serif;--wp--preset--font-family--work-sans: 'Work Sans', sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-albert-sans-font-family{font-family: var(--wp--preset--font-family--albert-sans) !important;}.has-alegreya-font-family{font-family: var(--wp--preset--font-family--alegreya) !important;}.has-arvo-font-family{font-family: var(--wp--preset--font-family--arvo) !important;}.has-bodoni-moda-font-family{font-family: var(--wp--preset--font-family--bodoni-moda) !important;}.has-cabin-font-family{font-family: var(--wp--preset--font-family--cabin) !important;}.has-chivo-font-family{font-family: var(--wp--preset--font-family--chivo) !important;}.has-commissioner-font-family{font-family: var(--wp--preset--font-family--commissioner) !important;}.has-cormorant-font-family{font-family: var(--wp--preset--font-family--cormorant) !important;}.has-courier-prime-font-family{font-family: var(--wp--preset--font-family--courier-prime) !important;}.has-crimson-pro-font-family{font-family: var(--wp--preset--font-family--crimson-pro) !important;}.has-dm-mono-font-family{font-family: var(--wp--preset--font-family--dm-mono) !important;}.has-dm-sans-font-family{font-family: var(--wp--preset--font-family--dm-sans) !important;}.has-domine-font-family{font-family: var(--wp--preset--font-family--domine) !important;}.has-eb-garamond-font-family{font-family: var(--wp--preset--font-family--eb-garamond) !important;}.has-epilogue-font-family{font-family: var(--wp--preset--font-family--epilogue) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-fira-sans-font-family{font-family: var(--wp--preset--font-family--fira-sans) !important;}.has-fraunces-font-family{font-family: var(--wp--preset--font-family--fraunces) !important;}.has-ibm-plex-mono-font-family{font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;}.has-ibm-plex-sans-font-family{font-family: var(--wp--preset--font-family--ibm-plex-sans) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-josefin-sans-font-family{font-family: var(--wp--preset--font-family--josefin-sans) !important;}.has-jost-font-family{font-family: var(--wp--preset--font-family--jost) !important;}.has-libre-baskerville-font-family{font-family: var(--wp--preset--font-family--libre-baskerville) !important;}.has-libre-franklin-font-family{font-family: var(--wp--preset--font-family--libre-franklin) !important;}.has-literata-font-family{font-family: var(--wp--preset--font-family--literata) !important;}.has-lora-font-family{font-family: var(--wp--preset--font-family--lora) !important;}.has-merriweather-font-family{font-family: var(--wp--preset--font-family--merriweather) !important;}.has-montserrat-font-family{font-family: var(--wp--preset--font-family--montserrat) !important;}.has-newsreader-font-family{font-family: var(--wp--preset--font-family--newsreader) !important;}.has-nunito-font-family{font-family: var(--wp--preset--font-family--nunito) !important;}.has-open-sans-font-family{font-family: var(--wp--preset--font-family--open-sans) !important;}.has-overpass-font-family{font-family: var(--wp--preset--font-family--overpass) !important;}.has-petrona-font-family{font-family: var(--wp--preset--font-family--petrona) !important;}.has-piazzolla-font-family{font-family: var(--wp--preset--font-family--piazzolla) !important;}.has-playfair-display-font-family{font-family: var(--wp--preset--font-family--playfair-display) !important;}.has-plus-jakarta-sans-font-family{font-family: var(--wp--preset--font-family--plus-jakarta-sans) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-raleway-font-family{font-family: var(--wp--preset--font-family--raleway) !important;}.has-roboto-font-family{font-family: var(--wp--preset--font-family--roboto) !important;}.has-roboto-slab-font-family{font-family: var(--wp--preset--font-family--roboto-slab) !important;}.has-rubik-font-family{font-family: var(--wp--preset--font-family--rubik) !important;}.has-sora-font-family{font-family: var(--wp--preset--font-family--sora) !important;}.has-source-sans-3-font-family{font-family: var(--wp--preset--font-family--source-sans-3) !important;}.has-source-serif-4-font-family{font-family: var(--wp--preset--font-family--source-serif-4) !important;}.has-space-mono-font-family{font-family: var(--wp--preset--font-family--space-mono) !important;}.has-texturina-font-family{font-family: var(--wp--preset--font-family--texturina) !important;}.has-work-sans-font-family{font-family: var(--wp--preset--font-family--work-sans) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-8-1" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_002.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-10-1" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_003.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<script type="text/javascript" id="jetpack_related-posts-js-extra">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script><meta name="darkreader" content="e28f64890af14b5cb73937f40d55ed05"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #725000 !important;
+    border-color: #cca926 !important;
+    color: #ede1c1 !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #153741 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #071e25 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #0a0909 !important;
+}
+.tou-uknfeu {
+    background-color: #201505 !important;
+}
+.tou-6i3zyv {
+    background-color: #215262 !important;
+}
+div.mermaid-viewer-control-panel .btn {
+  fill: var(--darkreader-neutral-text);
+  background-color: var(--darkreader-neutral-background);
+}
+svg g rect.er {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+  fill-opacity: 0.8 !important;
+  fill: var(--darkreader-selection-background);
+}
+svg rect.er.relationshipLabelBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect, svg g g.nodes polygon {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+  fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0, svg line.messageLine1 {
+  stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+  fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style>
+<script crossorigin="anonymous" type="text/javascript" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled"></script>
+<script type="text/javascript" id="rlt-proxy-js-after">
+/* <![CDATA[ */
+	window.addEventListener( 'DOMContentLoaded', function() {
+		rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+	} );
+/* ]]> */
+</script>
+<script type="text/javascript" crossorigin="anonymous" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/importmap-polyfill.min.js" id="es-module-shims-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="media-video-jwt-bridge-js-extra">
+/* <![CDATA[ */
+var videopressAjax = {"ajaxUrl":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","bridgeUrl":"\/wp-content\/mu-plugins\/jetpack-plugin\/sun\/jetpack_vendor\/automattic\/jetpack-videopress\/build\/lib\/token-bridge.js","post_id":"280"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="wpcom-actionbar-placeholder-js-extra">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"6057140","postID":"280","siteURL":"http:\/\/harablog.wordpress.com","xhrURL":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"11a5558b77","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https:\/\/s0.wp.com\/wp-content\/js\/wpcom-proxy-request.js?ver=20211021","shortlink":"https:\/\/wp.me\/pppJO-4w","i18n":{"followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar"}};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_003"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://harablog.wordpress.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/">
+<link rel="shortlink" href="https://wp.me/pppJO-4w">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hierarchical Clearance-based Pathfinding">
+<meta property="og:url" content="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/">
+<meta property="og:description" content="In my last article I discussed Annotated A*, a search algorithm able to solve pathfinding problems for variable-sized agents with heterogeneous terrain traversal capabilities. Such problems are enc…">
+<meta property="article:published_time" content="2009-02-05T07:23:22+00:00">
+<meta property="article:modified_time" content="2011-08-31T02:19:54+00:00">
+<meta property="og:site_name" content="Shortest Path">
+<meta property="og:image" content="https://harablog.wordpress.com/files/2009/01/tc_ground2.png">
+<meta property="og:image:width" content="250">
+<meta property="og:image:height" content="249">
+<meta property="og:image:alt" content="Figure 7. True clearance annotations for the {Ground} capability (only white tiles are traversable).">
+<meta property="og:locale" content="en_US">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<meta name="twitter:text:title" content="Hierarchical Clearance-based Pathfinding">
+<meta name="twitter:image" content="https://harablog.wordpress.com/files/2009/01/tc_ground2.png?w=144">
+<meta name="twitter:image:alt" content="Figure 7. True clearance annotations for the {Ground} capability (only white tiles are traversable).">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s0.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s0.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://harablog.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://harablog.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://harablog.wordpress.com/osd.xml" title="Shortest Path">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style id="wpcom-hotfix-masterbar-style">
+			@media screen and (min-width: 783px) {
+				#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+					margin-top: 5px;
+				}
+			}
+		</style><style class="darkreader darkreader--sync" media="screen"></style>
+		<meta name="application-name" content="Shortest Path"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Pathfinding and AI in games"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://harablog.wordpress.com/feed/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="description" content="In my last article I discussed Annotated A*, a search algorithm able to solve pathfinding problems for variable-sized agents with heterogeneous terrain traversal capabilities. Such problems are encountered in many modern video games which often feature different classes of units, each with distinct physical characteristics and navigational capabilities. The story so far Annotated A* operates…">
+<style type="text/css">
+#header{
+	background: url(https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/pen-sm.jpg) no-repeat top right;
+}
+#header a {
+	color:#B54141;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+
+			<style>
+			.wordads-ad-wrapper {
+				position: absolute;
+				visibility: hidden;
+				font: normal 11px Arial, sans-serif;
+				letter-spacing: 1px;
+				text-decoration: none;
+				width: 100%;
+				margin: 25px auto;
+				padding: 0;
+				clear: both;
+			}
+			.wordads-ad-title {
+				margin: 0 auto 5px auto;
+			}
+			.wordads-ad-controls {
+				margin: 5px auto 0 auto;
+				text-align: right;
+			}
+			.wordads-ad-controls span {
+				cursor: pointer;
+			}
+			.wordads-ad {
+				width: 300px;
+				max-width: 580px;
+				margin: 0 auto;
+			}
+			.wordads-ad iframe {
+				margin: 0;
+				padding: 0;
+			}
+			.wordads-ad.wordads-ad-responsive {
+				width: 100%;
+			}
+			</style><style class="darkreader darkreader--sync" media="screen"></style>
+		<script type="text/javascript">
+/* <![CDATA[ */
+let wa_smart = { 'network_id': 3905, 'site_id': 474853, 'page_id': 1572546, 'formats': [ { 'id': 110354, 'tagId': 'sas_110354' } ], 'blog_id': 6057140, 'post_id': 280, 'theme': 'pub/rubric', 'target': 'iab_category=IAB1;iab_category=IAB19;wp_blog_id=6057140;language=en', 'inline': { 'title': 'Advertisement', 'gdpr': '<span onclick="__tcfapi( \'showUi\' )">Privacy Settings</span>', 'format_id': 110354, 'max_slots': 20, 'max_blaze_slots': 1, 'enabled': true, 'adflow_enabled': false }, 'openwrap_enabled': true }; wa_smart.cmd = [];
+/* ]]> */
+</script>
+		<script>
+			window.sas_fallback = window.sas_fallback || [];
+			window.sas_fallback.push( { tag: "&lt;div class=&quot;OUTBRAIN wa-ob-widget&quot;data-ob-contentUrl=&quot;https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/&quot;data-widget-id=&quot;AR_1&quot;data-ob-installation-key=&quot;WORDP263NC92GIANECJP6HEPM&quot;data-ob-psub=&quot;entertain&quot;&gt;&lt;/div&gt;&lt;script&gt;window._stq = window._stq || [];window._stq.push( [ \'extra\', { x_wordads_outbrain: \'widget_render_ar_1\', }, ] );&lt;/script&gt;&lt;script src=&quot;https://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;", type: 'belowpost' } );
+		</script>		<script type="text/javascript">
+		function __ATA_CC() {var v = document.cookie.match('(^|;) ?personalized-ads-consent=([^;]*)(;|$)');return v ? 1 : 0;}
+		var __ATA_PP = { 'pt': 1, 'ht': 0, 'tn': 'rubric', 'uloggedin': 0, 'amp': false, 'consent': __ATA_CC(), 'gdpr_applies': true, 'ad': { 'label': { 'text': 'Advertisements' }, 'reportAd': { 'text': 'Report this ad' }, 'privacySettings': { 'text': 'Privacy', 'onClick': function() { window.__tcfapi && window.__tcfapi( 'showUi' ) } } }, 'disabled_slot_formats': [ 'IAD' ], 'siteid': 8982, 'blogid': 6057140, 'js_hint': 'tcf2_test' };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+		<script type="text/javascript">
+		(function(){var g=Date.now||function(){return+new Date};function h(a,b){a:{for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){b=e;break a}b=-1}return 0>b?null:"string"==typeof a?a.charAt(b):a[b]};function k(a,b,c){c=null!=c?"="+encodeURIComponent(String(c)):"";if(b+=c){c=a.indexOf("#");0>c&&(c=a.length);var d=a.indexOf("?");if(0>d||d>c){d=c;var e=""}else e=a.substring(d+1,c);a=[a.substr(0,d),e,a.substr(c)];c=a[1];a[1]=b?c?c+"&"+b:b:c;a=a[0]+(a[1]?"?"+a[1]:"")+a[2]}return a};var l=0;function m(a,b){var c=document.createElement("script");c.src=a;c.onload=function(){b&&b(void 0)};c.onerror=function(){b&&b("error")};a=document.getElementsByTagName("head");var d;a&&0!==a.length?d=a[0]:d=document.documentElement;d.appendChild(c)}function n(a){var b=void 0===b?document.cookie:b;return(b=h(b.split("; "),function(c){return-1!=c.indexOf(a+"=")}))?b.split("=")[1]:""}function p(a){return"string"==typeof a&&0<a.length}
+		function r(a,b,c){b=void 0===b?"":b;c=void 0===c?".":c;var d=[];Object.keys(a).forEach(function(e){var f=a[e],q=typeof f;"object"==q&&null!=f||"function"==q?d.push(r(f,b+e+c)):null!==f&&void 0!==f&&(e=encodeURIComponent(b+e),d.push(e+"="+encodeURIComponent(f)))});return d.filter(p).join("&")}function t(a,b){a||((window.__ATA||{}).config=b.c,m(b.url))}var u=Math.floor(1E13*Math.random()),v=window.__ATA||{};window.__ATA=v;window.__ATA.cmd=v.cmd||[];v.rid=u;v.createdAt=g();var w=window.__ATA||{},x="s.pubmine.com";
+		w&&w.serverDomain&&(x=w.serverDomain);var y="//"+x+"/conf",z=window.top===window,A=window.__ATA_PP&&window.__ATA_PP.gdpr_applies,B="boolean"===typeof A?Number(A):null,C=window.__ATA_PP||null,D=z?document.referrer?document.referrer:null:null,E=z?window.location.href:document.referrer?document.referrer:null,F,G=n("__ATA_tuuid");F=G?G:null;var H=window.innerWidth+"x"+window.innerHeight,I=n("usprivacy"),J=r({gdpr:B,pp:C,rid:u,src:D,ref:E,tuuid:F,vp:H,us_privacy:I?I:null},"",".");
+		(function(a){var b=void 0===b?"cb":b;l++;var c="callback__"+g().toString(36)+"_"+l.toString(36);a=k(a,b,c);window[c]=function(d){t(void 0,d)};m(a,function(d){d&&t(d)})})(y+"?"+J);}).call(this);
+		</script><script src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/conf"></script>	<script>
+		var sas_fallback = sas_fallback || [];
+		sas_fallback.push(
+			{ tag: "&lt;div id=&quot;atatags-26942-6585427a009d5&quot;&gt;&lt;/div&gt;&lt;script&gt;__ATA.cmd.push(function() {__ATA.initDynamicSlot({id: \'atatags-26942-6585427a009d5\',location: 120,formFactor: \'001\',label: {text: \'Advertisements\',},creative: {reportAd: {text: \'Report this ad\',},privacySettings: {text: \'Privacy\',onClick: function() { window.__tcfapi &amp;&amp; window.__tcfapi( \'showUi\' ); },}}});});&lt;/script&gt;", type: 'belowpost' },
+			{ tag: "&lt;div id=&quot;atatags-26942-{{unique_id}}&quot;&gt;&lt;/div&gt;&lt;script&gt;__ATA.cmd.push(function() {__ATA.initDynamicSlot({id: \'atatags-26942-{{unique_id}}\',location: 310,formFactor: \'001\',label: {text: \'Advertisements\',},creative: {reportAd: {text: \'Report this ad\',},privacySettings: {text: \'Privacy\',onClick: function() { window.__tcfapi &amp;&amp; window.__tcfapi( \'showUi\' ); },}}});});&lt;/script&gt;", type: 'inline' }
+		);
+	</script>		<script type="text/javascript">
+
+			window.doNotSellCallback = function() {
+
+				var linkElements = [
+					'a[href="https://wordpress.com/?ref=footer_blog"]',
+					'a[href="https://wordpress.com/?ref=footer_website"]',
+					'a[href="https://wordpress.com/?ref=vertical_footer"]',
+					'a[href^="https://wordpress.com/?ref=footer_segment_"]',
+				].join(',');
+
+				var dnsLink = document.createElement( 'a' );
+				dnsLink.href = 'https://wordpress.com/advertising-program-optout/';
+				dnsLink.classList.add( 'do-not-sell-link' );
+				dnsLink.rel = 'nofollow';
+				dnsLink.style.marginLeft = '0.5em';
+				dnsLink.textContent = 'Do Not Sell or Share My Personal Information';
+
+				var creditLinks = document.querySelectorAll( linkElements );
+
+				if ( 0 === creditLinks.length ) {
+					return false;
+				}
+
+				Array.prototype.forEach.call( creditLinks, function( el ) {
+					el.insertAdjacentElement( 'afterend', dnsLink );
+				});
+
+				return true;
+			};
+
+		</script>
+		<script id="cmp-configuration" type="application/configuration">{"gvlVersion":"31","consentLanguage":"EN","locale":"en","vendorsAll":"EGpq_4__7a_t_y9e_T9ujzGr_vsffdiGIML5Nn3AuRd635OC--wmRom3VtTBUyJAl27IJCAto5M6iKsULVECteY9jEgzkCZpRPwMkA5iL2zrAQvN8zFsfyBTPP9P7u7_Oyf_v7t_27ueefqs9-73r9zsrhETrXPto_8_7aJTf3ZD3v_f3_F-npv9cm37yat__r19_ev139v____v_v__wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAg","vendorsLegInterest":"EGoAsw0KiAPsiQkItBwigQAiCsICKBAAAACQNEBACQMCnYGAS6wkQAgRQADBACAAFGQAIAABIAEIgAkAKBAABAIBAAAAAAIBAAwMAA4ALQQCAAEB0DFMKABQLCBIzIiFMCEKBIICWygQSAoEFcIAixwIoBETBQAIAkAFYAAALFYDEEgJWJBAlhBtAAAQAIBRShUIpOjAEMCZstVOKJtGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAg","ajaxNonce":"742a1a16f1","modulePath":"https:\/\/s0.wp.com\/wp-content\/blog-plugins\/wordads-classes\/js\/cmp\/v2\/","gvlPath":"https:\/\/public-api.wordpress.com\/wpcom\/v2\/sites\/6057140\/cmp\/v3\/vendors\/en\/","_":{"title":"Privacy & Cookies","intro":"We, WordPress.com, and our 778 advertising partners store and\/or access information on your device and also process personal data, like unique identifiers, browsing activity, and other standard information sent by your device including your IP address. This information is collected over time and used for personalised ads, ad measurement, audience insights, and product development specific to our ads program. If this sounds good to you, select \"I Agree!\" below. Otherwise, you can get more information, customize your consent preferences, or decline consent by selecting \"Learn More\". Note that your preferences apply to all websites in the <a href=\"https:\/\/automattic.com\/cookies\/#user-ads-consent\" target=\"_blank\">WordPress.com network<\/a>, and if you change your mind in the future you can update your preferences anytime by visiting the Privacy link displayed under each ad or by using the \"Privacy\" option in the Action Bar located at the bottom-right corner of the screen. One last thing, our partners may process some of your data based on legitimate interests instead of consent but you can object to that by choosing \"Learn More\" and then disabling the Legitimate Interests toggle under any listed Purpose or Partner.","config":"Learn More","accept":"I Agree!","viewPartners":"View Partners","error":"We're sorry but an unexpected error occurred. Please try again later."}}</script><script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_gat._anonymizeIp']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/ga.js"></script>
+<link href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/actionbar.css" type="text/css" rel="stylesheet"><style class="darkreader darkreader--cors" media="screen">div#actionbar .no-display{display:none!important}div#actionbar *{box-sizing:border-box;outline:0;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}div#actionbar{background:#fff;position:fixed;bottom:10px;right:10px;border:solid 1px #dcdcde;border-radius:3px;opacity:.98;height:35px;margin:0;padding:0;box-sizing:border-box;line-height:1;z-index:50000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);transition:all .2s ease-in-out;-webkit-backface-visibility:hidden;-webkit-perspective:1000;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}div#actionbar.actnbr-hidden{-webkit-transform:translate3d(0,150px,0);-moz-transform:translate3d(0,150px,0);-o-transform:translate3d(0,150px,0);-ms-transform:translate3d(0,150px,0);transform:translate3d(0,150px,0)}div#actionbar.actnbr-folded{opacity:.7}div#actionbar.actnbr-folded:hover{opacity:1}div#actionbar ul{margin:0;padding:0;line-height:1;text-align:left}div#actionbar li{list-style-type:none;display:inline-block;min-width:30px;margin:0;padding:0;vertical-align:middle;line-height:1}div#actionbar li:before{display:none}div#actionbar li.actnbr-btn{margin:0 2px 0 6px}div#actionbar.actnbr-has-customize.actnbr-has-edit li.actnbr-edit{margin-right:5px;margin-left:-5px}div#actionbar.actnbr-folded li.actnbr-btn{margin-right:-5px}div#actionbar.actnbr-folded.actnbr-has-customize.actnbr-has-edit li.actnbr-edit{margin-right:-3px;margin-left:0}div#actionbar li.actnbr-btn>a{display:block;color:#787c82;font-size:13px;font-weight:400;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;line-height:1;vertical-align:middle;transition:none;position:relative;padding:10px 8px 10px 32px;border:0;box-shadow:none}div#actionbar li.actnbr-btn>a:hover{color:#3c434a;background:0 0}div#actionbar li.actnbr-btn>a .gridicon{fill:#787c82;position:absolute;top:6px;left:5px}div#actionbar li.actnbr-btn a:hover .gridicon{fill:#3c434a}div#actionbar li.actnbr-btn a.actnbr-actn-following,div#actionbar li.actnbr-btn a.actnbr-actn-following:hover{color:#008a20}div#actionbar li.actnbr-btn a.actnbr-actn-following .gridicon,div#actionbar li.actnbr-btn a.actnbr-actn-following:hover .gridicon{fill:#008a20}div#actionbar.actnbr-folded li.actnbr-btn a.actnbr-action .gridicon{top:2px}div#actionbar.actnbr-folded .actnbr-btn span{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-customize{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-stats{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-edit a .gridicon,div#actionbar.actnbr-has-customize.actnbr-folded .actnbr-customize a .gridicon{top:2px}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-edit a .gridicon{left:10px}div#actionbar li.actnbr-ellipsis{position:relative;top:1px;right:2px;cursor:pointer;padding:3px 5px 0 8px}div#actionbar.actnbr-folded li.actnbr-ellipsis{top:2px}div#actionbar .actnbr-ellipsis>.gridicon{fill:#3c434a;transition:all .15s cubic-bezier(.175,.885,.32,1.275);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}div#actionbar .actnbr-ellipsis.actnbr-hidden>.gridicon{fill:#787c82;-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}div#actionbar .actnbr-ellipsis.actnbr-hidden>.gridicon:hover{fill:#3c434a}div#actionbar .actnbr-ellipsis .tip-inner .gridicon{margin:0 5px 0 0;vertical-align:middle;position:relative}div#actionbar .actnbr-popover{font-size:14px;padding:10px;z-index:1000;margin-left:15px;position:absolute;bottom:40px;right:-13px;max-width:320px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif}div#actionbar li.actnbr-btn .actnbr-popover{bottom:47px;right:26px}div#actionbar.actnbr-folded li.actnbr-btn .actnbr-popover{right:21px}div#actionbar .actnbr-hidden .actnbr-popover{display:none}div#actionbar .actnbr-popover.tip-top-left .tip-arrow{bottom:0;right:21px;margin-left:-7px;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}div#actionbar li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:74%}div#actionbar.actnbr-folded li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:85%}div#actionbar .actnbr-popover .tip-arrow{border:10px dashed #dcdcde;height:0;line-height:0;position:absolute;width:0}div#actionbar .actnbr-popover.tip-top-left .tip-arrow::before{bottom:2px;border:10px solid #fff;content:" ";position:absolute;left:50%;margin-left:-10px;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}div#actionbar .actnbr-popover .tip-inner{background-color:#fff;border:1px solid #dcdcde;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,.1),0 0 56px rgba(0,0,0,.075);text-align:center}div#actionbar li.actnbr-btn .actnbr-popover .tip-inner .actnbr-reader a{display:block;margin:0 0 4px 0;font-weight:400;text-decoration:none;color:#3c434a;border:0}div#actionbar li.actnbr-btn .actnbr-popover .tip-inner .actnbr-reader a:before{content:"";font-family:"Noticons";font-size:25px;margin-right:3px;line-height:1;top:7px;position:relative}div#actionbar .tip ul{margin-bottom:10px}div#actionbar .tip li{display:block;border:0}div#actionbar .tip li>a{position:relative;background:inherit;border:0;box-shadow:none;border-radius:0;color:#2e4453;cursor:pointer;display:block;font-size:14px;font-weight:400;margin:0;padding:10px 16px;text-align:left;transition:all .05s ease-in-out;min-width:250px;outline:0;text-decoration:none}div#actionbar li.actnbr-sitename{border-bottom:1px solid #f0f0f0;margin-bottom:10px}div#actionbar .actnbr-ellipsis .actnbr-fold,div#actionbar .actnbr-notice .actnbr-login-nudge{border-top:1px solid #f0f0f0;margin-top:10px}div#actionbar .actnbr-ellipsis .actnbr-folded-following,div#actionbar .actnbr-ellipsis .actnbr-folded-follow{border-bottom:1px solid #f0f0f0;padding-bottom:10px;margin-bottom:10px}div#actionbar .actnbr-notice .actnbr-follow-count{margin-bottom:10px}div#actionbar .actnbr-ellipsis li a:hover .gridicon{fill:#fff}div#actionbar .actnbr-ellipsis li .actnbr-actn-following:hover .gridicon path{fill:#fff}div#actionbar .actnbr-ellipsis li .actnbr-actn-following:hover .gridicon .following-icon-tick{fill:none;stroke:#fff}div#actionbar .actnbr-notice form,div#actionbar .actnbr-notice .actnbr-login-nudge{font-size:12px;color:#2e4453;line-height:17px}div#actionbar .actnbr-notice form{padding:2px 16px 6px}div#actionbar .actnbr-notice .actnbr-login-nudge{padding:10px 16px 5px}div#actionbar .actnbr-notice form input{background:#fff;color:#2e4453;border:1px solid #dcdcde;font-family:inherit;font-size:14px;text-indent:10px;height:40px;width:100%;margin-bottom:12px;padding:0;user-select:text;-webkit-user-select:text}div#actionbar .actnbr-notice form button{background:#3c434a;border-color:#dcdcde;color:#fff;border-style:solid;border-width:1px 1px 2px;cursor:pointer;display:inline-block;margin:0;outline:0;overflow:hidden;font-weight:500;text-overflow:ellipsis;text-decoration:none;vertical-align:top;box-sizing:border-box;font-size:14px;line-height:21px;border-radius:4px;padding:7px 14px 9px;-webkit-appearance:none;-moz-appearance:none;appearance:none;font-family:inherit;text-transform:none;-webkit-font-smoothing:auto;height:auto;width:100%}div#actionbar .actnbr-notice form button[disabled]{background:#bceefd;border-color:#dcdcde;color:#fff}div#actionbar .actnbr-notice .actnbr-button-wrap{text-align:right}div#actionbar .actnbr-notice form button:hover{border-color:#3c434a;color:#fff}div#actionbar .actnbr-notice form button:focus{border-color:#3c434a;box-shadow:0 0 0 2px #dcdcde}div#actionbar .actnbr-notice .actnbr-login-nudge a{color:inherit;text-decoration:underline}div#actionbar .actnbr-notice .actnbr-login-nudge a:hover{color:#3c434a}div#actionbar li.actnbr-sitename a{font-size:14px;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;color:#2e4453;text-decoration:none;text-align:left;border:0;vertical-align:middle;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.7}div#actionbar li.actnbr-sitename img{width:25px;height:25px;vertical-align:middle;margin:-1px 5px 0 0;display:inline;border-radius:0;padding:0}div#actionbar .actnbr-ellipsis li a:hover{background:#3c434a;color:#fff;text-decoration:none;border:0;box-shadow:none}div#actionbar li.actnbr-sitename a:hover{background:0 0;color:#2e4453;margin:0}div#actionbar .actnbr-fold{padding-top:10px}div#actionbar .actnbr-ellipsis li.actnbr-folded-customize{display:none}div#actionbar.actnbr-folded.actnbr-has-customize.actnbr-has-edit .actnbr-ellipsis li.actnbr-folded-customize{display:block}div#actionbar.actnbr-has-follow .actnbr-ellipsis li.actnbr-folded-follow{display:none}div#actionbar .actnbr-notice .tip-inner{padding:0}div#actionbar .actnbr-notice .actnbr-message{padding:15px 20px 20px;width:250px;text-align:center;line-height:20px;color:#2e4453}div#actionbar .actnbr-notice .actnbr-message h3{margin:0 0 10px;font-size:22px;font-weight:400;font-family:inherit;font-style:normal;font-variant:normal;text-transform:none;text-decoration:none;color:#2e4453;padding:0;line-height:1em}div#actionbar .actnbr-notice .actnbr-message a{color:inherit;text-decoration:underline}div#actionbar .actnbr-notice .actnbr-message a:hover{color:#3c434a}div#actionbar .actnbr-theme a{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}div#actionbar .actnbr-follow-bubble .actnbr-site-settings{display:flex;flex-direction:column;color:#2e4453}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a,div#actionbar .actnbr-follow-bubble .actnbr-site-settings a:hover{color:#3c434a}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__setting{padding:10px 15px;display:flex;flex-direction:row;align-items:center}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle{position:relative;display:inline-block;margin-right:12px}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle__input[type=checkbox]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;margin:0;padding:0;z-index:1;border:0;cursor:pointer}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle__track{content:"";display:inline-block;box-sizing:border-box;vertical-align:top;background-color:#fff;border:1px solid #1e1e1e;width:36px;height:18px;border-radius:9px;transition:.2s background ease}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle.is-checked span.actnbr-site-settings__toggle__track{background-color:#000}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle__thumb{display:block;position:absolute;box-sizing:border-box;top:3px;left:3px;width:12px;height:12px;border-radius:50%;transition:.1s transform ease;background-color:#1e1e1e;border:5px solid #1e1e1e}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle.is-checked span.actnbr-site-settings__toggle__thumb{background-color:#fff;border-width:0;transform:translateX(18px)}div#actionbar .actnbr-site-settings__toggle__input[type=checkbox]::before{content:""}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle__input[type=checkbox]:checked{background:0 0}div#actionbar .actnbr-site-settings__details{font-size:12px;padding:0 15px}div#actionbar .actnbr-site-settings__details#email-new-posts-details{display:none}div#actionbar .actnbr-site-settings__details.is-visible#email-new-posts-details{display:block}div#actionbar .segmented-control{display:flex;margin:0;border-radius:2px;list-style:none}div#actionbar .segmented-control__item{flex:1 1 auto;cursor:pointer}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item:first-of-type a.segmented-control__link{border-top-left-radius:2px;border-bottom-left-radius:2px}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item:last-of-type a.segmented-control__link{border-right:solid 1px #c3c4c7;border-top-right-radius:2px;border-bottom-right-radius:2px}div#actionbar .segmented-control__item.is-selected+.segmented-control__item .segmented-control__link{border-left:none}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a.segmented-control__link{display:block;padding:8px 12px;border:solid 1px #c3c4c7;border-right:none;line-height:18px;color:#646970;text-align:center;transition:color .1s linear,background-color .1s linear;min-width:0}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a.segmented-control__link:focus{color:#3c434a;outline:0}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item.is-selected a.segmented-control__link{border:1px solid #3c434a;color:#3c434a}div#actionbar .segmented-control__text{display:block;max-width:100%;color:inherit;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}@media (max-width:660px){div#actionbar{bottom:0;right:0;padding:5px 13px;border-radius:0;width:100%;height:44px}div#actionbar.actnbr-folded{opacity:.9;width:auto;padding:5px 10px}div#actionbar>ul{text-align:right}div#actionbar .actnbr-popover{right:-10px}div#actionbar .actnbr-popover.tip-top-left .tip-arrow{right:17px}div#actionbar li.actnbr-btn .actnbr-popover{right:-3px}div#actionbar li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:53%}div#actionbar.actnbr-folded li.actnbr-btn{margin-right:3px!important}}div#actionbar.actnbr-premium-espresso{right:70px}div#actionbar.actnbr-premium-shelf{left:10px;right:auto}div#actionbar.actnbr-premium-shelf .actnbr-popover{right:auto;left:-35px}div#actionbar.actnbr-premium-shelf .actnbr-popover.tip-top-left .tip-arrow{right:auto;left:29px}div#actionbar.actnbr-premium-shelf li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow,div#actionbar.actnbr-premium-shelf.actnbr-folded li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:26px}div#actionbar.actnbr-premium-shelf li.actnbr-btn .actnbr-popover,div#actionbar.actnbr-premium-shelf.actnbr-folded li.actnbr-btn .actnbr-popover{right:102px;left:-26px}body.has-playbar div#actionbar.actnbr-premium-obsidian{bottom:50px}div#actionbar.actnbr-pub-boardwalk{display:none}body #habla_window_div.habla_window_div_base{margin-right:160px!important}div#translator-launcher{bottom:67px;right:10px;left:auto}@media (min-width:876px){div#o2-dock{right:230px}}@media (max-width:876px){div#o2-dock{z-index:50001}}#scrollUp,.to-top,#back-to-top{bottom:55px;right:18px}#colophon #searchform input.search-field{bottom:65px}#container #masthead #site-branding{z-index:49999;bottom:65px}li#wp-admin-bar-follow,li#wp-admin-bar-admin-bar-likes-widget,ul#wp-admin-bar-blog-secondary{display:none!important}@media print{#actionbar{display:none!important}}@media (prefers-reduced-motion:reduce){div#actionbar,div#actionbar .actnbr-ellipsis>.gridicon,div#actionbar .tip li>a{transition-duration:1ms!important}}</style><style class="darkreader darkreader--sync" media="screen"></style></head>
+
+<body class="post-template-default single single-post postid-280 single-format-standard customizer-styles-applied">
+<div id="rap">
+<h1 id="header"><a href="https://harablog.wordpress.com/">Shortest Path</a></h1>
+
+<div id="content">
+<!-- end header -->
+
+
+<h2>February 5, 2009</h2>
+<div class="post-280 post type-post status-publish format-standard hentry category-pathfinding" id="post-280">
+	 <h3 class="storytitle">
+			Hierarchical Clearance-based Pathfinding		 </h3>
+	<div class="meta">Filed under:  <a href="https://harablog.wordpress.com/category/pathfinding/" rel="category tag">pathfinding</a> — dharabor @ 17:23 <br></div>
+
+	<div class="storycontent">
+		<p style="text-align:justify;">In my last <a title="Clearance-based pathfinding" href="https://harablog.wordpress.com/2009/01/29/clearance-based-pathfinding/">article</a>
+ I discussed Annotated A*, a search algorithm able to solve pathfinding 
+problems for variable-sized agents with heterogeneous terrain traversal 
+capabilities. Such problems are encountered in many modern video games 
+which often feature different classes of units, each with distinct 
+physical characteristics and navigational capabilities.</p>
+<h2 style="text-align:justify;font-size:130%;">The story so far</h2>
+<p style="text-align:justify;">Annotated A* operates on a grid map which
+ is annotated with clearance values. A clearance value is simply a 
+distance-to-obstacle metric that provides us with a useful indicator of 
+how much traversable space there is at a given location. We can use 
+clearances to quickly work out which parts of a map are traversable for 
+an arbitrary agent by simply comparing the agent’s size with the 
+clearance value associated with a particular location. Figures 1-3 show 
+the associated clearance value annotations for 3 capabilities&nbsp; on a
+ small map with 2 traversable terrains: Ground (white tiles) and Water 
+(blue tiles). A capability is defined as a set of terrains used to 
+specify which parts of the environment are traversable for an agent.</p>
+<table style="text-align:justify;" border="0" width="100%">
+<tbody>
+<tr>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_266" style="width: 260px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-266" data-attachment-id="266" data-permalink="https://harablog.wordpress.com/2009/01/29/clearance-based-pathfinding/tc_ground2/" data-orig-file="https://harablog.files.wordpress.com/2009/01/tc_ground2.png" data-orig-size="250,249" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="tc_ground2" data-image-description="" data-image-caption="&lt;p&gt;Figure 7. True clearance annotations for the {Ground} capability (only white tiles are traversable).&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/01/tc_ground2.png?w=250" data-large-file="https://harablog.files.wordpress.com/2009/01/tc_ground2.png?w=250" class="size-full wp-image-266" title="tc_ground2" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/tc_ground2.webp" alt="Figure 7. True clearance annotations for the {Ground} capability (only white tiles are traversable)." width="250" height="249"><p id="caption-attachment-266" class="wp-caption-text">Figure 1. Clearance value annotations for the {Ground} capability (only white tiles are traversable).</p></div></td>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_268" style="width: 260px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-268" data-attachment-id="268" data-permalink="https://harablog.wordpress.com/2009/01/29/clearance-based-pathfinding/tc_water2/" data-orig-file="https://harablog.files.wordpress.com/2009/01/tc_water2.png" data-orig-size="250,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="tc_water2" data-image-description="" data-image-caption="&lt;p&gt;Figure 8. True clearance annotations for the {Water} capability (only blue tiles are traversable).&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/01/tc_water2.png?w=250" data-large-file="https://harablog.files.wordpress.com/2009/01/tc_water2.png?w=250" class="size-full wp-image-268" title="tc_water2" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/tc_water2.webp" alt="Figure 8. True clearance annotations for the {Water} capability (only blue tiles are traversable)." width="250" height="250"><p id="caption-attachment-268" class="wp-caption-text">Figure 2. Clearance value annotations for the {Water} capability (only blue tiles are traversable).</p></div></td>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_267" style="width: 260px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-267" data-attachment-id="267" data-permalink="https://harablog.wordpress.com/2009/01/29/clearance-based-pathfinding/tc_groundorwater2/" data-orig-file="https://harablog.files.wordpress.com/2009/01/tc_groundorwater2.png" data-orig-size="250,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="tc_groundorwater2" data-image-description="" data-image-caption="&lt;p&gt;Figure 9. True clearance annotations for the {Ground, Water} capability (both white and blue tiles are traversable).&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/01/tc_groundorwater2.png?w=250" data-large-file="https://harablog.files.wordpress.com/2009/01/tc_groundorwater2.png?w=250" class="size-full wp-image-267" title="tc_groundorwater2" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/tc_groundorwater2.webp" alt="Figure 9. True clearance annotations for the {Ground, Water} capability (both white and blue tiles are traversable)." width="250" height="250"><p id="caption-attachment-267" class="wp-caption-text">Figure 3. Clearance value annotations for the {Ground, Water} capability (both white and blue tiles are traversable).</p></div></td>
+</tr>
+</tbody>
+</table>
+<h2 style="text-align:justify;font-size:130%;"><strong>The problem at hand</strong></h2>
+<p style="text-align:justify;">In this second piece I want to discuss 
+how to take this simple pathfinding system and speed it up significantly
+ through the use of <a href="http://aigamedev.com/theory/near-optimal-hierarchical-pathfinding">hierarchical abstraction</a>.
+ The main problem here is that a multi-terrain map annotated with 
+clearance values contains lots of topographical information but 
+abstraction methods can only hope to approximate the original. Thus, the
+ goal is to build an abstraction which is <em>representationally complete</em>
+ i.e. if a path between two points can be found on the original 
+annotated map, we should be able to also find it using only the abstract
+ map. To achieve this we’re going to attack the problem in 3 steps:</p>
+<ol style="text-align:justify;">
+<li>First, we divide our annotated map into a set of adjacent <em>Clusters</em> connected by <em>Entrances. </em>We
+ will show that the resultant graph produced by this process is infact 
+representationally complete but contains redundant and duplicated 
+information.</li>
+<li>Second, we compact the graph produced in the previous step using 
+dominance techniques which identify and prune unnecessary nodes and 
+edges. The resultant abstraction is shown to contain a minimal set of 
+nodes and edges yet still retains the representational completeness 
+properties of the original map.</li>
+<li>Third, we describe the Hierarchical Annotated A* algorithm (HAA*) 
+which we use to efficiently answer queries for a wide variety of agents 
+with different sizes and terrain traversal capabilities. HAA* is shown 
+to produce very high quality (i.e. near optimal) paths with 
+comparatively little search effort vs. Annotated A*.</li>
+</ol>
+<h2 style="text-align:justify;font-size:130%;">Clusters and Entrances</h2>
+<p style="text-align:justify;">In order to create an an abstract representation of an annotated map we follow <a title="Near Optimal Hierarchical Pathfinding (Botea, Muller and Schaeffer, 2004)" href="http://www.jogd.com/samplearticle.pdf">Botea et al</a>
+ and divide the environment into a series of discrete square-sized areas
+ called clusters. Figure 4 shows the result of this step on our running 
+example using clusters of size 5×5.</p>
+<table style="text-align:justify;" border="0" width="100%">
+<tbody>
+<tr>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_319" style="width: 260px" class="wp-caption alignleft"><img aria-describedby="caption-attachment-319" data-attachment-id="319" data-permalink="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/clustermap/" data-orig-file="https://harablog.files.wordpress.com/2009/02/clustermap.png" data-orig-size="250,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="clustermap" data-image-description="" data-image-caption="&lt;p&gt;Figure 4. The map is divided into four 5×5 clusters.&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/02/clustermap.png?w=250" data-large-file="https://harablog.files.wordpress.com/2009/02/clustermap.png?w=250" loading="lazy" class="size-full wp-image-319" title="clustermap" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/clustermap.webp" alt="Figure 4. The map is divided into four 5x5 clusters." width="250" height="250"><p id="caption-attachment-319" class="wp-caption-text">Figure 4. The map is divided into four 5x5 clusters.</p></div></td>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_333" style="width: 404px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-333" data-attachment-id="333" data-permalink="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/inter_edges2/" data-orig-file="https://harablog.files.wordpress.com/2009/02/inter_edges2.png" data-orig-size="394,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="inter_edges2" data-image-description="" data-image-caption="&lt;p&gt;Figure 5. (a) Three entrances are identified between clusters C1 and C3, one for each possible capability. (b) Each transition point (denoted by a strong dark line) maximises clearance for a particular capability.&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/02/inter_edges2.png?w=300" data-large-file="https://harablog.files.wordpress.com/2009/02/inter_edges2.png?w=394" loading="lazy" class="size-full wp-image-333" title="inter_edges2" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/inter_edges2.webp" alt="Figure 5. (a) Three entrances are identified between clusters C1 and C3, one for each possible capability. (b) Each transition point (denoted by a strong dark line) maximises clearance for a particular capability." width="394" height="250"><p id="caption-attachment-333" class="wp-caption-text">Figure
+ 5. (a) Three entrances are identified between clusters C1 and C3, one 
+for each possible capability. (b) Each transition point (denoted by a 
+strong dark line) maximises clearance for a particular capability.</p></div></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align:justify;">Next, we identify entrances between each 
+pair of adjacent clusters. An entrance is defined as an obstacle-free 
+area of maximal size that exists along the border between two clusters 
+(Figure 5a). Each entrance has associated with it a transition point 
+which reflects the fact that an agent can traverse from one cluster to 
+the other. To this end we select from each entrance a pair of adjacent 
+tiles, one from each cluster, which maximise clearance (Figure 5b). Each
+ transition point is represented in the abstract graph by two nodes 
+connected with a single <em>inter-edge </em>of weight 1.0.&nbsp; The 
+inter-edge is also annotated with the corresponding capability and 
+clearance value that reflect the traversability requirements of the 
+transition point.</p>
+<p style="text-align:justify;">
+</p><div data-shortcode="caption" id="attachment_329" style="width: 259px" class="wp-caption alignright"><img aria-describedby="caption-attachment-329" data-attachment-id="329" data-permalink="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/initial_abstraction1/" data-orig-file="https://harablog.files.wordpress.com/2009/02/initial_abstraction1.png" data-orig-size="249,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="initial_abstraction1" data-image-description="" data-image-caption="&lt;p&gt;Figure 6. A complete initial abstraction.&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/02/initial_abstraction1.png?w=249" data-large-file="https://harablog.files.wordpress.com/2009/02/initial_abstraction1.png?w=249" loading="lazy" class="size-full wp-image-329" title="initial_abstraction1" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/initial_abstraction1.webp" alt="Figure 6. A complete initial abstraction." width="249" height="250"><p id="caption-attachment-329" class="wp-caption-text">Figure 6. A complete initial abstraction.</p></div>
+<p style="text-align:justify;">Finally, we complete the abstraction by 
+finding all possible ways to traverse each cluster. We achieve this by 
+running Annotated A*&nbsp; (AA*) between each pair of abstract nodes 
+inside a cluster; one search for each combination of possible agent 
+sizes and capabilities. Every time AA* successfully finds a path we add a
+ new <em>intra-edge</em> between the start and goal nodes. The weight of
+ the edge is equal to the length of the path and we further annotate it 
+with the size and capability parameters used by AA* to reflect the 
+traversability requirements of the path.  This approach is highly 
+effective at capturing all pertinent topographical details of the 
+original map. Infact,&nbsp; it is easy to see that the resultant graph 
+(which is termed an <em>initial abstraction</em>) is representationally 
+complete since we’ve identified all possible transitions between each 
+pair of adjacent clusters and all possible ways to traverse each cluster
+ (Figure 6).</p>
+<h2 style="text-align:justify;font-size:130%;">Compacting the abstract graph</h2>
+<p style="text-align:justify;">An interesting observation made during 
+the abstraction-building process was that on many maps the same path was
+ often returned by AA* when searching between the same pair of points 
+with different sizes and capability parameters. This indicates that our 
+abstract graph actually contains unnecessary or duplicated information 
+(and is also needlessly large as a result). To solve this problem we’re 
+going to apply two edge dominance approaches to prune unnecessary nodes 
+an edges. I want to avoid describing these ideas formally (the details 
+are in the <a title="HAA*" href="https://dl.getdropbox.com/u/361091/haastar/haa.pdf">paper</a>) and instead focus on the intuition behind each one.</p>
+<p style="text-align:justify;">The first, termed strong dominance, 
+states that if two edges, both of identical length,&nbsp; connect the 
+same pair of nodes and both are traversable by the same capability then 
+we need only retain the one with the largest clearance. Figure 1 
+illustrates this idea. It is easy to see that using this approach 
+preserves representational completeness; any agent able to traverse the 
+edge with smaller clearance is also able to traverse the one with larger
+ clearance. The resultant graph is termed a <em>high-quality abstraction</em> because we discard only duplicate information fromt the graph.</p>
+<table style="text-align:justify;" border="0" width="100%">
+<tbody>
+<tr>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_320" style="width: 307px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-320" data-attachment-id="320" data-permalink="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/strong_dominance/" data-orig-file="https://harablog.files.wordpress.com/2009/02/strong_dominance.png" data-orig-size="297,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="strong_dominance" data-image-description="" data-image-caption="&lt;p&gt;Figure 7. (a) Part of the initial abstraction for cluster C1. (b) Strong dominance removes edges E5 (dominated by E3) and E6 (dominated by E4).&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/02/strong_dominance.png?w=297" data-large-file="https://harablog.files.wordpress.com/2009/02/strong_dominance.png?w=297" loading="lazy" class="size-full wp-image-320" title="strong_dominance" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/strong_dominance.webp" alt="Figure 7. (a) Part of the initial abstraction for cluster C1. (b) Strong dominance removes edges E5 (dominated by E3) and E6 (dominated by E4)." width="297" height="250"><p id="caption-attachment-320" class="wp-caption-text">Figure
+ 7. (a) Part of the initial abstraction for cluster C1. (b) Strong 
+dominance removes edges E5 (dominated by E3) and E6 (dominated by E4).</p></div></td>
+<td>
+<p></p><div data-shortcode="caption" id="attachment_341" style="width: 311px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-341" loading="lazy" class="size-full wp-image-341" title="weak_dominance4" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/weak_dominance4.webp" alt="Figure 8. (a) An agent traveling from &quot;u&quot; to &quot;x&quot; via the path {E1, E2, E3} is also able to travel via {E4, E5, E6} so the former is weakly dominated. (b) The resultant graph after weak dominance is applied." width="301" height="250"><p id="caption-attachment-341" class="wp-caption-text">Figure
+ 8. (a) A graph with two inter-edges, E2 and E5. An agent traveling from
+ "u" to "x" via E2 must both swim and walk whereas traveling via E5 only
+ requires walking. (b) The dominated inter-edge, E2, and its endpoints, 
+are removed. </p></div></td>
+</tr>
+</tbody>
+</table>
+<p style="text-align:justify;">The second approach, termed weak 
+dominance, is focused on minimising the number of transitions between 
+clusters. To achieve this the algorithm analyses pairs of inter-edges 
+that connect the same two clusters and attempts to prove that if one is 
+removed the representational completeness of the graph is maintained. 
+The effect is that only transitions which are traversable by the largest
+ number of agents are retained. This is similar to the way motorists 
+frequently prefer to travel between locations via freeways, which are 
+traversable by many kinds of vehicles, instead of opting for more direct
+ offroad travel. Figure 8 illustrates this idea; again, it is easy to 
+see that the application of weak dominance also preserves 
+representational completeness. The resultant graph is termed a 
+low-quality abstraction, to reflect the fact that some connectivity 
+information is lost in the process.</p>
+<div data-shortcode="caption" id="attachment_324" style="width: 260px" class="wp-caption alignright"><img aria-describedby="caption-attachment-324" data-attachment-id="324" data-permalink="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/weak_dominance1/" data-orig-file="https://harablog.files.wordpress.com/2009/02/weak_dominance1.png" data-orig-size="250,250" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="weak_dominance1" data-image-description="" data-image-caption="&lt;p&gt;Figure 9. The abstract graph after weak dominance is applied. Note that the graph is almost half the size compared to Figure 6.&lt;/p&gt;
+" data-medium-file="https://harablog.files.wordpress.com/2009/02/weak_dominance1.png?w=250" data-large-file="https://harablog.files.wordpress.com/2009/02/weak_dominance1.png?w=250" loading="lazy" class="size-full wp-image-324" title="weak_dominance1" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/weak_dominance1.webp" alt="Figure 9. The abstract graph after weak dominance is applied. Note that the graph is almost half the size compared to Figure 6." width="250" height="250"><p id="caption-attachment-324" class="wp-caption-text">Figure 9. The abstract graph after weak dominance is applied. Note that the graph is almost half the size compared to Figure 6.</p></div>
+<p style="text-align:justify;">Choosing which dominance technique to use
+ will depend on the exact requirements of the target application. 
+Empirical results have shown that in both cases the amount of memory 
+required to store the abstract graph can be a small fraction of that 
+required by the original map. (though the exact number depends on a 
+range of factors which are discussed in the <a title="HAA* [Harabor, Botea, 2008]" href="https://harablog.files.wordpress.com/2009/01/haa.pdf">paper</a>).
+ Comparatively speaking, low quality abstractions can be more than 50% 
+smaller than their high quality counterparts but there is a small 
+tradeoff. In particular, high quality abstractions produce, on average, 
+paths with lengths 3-5% longer than optimal while low quality 
+abstractions are in the 6-10% range.</p>
+<h2 style="text-align:justify;font-size:130%;">Hierarchical Annotated A*</h2>
+<p style="text-align:justify;">The process of finding a path using an 
+abstract graph is a straightforward one that will be familiar to anyone 
+who has come across the <a title="Near Optimal Hierarchical Pathfinding (Botea, Muller and Schaeffer, 2004)" href="http://www.jogd.com/samplearticle.pdf">HPA*</a> algorithm:</p>
+<ol style="text-align:justify;">
+<li>Insert two temporary nodes into the abstract graph to represent the 
+start and goal locations.&nbsp; Connect these nodes to the rest of the 
+graph by attempting to find a path to from the start/goal positions to 
+every transition point in the local cluster.</li>
+<li>Using A*, find a shortest path from the start to the goal in the 
+abstract graph. At the end of the search, remove the two temporary 
+nodes.</li>
+</ol>
+<p style="text-align:justify;">As with Annotated A*, the search 
+algorithm from Step 2 is modified slightly to accept two extra 
+parameters: the agent’s size and capability. In addition, the search 
+function is also also augmented so that before a node is added to A*’s 
+open list we first verify that it is infact reachable. In this case, a 
+node is reachable only if the edge connecting it to the current node is 
+traversable for the given size and capability parameters. The resultant 
+algorithm is termed Hierarchical Annotated A* (HAA* for short).</p>
+<p style="text-align:justify;">As with other hierarchical planners, HAA*
+ is shown to be very fast. I analysed its performance on a large set of 
+problems (over 140K) using both small and large maps from Bioware’s 
+popular RPG <a title="Baldur's Gate Homepage" href="http://www.bioware.com/games/baldurs_gate/">Baldur’s Gate</a>.
+ Since there are no similar pathfinding algorithms to measure against, 
+it was&nbsp; contrasted with Annotated A*. In short, HAA* is an order of
+ magnitude faster and, even with my naive, non-optimised implementation,
+ it was able to find solutions to most problems in ~6ms on average 
+(tested on my Core2 Duo 2.16GHz MacBook, running OSX 10.5.2 with 2GB of 
+memory).</p>
+<h2 style="text-align:justify;font-size:130%;">Questions, source code etc.</h2>
+<p style="text-align:justify;">So that about wraps things up. If you 
+have any questions or comments on anything described in this or the 
+previous article, please feel free to <a href="https://harablog.wordpress.com/about/">contact me</a>. I also suggest checking out the original <a title="HAA* [Harabor, Botea, 2008]" href="https://harablog.files.wordpress.com/2009/01/haa.pdf">HAA* paper</a> and associated <a title="HAA* Technical Talk (Slides)" href="https://harablog.files.wordpress.com/2009/01/haa_cig08.pdf">presentation slides</a>
+ which contain more indepth discussion of these ideas.  If you’d like to
+ play with a working implementation, you can download the <a title="HAA* Project Page" href="http://code.google.com/p/ahastar/downloads/list">source code</a>
+ I wrote to evaluate the algorithm. It’s written in C++ and based on the
+ University of Alberta’s freely available pathfinding library, <a title="HOG Homepage" href="http://www.cs.ualberta.ca/%7Enathanst/hog.html">Hierarchical Open Graph</a>
+ (or HOG). HOG compiles on most platforms; I’ve personally tested it on 
+both OSX and Linux and I’m told it works on Windows too. The classes 
+most relevant to this article are probably <a title="AnnotatedCluster.cpp" href="http://code.google.com/p/ahastar/source/browse/tag/aha_r2008-07-31/trunk/aha/AnnotatedCluster.cpp">AnnotatedCluster.cpp</a> and <a title="AnnotatedClusterAbstraction.cpp" href="http://code.google.com/p/ahastar/source/browse/tag/aha_r2008-07-31/trunk/aha/AnnotatedClusterAbstraction.cpp">AnnotatedClusterAbstraction.cpp</a> which together are responsible for generating the abstract graph. Meanwhile, <a title="AnnotatedHierarchicalAStar.cpp" href="http://code.google.com/p/ahastar/source/browse/tag/aha_r2008-07-31/trunk/aha/AnnotatedHierarchicalAStar.cpp">AnnotatedHierarchicalAStar.cpp</a> provides a reference implementation of the HAA* algorithm.</p>
+<div id="atatags-370373-6585427a0653c">
+		<script type="text/javascript">
+			__ATA.cmd.push(function() {
+				__ATA.initVideoSlot('atatags-370373-6585427a0653c', {
+					sectionId: '370373',
+					format: 'inread'
+				});
+			});
+		</script>
+	</div><span id="wordads-inline-marker" style="display: none;"></span>	<div class="OUTBRAIN wa-ob-widget" data-ob-contenturl="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/" data-widget-id="AR_1" data-ob-installation-key="WORDP263NC92GIANECJP6HEPM" data-ob-psub="entertain"></div>
+	<script>
+		window._stq = window._stq || [];
+		window._stq.push( [ 'extra', { x_wordads_outbrain: 'widget_render_ar_1', }, ] );
+	</script><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul data-sharing-events-added="true"><li class="share-print"><a rel="nofollow noopener noreferrer" data-shared="" class="share-print sd-button share-icon" href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-email share-service-visible"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon" href="mailto:?subject=%5BShared%20Post%5D%20Hierarchical%20Clearance-based%20Pathfinding&amp;body=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F&amp;share=email&amp;nb=1" target="_blank" title="Click to email a link to a friend" data-email-share-error-title="Do you have email set up?" data-email-share-error-text="If you're having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-nonce="3a4c8b2123" data-email-share-track-url="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/?share=email" jetpack-share-click-count="0"><span>Email</span></a></li><li class="share-reddit"><a rel="nofollow noopener noreferrer" data-shared="" class="share-reddit sd-button share-icon" href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded" id="like-post-wrapper-6057140-280-6585427a07029" data-src="//widgets.wp.com/likes/index.html?ver=20231208#blog_id=6057140&amp;post_id=280&amp;origin=harablog.wordpress.com&amp;obj_id=6057140-280-6585427a07029&amp;n=1" data-name="like-post-frame-6057140-280-6585427a07029" data-title="Like or Reblog"><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="115" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2009/01/29/clearance-based-pathfinding/" title="Clearance-based Pathfinding" data-origin="280" data-position="0">Clearance-based Pathfinding</a></span><time class="jp-relatedposts-post-date" datetime="January 29, 2009" style="display: block;">January 29, 2009</time><span class="jp-relatedposts-post-context">In "pathfinding"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="220" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2009/02/12/clearance-based-pathfinding-with-probabilistic-roadmaps/" title="Clearance-based Pathfinding with Probabilistic&amp;nbsp;Roadmaps" data-origin="280" data-position="1">Clearance-based Pathfinding with Probabilistic&nbsp;Roadmaps</a></span><time class="jp-relatedposts-post-date" datetime="February 12, 2009" style="display: block;">February 12, 2009</time><span class="jp-relatedposts-post-context">In "pathfinding"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="1" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2009/01/05/hello-world/" title="Hello world!" data-origin="280" data-position="2">Hello world!</a></span><time class="jp-relatedposts-post-date" datetime="January 5, 2009" style="display: block;">January 5, 2009</time><span class="jp-relatedposts-post-context">In "non-technical"</span></p></div></div></div>	</div>
+
+	<div class="feedback">
+                        <a href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/#comments">Comments (8)</a>	</div>
+
+</div>
+
+
+<h2 id="comments">8 Comments	<a href="#postcomment" title="Leave a comment">»</a>
+</h2>
+
+<ol id="commentlist">
+<li class="pingback even thread-even depth-1" id="comment-6">
+	<div id="div-comment-6">
+		<div class="comment-author vcard">
+						<p>[…] (non-grid)&nbsp;Maps Filed under: Uncategorized — dharabor @
+ 00:06   In my last two&nbsp;articles&nbsp;I discussed HAA*, a 
+clearance-based pathfinding technique applicable to grid maps that 
+efficiently […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://harablog.wordpress.com/2009/02/12/clearance-based-pathfinding-on-continuous-non-grid-maps/" class="url" rel="ugc">Clearance-based Pathfinding On Continuous (non-grid) Maps « Shortest Path</a></span> — February 12, 2009 @ <a href="#comment-6">00:06</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-8">
+	<div id="div-comment-8">
+		<div class="comment-author vcard">
+						<p>[…] Filed under: pathfinding, roadmaps — dharabor @ 00:06   In 
+my last two&nbsp;articles&nbsp;I discussed HAA*, a clearance-based 
+pathfinding technique applicable to grid maps that efficiently […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://harablog.wordpress.com/2009/02/12/clearance-based-pathfinding-with-probabilistic-roadmaps/" class="url" rel="ugc">Clearance-based Pathfinding with Probabilistic Roadmaps « Shortest Path</a></span> — February 12, 2009 @ <a href="#comment-8">00:15</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-23">
+	<div id="div-comment-23">
+		<div class="comment-author vcard">
+						<p>Thanks for the description of the algorithm.<br>
+Do you also compact the abstract graph by removing the inter-edges?<br>
+For example, I would preserve just the nodes on the left or upper end of an inter-edge.<br>
+That would reduce the number of nodes to one half.</p>
+<p>The preserved node would get the intra-edges from the removed node.<br>
+And the cost of the obtained edges would be increased by the number of removed<br>
+nodes from the connection. That is:<br>
+    a) by 2 steps when the edge leads between left and top sides of the cluster.<br>
+    b) by 0 steps when the edge is between right and bottom sides.<br>
+    c) by 1 step otherwise</p>
+<p>It is clearer on a drawn diagram. Sorry.<br>
+Does it make sense? Thanks.</p>
+			<p><cite>Comment by <span class="fn">Ivo Danihelka</span> — October 1, 2009 @ <a href="#comment-23">03:44</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-24">
+	<div id="div-comment-24">
+		<div class="comment-author vcard">
+						<p>Hi Ivo, </p>
+<p>Thanks for your question.<br>
+In short, yes, inter-edges are also removed as part of the graph 
+compacting step. There is some discussion of this in the article (search
+ for weak dominance) but I’ll attempt to expand on it.</p>
+<p>The approach is similar to what you propose:<br>
+If two inter-edges connect the same pair of clusters we check if one 
+weakly dominates the other by attempting to prove that if we remove one 
+of the two the representational completeness of the abstract graph is 
+preserved. The proof itself is straightforward; there is an example of 
+its application in Figure 8 above. Notice that any agent able to reach 
+and traverse edge E2 can also reach and traverse edge E5. This is 
+sufficient to preserve representational completeness with the only 
+difference being that the path through E5 is slightly longer.</p>
+<p>Notice also that there is now no need to preserve any intra-edges associated with the dominated transition :)</p>
+<p>There is a more formal description of the approach in the CIG paper 
+(see Section VII and in particular Theorem 7 and its corollary).</p>
+<p>In the same paper I also provide an empirical analysis of the effect 
+weak dominance both on the size of an abstract graph and also on path 
+quality/optimality (see Table 1 and Figure 5 respectively in Section X).
+ The effect is quite positive: graphs can be reduced by more than 50% in
+ size and the resultant paths are only 6-10% away from optimal.</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — October 2, 2009 @ <a href="#comment-24">11:41</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-25">
+	<div id="div-comment-25">
+		<div class="comment-author vcard">
+						<p>Thanks for the response.<br>
+I probably explained my approach badly. I see it as a complement to weak dominance compacting.<br>
+1) Weak dominance removes redundant paths.<br>
+2) I would than collapse Node1-inter_edge-Node2 to just Node1.<br>
+That could be made for every inter-edge. Even when there is only one inter-edge between two clusters.<br>
+No optimality is lost by this collapsing of inter-edges. Because the 
+length of the inter-edge is used to increase the lengths of the edges 
+obtained from Node2.</p>
+			<p><cite>Comment by <span class="fn">Ivo Danihelka</span> — October 2, 2009 @ <a href="#comment-25">17:19</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-26">
+	<div id="div-comment-26">
+		<div class="comment-author vcard">
+						<p>Hi Ivo, </p>
+<p>I see. I misunderstood your post entirely! Your observation is 
+correct; you could compact the abstract graph further by only keeping 
+one node per inter-cluster transition. </p>
+<p>I did think about this at one point but decided to leave it out of 
+the paper as it complicates the start and goal insertion procedure. If I
+ recall correctly the problem is that by removing one of the nodes of an
+ inter-edge you effectively create overlapping clusters. In order to 
+still be able to limit the scope of your searches during insertion (and 
+path refinement for that matter) to the area inside one cluster you will
+ need to resize your clusters and assign some tiles in both the low 
+level and abstract map to 2 parent clusters. </p>
+<p>None of this is particularly hard mind you but the savings are 
+minimal as the size of the abstract graph is dominated by the number of 
+edges. There are really very few nodes in comparison so it becomes a 
+matter of diminishing returns. </p>
+<p>If you are really memory constrained you could perhaps try increasing
+ the size of your clusters. The savings would be more substantial but 
+the relative optimality of your paths does take a small hit as a 
+consequence. </p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — October 3, 2009 @ <a href="#comment-26">02:18</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-1531">
+	<div id="div-comment-1531">
+		<div class="comment-author vcard">
+						<p>I was able to implement this in my game… I have a problem with 
+this algorithm in that object which is pathfinding has to be a Square, 
+it cant take up 3×2 grids.. is there a way to fix this?</p>
+			<p><cite>Comment by <span class="fn">Simon</span> — August 17, 2017 @ <a href="#comment-1531">09:37</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="trackback odd alt thread-odd thread-alt depth-1" id="comment-94833">
+	<div id="div-comment-94833">
+		<div class="comment-author vcard">
+						<p><strong>best Kiss918</strong></p>
+<p>Hierarchical Clearance-based Pathfinding | Shortest Path</p>
+			<p><cite>Trackback by <span class="fn"><a href="https://www.dubdomain.com/q.php?domain=openjavase.org" class="url" rel="ugc external nofollow">best Kiss918</a></span> — January 27, 2021 @ <a href="#comment-94833">16:39</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+</ol>
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+	<br>
+
+	<p><a href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/feed/"><abbr title="Really Simple Syndication">RSS</abbr> feed for comments on this post.</a>	<a href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a>
+</p>
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3><form action="https://harablog.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+
+
+<div id="comment-form__verbum" class="transparent"></div><div class="verbum-form-meta"><input type="hidden" name="comment_post_ID" value="280" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+
+			<input type="hidden" name="highlander_comment_nonce" id="highlander_comment_nonce" value="a5e658084c">
+			<input type="hidden" name="verbum_show_subscription_modal" value=""></div><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b816720a0f"></p><p style="display: none !important;"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1703232122312"><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+
+
+<!-- begin footer -->
+</div>
+
+
+<!-- begin sidebar -->
+<div id="menu">
+
+<ul>
+<li id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://harablog.wordpress.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></li>
+<li id="pages-2" class="widget widget_pages"><h2 class="widgettitle">Pages</h2>
+
+			<ul>
+				<li class="page_item page-item-2"><a href="https://harablog.wordpress.com/about/">About</a></li>
+			</ul>
+
+			</li>
+
+		<li id="recent-posts-2" class="widget widget_recent_entries">
+		<h2 class="widgettitle">Recent Posts</h2>
+
+		<ul>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/10/07/my-apple-iic/">My Apple II/c</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/">Jump Point Search</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/">Rectangular Symmetry Reduction</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/">Fast Pathfinding via Symmetry&nbsp;Breaking</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/07/11/the-paper/">The Paper</a>
+									</li>
+					</ul>
+
+		</li>
+<li id="categories-320175801" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+
+			<ul>
+					<li class="cat-item cat-item-33525"><a href="https://harablog.wordpress.com/category/conference/">conference</a>
+</li>
+	<li class="cat-item cat-item-47932"><a href="https://harablog.wordpress.com/category/non-technical/">non-technical</a>
+</li>
+	<li class="cat-item cat-item-2263985"><a href="https://harablog.wordpress.com/category/pathfinding/">pathfinding</a>
+</li>
+			</ul>
+
+			</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Meta</h2>
+
+		<ul>
+			<li><a href="https://wordpress.com/start?ref=wplogin">Register</a></li>			<li><a href="https://harablog.wordpress.com/wp-login.php">Log in</a></li>
+			<li><a href="https://harablog.wordpress.com/feed/">Entries feed</a></li>
+			<li><a href="https://harablog.wordpress.com/comments/feed/">Comments feed</a></li>
+
+			<li><a href="https://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>
+		</ul>
+
+		</li>
+
+</ul>
+
+</div>
+
+
+<p class="credit"><cite> <a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a></cite></p>
+
+</div>
+
+<!--  -->
+	<div style="display:none">
+	</div>
+		<!-- CCPA [start] -->
+		<script type="text/javascript">
+			( function () {
+
+				var setupPrivacy = function() {
+
+					// Minimal Mozilla Cookie library
+					// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie/Simple_document.cookie_framework
+					var cookieLib = window.cookieLib = {getItem:function(e){return e&&decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*"+encodeURIComponent(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*([^;]*).*$)|^.*$"),"$1"))||null},setItem:function(e,o,n,t,r,i){if(!e||/^(?:expires|max\-age|path|domain|secure)$/i.test(e))return!1;var c="";if(n)switch(n.constructor){case Number:c=n===1/0?"; expires=Fri, 31 Dec 9999 23:59:59 GMT":"; max-age="+n;break;case String:c="; expires="+n;break;case Date:c="; expires="+n.toUTCString()}return"rootDomain"!==r&&".rootDomain"!==r||(r=(".rootDomain"===r?".":"")+document.location.hostname.split(".").slice(-2).join(".")),document.cookie=encodeURIComponent(e)+"="+encodeURIComponent(o)+c+(r?"; domain="+r:"")+(t?"; path="+t:"")+(i?"; secure":""),!0}};
+
+					// Implement IAB USP API.
+					window.__uspapi = function( command, version, callback ) {
+
+						// Validate callback.
+						if ( typeof callback !== 'function' ) {
+							return;
+						}
+
+						// Validate the given command.
+						if ( command !== 'getUSPData' || version !== 1 ) {
+							callback( null, false );
+							return;
+						}
+
+						// Check for GPC. If set, override any stored cookie.
+						if ( navigator.globalPrivacyControl ) {
+							callback( { version: 1, uspString: '1YYN' }, true );
+							return;
+						}
+
+						// Check for cookie.
+						var consent = cookieLib.getItem( 'usprivacy' );
+
+						// Invalid cookie.
+						if ( null === consent ) {
+							callback( null, false );
+							return;
+						}
+
+						// Everything checks out. Fire the provided callback with the consent data.
+						callback( { version: 1, uspString: consent }, true );
+					};
+
+					// Initialization.
+					document.addEventListener( 'DOMContentLoaded', function() {
+
+						// Internal functions.
+						var setDefaultOptInCookie = function() {
+							var value = '1YNN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 365 * 24 * 60 * 60, '/', domain );
+						};
+
+						var setDefaultOptOutCookie = function() {
+							var value = '1YYN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 24 * 60 * 60, '/', domain );
+						};
+
+						var setDefaultNotApplicableCookie = function() {
+							var value = '1---';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 24 * 60 * 60, '/', domain );
+						};
+
+						var setCcpaAppliesCookie = function( applies ) {
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'ccpa_applies', applies, 24 * 60 * 60, '/', domain );
+						}
+
+						var maybeCallDoNotSellCallback = function() {
+							if ( 'function' === typeof window.doNotSellCallback ) {
+								return window.doNotSellCallback();
+							}
+
+							return false;
+						}
+
+						// Look for usprivacy cookie first.
+						var usprivacyCookie = cookieLib.getItem( 'usprivacy' );
+
+						// Found a usprivacy cookie.
+						if ( null !== usprivacyCookie ) {
+
+							// If the cookie indicates that CCPA does not apply, then bail.
+							if ( '1---' === usprivacyCookie ) {
+								return;
+							}
+
+							// CCPA applies, so call our callback to add Do Not Sell link to the page.
+							maybeCallDoNotSellCallback();
+
+							// We're all done, no more processing needed.
+							return;
+						}
+
+						// We don't have a usprivacy cookie, so check to see if we have a CCPA applies cookie.
+						var ccpaCookie = cookieLib.getItem( 'ccpa_applies' );
+
+						// No CCPA applies cookie found, so we'll need to geolocate if this visitor is from California.
+						// This needs to happen client side because we do not have region geo data in our $SERVER headers,
+						// only country data -- therefore we can't vary cache on the region.
+						if ( null === ccpaCookie ) {
+
+							var request = new XMLHttpRequest();
+							request.open( 'GET', 'https://public-api.wordpress.com/geo/', true );
+
+							request.onreadystatechange = function () {
+								if ( 4 === this.readyState ) {
+									if ( 200 === this.status ) {
+
+										// Got a geo response. Parse out the region data.
+										var data = JSON.parse( this.response );
+										var region      = data.region ? data.region.toLowerCase() : '';
+										var ccpa_applies = ['california', 'colorado', 'connecticut', 'utah', 'virginia'].indexOf( region ) > -1;
+										// Set CCPA applies cookie. This keeps us from having to make a geo request too frequently.
+										setCcpaAppliesCookie( ccpa_applies );
+
+										// Check if CCPA applies to set the proper usprivacy cookie.
+										if ( ccpa_applies ) {
+											if ( maybeCallDoNotSellCallback() ) {
+												// Do Not Sell link added, so set default opt-in.
+												setDefaultOptInCookie();
+											} else {
+												// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+												setDefaultOptOutCookie();
+											}
+										} else {
+											// CCPA does not apply.
+											setDefaultNotApplicableCookie();
+										}
+									} else {
+										// Could not geo, so let's assume for now that CCPA applies to be safe.
+										setCcpaAppliesCookie( true );
+										if ( maybeCallDoNotSellCallback() ) {
+											// Do Not Sell link added, so set default opt-in.
+											setDefaultOptInCookie();
+										} else {
+											// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+											setDefaultOptOutCookie();
+										}
+									}
+								}
+							};
+
+							// Send the geo request.
+							request.send();
+						} else {
+							// We found a CCPA applies cookie.
+							if ( ccpaCookie === 'true' ) {
+								if ( maybeCallDoNotSellCallback() ) {
+									// Do Not Sell link added, so set default opt-in.
+									setDefaultOptInCookie();
+								} else {
+									// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+									setDefaultOptOutCookie();
+								}
+							} else {
+								// CCPA does not apply.
+								setDefaultNotApplicableCookie();
+							}
+						}
+					} );
+				};
+
+				// Kickoff initialization.
+				if ( window.defQueue && defQueue.isLOHP && defQueue.isLOHP === 2020 ) {
+					defQueue.items.push( setupPrivacy );
+				} else {
+					setupPrivacy();
+				}
+
+			} )();
+		</script>
+
+		<!-- CCPA [end] -->
+			<div id="actionbar" class="actnbr-pub-rubric actnbr-has-follow">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+						<a class="actnbr-action actnbr-actn-comment" href="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/#comments">
+							<svg class="gridicon gridicons-comment" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M12 16l-5 5v-5H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2h-7z"></path></g></svg>							<span>Comment						</span>
+						</a>
+					</li>
+									<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z" fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20" style="--darkreader-inline-fill: #79ef8e;" data-darkreader-inline-fill=""></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5" style="--darkreader-inline-stroke: #79ef8e;" data-darkreader-inline-stroke=""></path></svg>
+			<span>Subscribed</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename">
+			<a href="https://harablog.wordpress.com/">
+				<img alt="" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/wpcom-gray-white.png" srcset="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/wpcom-gray-white.png 1x" class="avatar avatar-50" height="50" width="50">				Shortest Path			</a>
+		</li>
+										<div class="actnbr-message no-display"></div>
+									<form method="post" action="https://subscribe.wordpress.com" accept-charset="utf-8" style="display: none;">
+																				<div>
+										<input type="email" name="email" placeholder="Enter your email address" class="actnbr-email-field" aria-label="Enter your email address">
+										</div>
+										<input type="hidden" name="action" value="subscribe">
+										<input type="hidden" name="blog_id" value="6057140">
+										<input type="hidden" name="source" value="https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/">
+										<input type="hidden" name="sub-type" value="actionbar-follow">
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="32ce176f56">										<div class="actnbr-button-wrap">
+											<button type="submit" value="Sign me up">
+												Sign me up											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge">
+										<div>
+											Already have a WordPress.com account? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F&amp;signup_flow=account">Log in now.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+									<li class="actnbr-btn actnbr-hidden" onclick="javascript:__tcfapi( 'showUi' );">
+						<a class="actnbr-action actnbr-actn-privacy" href="#">
+							<svg class="gridicon gridicons-info-outline" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg>							<span>Privacy						</span>
+						</a>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+									<li class="actnbr-sitename">
+			<a href="https://harablog.wordpress.com/">
+				<img alt="" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/wpcom-gray-white.png" srcset="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/wpcom-gray-white.png 1x" class="avatar avatar-50" height="50" width="50">				Shortest Path			</a>
+		</li>
+								<li class="actnbr-folded-customize">
+								<a href="https://harablog.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F">
+									<svg class="gridicon gridicons-customize" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z"></path></g></svg>									<span>Customize</span>
+								</a>
+							</li>
+																<li class="actnbr-folded-follow">
+												<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z" fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20" style="--darkreader-inline-fill: #79ef8e;" data-darkreader-inline-fill=""></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5" style="--darkreader-inline-stroke: #79ef8e;" data-darkreader-inline-stroke=""></path></svg>
+			<span>Subscribed</span>
+		</a>
+										</li>
+																	<li class="actnbr-signup"><a href="https://wordpress.com/start/">Sign up</a></li>
+									<li class="actnbr-login"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F&amp;signup_flow=account">Log in</a></li>
+																	<li class="actnbr-shortlink"><a href="https://wp.me/pppJO-4w">Copy shortlink</a></li>
+																	<li class="flb-report">
+										<a href="http://en.wordpress.com/abuse/?report_url=https://harablog.wordpress.com/2009/02/05/hierarchical-clearance-based-pathfinding/" target="_blank">
+											Report this content										</a>
+									</li>
+																	<li class="actnbr-reader">
+										<a href="https://wordpress.com/read/blogs/6057140/posts/280">
+											View post in Reader										</a>
+									</li>
+																	<li class="actnbr-subs">
+										<a href="https://subscribe.wordpress.com/">Manage subscriptions</a>
+									</li>
+																		<li class="actnbr-fold"><a href="">Collapse this bar</a></li>
+															</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20231122";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.js?v=20231122";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+
+			<div id="jp-carousel-loading-overlay">
+			<div id="jp-carousel-loading-wrapper">
+				<span id="jp-carousel-library-loading">&nbsp;</span>
+			</div>
+		</div>
+		<div class="jp-carousel-overlay" style="display: none;">
+
+		<div class="jp-carousel-container">
+			<!-- The Carousel Swiper -->
+			<div class="jp-carousel-wrap swiper-container jp-carousel-swiper-container jp-carousel-transitions" itemscope="" itemtype="https://schema.org/ImageGallery">
+				<div class="jp-carousel swiper-wrapper"></div>
+				<div class="jp-swiper-button-prev swiper-button-prev">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskPrev" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="9" height="12">
+							<path d="M16.2072 16.59L11.6496 12L16.2072 7.41L14.8041 6L8.8335 12L14.8041 18L16.2072 16.59Z" fill="white" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></path>
+						</mask>
+						<g mask="url(#maskPrev)">
+							<rect x="0.579102" width="23.8823" height="24" fill="#FFFFFF" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></rect>
+						</g>
+					</svg>
+				</div>
+				<div class="jp-swiper-button-next swiper-button-next">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskNext" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="8" height="12">
+							<path d="M8.59814 16.59L13.1557 12L8.59814 7.41L10.0012 6L15.9718 12L10.0012 18L8.59814 16.59Z" fill="white" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></path>
+						</mask>
+						<g mask="url(#maskNext)">
+							<rect x="0.34375" width="23.8822" height="24" fill="#FFFFFF" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></rect>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<!-- The main close buton -->
+			<div class="jp-carousel-close-hint">
+				<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<mask id="maskClose" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="15" height="14">
+						<path d="M19.3166 6.41L17.9135 5L12.3509 10.59L6.78834 5L5.38525 6.41L10.9478 12L5.38525 17.59L6.78834 19L12.3509 13.41L17.9135 19L19.3166 17.59L13.754 12L19.3166 6.41Z" fill="white" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></path>
+					</mask>
+					<g mask="url(#maskClose)">
+						<rect x="0.409668" width="23.8823" height="24" fill="#FFFFFF" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></rect>
+					</g>
+				</svg>
+			</div>
+			<!-- Image info, comments and meta -->
+			<div class="jp-carousel-info">
+				<div class="jp-carousel-info-footer">
+					<div class="jp-carousel-pagination-container">
+						<div class="jp-swiper-pagination swiper-pagination"></div>
+						<div class="jp-carousel-pagination"></div>
+					</div>
+					<div class="jp-carousel-photo-title-container">
+						<h2 class="jp-carousel-photo-caption"></h2>
+					</div>
+					<div class="jp-carousel-photo-icons-container">
+						<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-info" aria-label="Toggle photo metadata visibility">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskInfo" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12.7537 2C7.26076 2 2.80273 6.48 2.80273 12C2.80273 17.52 7.26076 22 12.7537 22C18.2466 22 22.7046 17.52 22.7046 12C22.7046 6.48 18.2466 2 12.7537 2ZM11.7586 7V9H13.7488V7H11.7586ZM11.7586 11V17H13.7488V11H11.7586ZM4.79292 12C4.79292 16.41 8.36531 20 12.7537 20C17.142 20 20.7144 16.41 20.7144 12C20.7144 7.59 17.142 4 12.7537 4C8.36531 4 4.79292 7.59 4.79292 12Z" fill="white" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></path>
+									</mask>
+									<g mask="url(#maskInfo)">
+										<rect x="0.8125" width="23.8823" height="24" fill="#FFFFFF" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></rect>
+									</g>
+								</svg>
+							</span>
+						</a>
+												<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-comments" aria-label="Toggle photo comments visibility">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskComments" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.3271 2H20.2486C21.3432 2 22.2388 2.9 22.2388 4V16C22.2388 17.1 21.3432 18 20.2486 18H6.31729L2.33691 22V4C2.33691 2.9 3.2325 2 4.3271 2ZM6.31729 16H20.2486V4H4.3271V18L6.31729 16Z" fill="white" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></path>
+									</mask>
+									<g mask="url(#maskComments)">
+										<rect x="0.34668" width="23.8823" height="24" fill="#FFFFFF" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></rect>
+									</g>
+								</svg>
+
+								<span class="jp-carousel-has-comments-indicator" aria-label="This image has comments."></span>
+							</span>
+						</a>
+											</div>
+				</div>
+				<div class="jp-carousel-info-extra">
+					<div class="jp-carousel-info-content-wrapper">
+						<div class="jp-carousel-photo-title-container">
+							<h2 class="jp-carousel-photo-title"></h2>
+						</div>
+						<div class="jp-carousel-comments-wrapper">
+															<div id="jp-carousel-comments-loading">
+									<span>Loading Comments...</span>
+								</div>
+								<div class="jp-carousel-comments"></div>
+								<div id="jp-carousel-comment-form-container">
+									<span id="jp-carousel-comment-form-spinner">&nbsp;</span>
+									<div id="jp-carousel-comment-post-results"></div>
+																														<form id="jp-carousel-comment-form">
+												<label for="jp-carousel-comment-form-comment-field" class="screen-reader-text">Write a Comment...</label>
+												<textarea name="comment" class="jp-carousel-comment-form-field jp-carousel-comment-form-textarea" id="jp-carousel-comment-form-comment-field" placeholder="Write a Comment..."></textarea>
+												<div id="jp-carousel-comment-form-submit-and-info-wrapper">
+													<div id="jp-carousel-comment-form-commenting-as">
+																													<fieldset>
+																<label for="jp-carousel-comment-form-email-field">Email (Required)</label>
+																<input type="text" name="email" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-email-field">
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-author-field">Name (Required)</label>
+																<input type="text" name="author" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-author-field">
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-url-field">Website</label>
+																<input type="text" name="url" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-url-field">
+															</fieldset>
+																											</div>
+													<input type="submit" name="submit" class="jp-carousel-comment-form-button" id="jp-carousel-comment-form-button-submit" value="Post Comment">
+												</div>
+											</form>
+																											</div>
+													</div>
+						<div class="jp-carousel-image-meta">
+							<div class="jp-carousel-title-and-caption">
+								<div class="jp-carousel-photo-info">
+									<h3 class="jp-carousel-caption" itemprop="caption description"></h3>
+								</div>
+
+								<div class="jp-carousel-photo-description"></div>
+							</div>
+							<ul class="jp-carousel-image-exif" style="display: none;"></ul>
+							<a class="jp-carousel-image-download" href="#" target="_blank" style="display: none;">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="19" height="18">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M5.84615 5V19H19.7775V12H21.7677V19C21.7677 20.1 20.8721 21 19.7775 21H5.84615C4.74159 21 3.85596 20.1 3.85596 19V5C3.85596 3.9 4.74159 3 5.84615 3H12.8118V5H5.84615ZM14.802 5V3H21.7677V10H19.7775V6.41L9.99569 16.24L8.59261 14.83L18.3744 5H14.802Z" fill="white" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></path>
+									</mask>
+									<g mask="url(#mask0)">
+										<rect x="0.870605" width="23.8823" height="24" fill="#FFFFFF" style="--darkreader-inline-fill: #e4dfd7;" data-darkreader-inline-fill=""></rect>
+									</g>
+								</svg>
+								<span class="jp-carousel-download-text"></span>
+							</a>
+							<div class="jp-carousel-image-map" style="display: none;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		<link crossorigin="anonymous" rel="stylesheet" id="all-css-0-2" href="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<script type="text/javascript" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/smart.js" id="smart-tag-lib-js"></script>
+<script type="text/javascript" id="jetpack-carousel-js-extra">
+/* <![CDATA[ */
+var jetpackSwiperLibraryPath = {"url":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/jetpack-plugin\/sun\/_inc\/build\/carousel\/swiper-bundle.min.js"};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"8aa1da55e5","display_exif":"1","display_comments":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https:\/\/harablog.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2009%2F02%2F05%2Fhierarchical-clearance-based-pathfinding%2F","blog_id":"6057140","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"stats_query_args":"blog=6057140&v=wpcom&tz=10&user_id=0&subd=harablog","is_public":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="verbum-settings-js-before">
+/* <![CDATA[ */
+window.VerbumComments = {"Log in or provide your name and email to leave a reply.":"Log in or provide your name and email to leave a reply.","Receive web and mobile notifications for posts on this site.":"Receive web and mobile notifications for posts on this site.","Name":"Name","Email (address never made public)":"Email (address never made public)","Website (optional)":"Website (optional)","Leave a reply. (log in optional)":"Leave a reply. (log in optional)","Log in to leave a reply.":"Log in to leave a reply.","Logged in via %s":"Logged in via %s","Log out":"Log out","Email":"Email","(Address never made public)":"(Address never made public)","Instantly":"Instantly","Daily":"Daily","Reply":"Reply","WordPress":"WordPress","Weekly":"Weekly","Notify me of new posts":"Notify me of new posts","Email me new posts":"Email me new posts","Email me new comments":"Email me new comments","Cancel":"Cancel","Write a comment...":"Write a Comment...","Website":"Website","Optional":"Optional","We'll keep you in the loop!":"We'll keep you in the loop!","Loading your comment...":"Loading your comment...","Never miss a beat!":"Never miss a beat!","Interested in getting blog post updates? Simply click the button below to stay in the loop!":"Interested in getting blog post updates? Simply click the button below to stay in the loop!","Enter your email address":"Enter your email address","Subscribe":"Subscribe","Comment sent successfully":"Comment sent successfully","Save my name, email, and website in this browser for the next time I comment.":"Save my name, email, and website in this browser for the next time I comment.","siteId":6057140,"postId":280,"mustLogIn":false,"requireNameEmail":true,"commentRegistration":false,"connectURL":"https:\/\/harablog.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/harablog.wordpress.com\/wp-login.php?action=logout&_wpnonce=95bb545ae2","homeURL":"https:\/\/harablog.wordpress.com\/","subscribeToBlog":true,"subscribeToComment":true,"isJetpackCommentsLoggedIn":false,"jetpackUsername":"","jetpackUserId":0,"jetpackSignature":"","jetpackAvatar":null,"enableBlocks":false,"enableSubscriptionModal":true,"currentLocale":"en","isJetpackComments":false,"allowedBlocks":["core\/paragraph","core\/list","core\/code","core\/list-item","core\/quote","core\/image","core\/embed","core\/quote","core\/code"],"embedNonce":"4ec63470c4","verbumBundleUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/verbum\/dist\/index.js"}
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_004"></script>
+<script type="text/javascript" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/outbrain.js" id="outbrain-js"></script>
+<script type="text/javascript" id="sharing-js-js-extra">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/Untitled_002"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<iframe src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+	<div id="likes-other-gravatars" class="wpl-new-layout" aria-hidden="true">
+		<div class="likes-text">
+			<span>%d</span>		</div>
+		<ul class="wpl-avatars sd-like-gravatars"></ul>
+	</div>
+
+		<script src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/w.js" defer="defer"></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'6057140','blog_tz':'10','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'6057140','v':'wpcom','tz':'10','user_id':'0','post':'280','subd':'harablog'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3BTTVtuWDM4P1prRmthbFFyXU44VCxWcHVjeCZoaWdzU29kNjE9cEJUeCxJeHVGdHRYP2N6eWMtZmVvejZMem1MTkFZaVpnRVZSNiYueWFlWEtLLHNTWnV8bms5c3J3LkMmZFhDSVRWbG5pUFNBVk16YTh8PTlKVXhhYiZpNyV5OHVtSSsmSGNVX29nLTBWN3A5TTlOUTIlUnZETGZ5MXJrLTZFL2kzdDB8aHA9cz1EczZZLFZKTjEtJVRIZW9lM2N+TmYubjhQNFBXW2FmQmwvZl03UWV1L3YzVjQxNDd5U2ZqQyZmLHRWMA=='}]);
+_stq.push([ 'clickTrackerInit', '6057140', '280' ]);
+</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+<script>
+(function() {
+	'use strict';
+
+	const fetches = {};
+	const promises = {};
+	const urls = {
+		'verbum': 'https://s0.wp.com/wp-content/mu-plugins/verbum/dist/index.js?m=1703182769i&ver=1703182769'
+	};
+	const loaders = {
+		'verbum': () => {
+			fetchExternalScript('verbum');
+			promises['verbum'] = promises['verbum'] || loadWPScript('verbum');
+			return promises['verbum'];
+		},
+		
+	};
+	const scriptExtras = {
+		
+	};
+
+	window.WP_Enqueue_Dynamic_Script = {
+		loadScript: (handle) => {
+			if (!loaders[handle]) {
+				console.error('WP_Enqueue_Dynamic_Script: unregistered script `' + handle + '`.');
+			}
+			return loaders[handle]();
+		}
+	};
+
+	function fetchExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		fetches[handle] = fetches[handle] || fetch(urls[handle], { mode: 'no-cors' });
+		return fetches[handle];
+	}
+
+	function runExtraScript(handle, type, index) {
+		const id = 'wp-enqueue-dynamic-script:' + handle + ':' + type + ':' + (index + 1);
+		const template = document.getElementById(id);
+		if (!template) {
+			return Promise.reject();
+		}
+
+		const script = document.createElement( 'script' );
+		script.innerHTML = template.innerHTML;
+		document.body.appendChild( script );
+		return Promise.resolve();
+	}
+
+	function loadExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		return fetches[handle].then(() => {
+			return new Promise((resolve, reject) => {
+				const script = document.createElement('script');
+				script.onload = () => resolve();
+				script.onerror = (e) => reject(e);
+				script.src = urls[handle];
+				document.body.appendChild(script);
+			});
+		});
+	}
+
+	function loadExtra(handle, pos) {
+		const count = (scriptExtras[handle] && scriptExtras[handle][pos]) || 0;
+		let promise = Promise.resolve();
+
+		for (let i = 0; i < count; i++) {
+			promise = promise.then(() => runExtraScript(handle, pos, i));
+		}
+
+		return promise;
+	}
+
+	function loadWPScript(handle) {
+		return loadExtra(handle, 'before')
+			.then(() => loadExternalScript(handle))
+			.then(() => loadExtra(handle, 'after'));
+	}
+} )();
+</script>
+
+
+<style>img#wpstats {
+			position: absolute !important;
+			clip: rect(0, 0, 0, 0);
+			padding: 0 !important;
+			border: 0 !important;
+			height: 0 !important;
+			width: 0 !important;
+			overflow: hidden;
+		}</style><style class="darkreader darkreader--sync" media="screen"></style><img src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/g.gif" alt="" id="wpstats"><iframe style="display: none;" name="__tcfapiLocator"></iframe><script src="Hierarchical%20Clearance-based%20Pathfinding%20Shortest%20Path_files/actionbar.js" defer="defer"></script></body></html>

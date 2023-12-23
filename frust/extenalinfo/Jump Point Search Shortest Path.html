@@ -1,0 +1,2026 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 7]>
+<html id="ie7" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<![endif]-->
+<!--[if (gt IE 7) | (!IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-darkreader-mode="dynamic" data-darkreader-scheme="dark" data-lt-installed="true"><!--<![endif]--><head profile="http://gmpg.org/xfn/11"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%) grayscale(5%) sepia(10%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131415;
+   --darkreader-neutral-text: #d4cec4;
+   --darkreader-selection-background: #094a97;
+   --darkreader-selection-text: #e4dfd7;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">html {
+    background-color: #181919 !important;
+}
+html {
+    color-scheme: dark !important;
+}
+html, body, input, textarea, select, button, dialog {
+    background-color: #181919;
+}
+html, body, input, textarea, select, button {
+    border-color: #70685b;
+    color: #e4dfd7;
+}
+a {
+    color: #408be1;
+}
+table {
+    border-color: #545858;
+}
+::placeholder {
+    color: #aea699;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #3e4008 !important;
+    color: #e4dfd7 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202222;
+    color: #a79f92;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454848;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575b5c;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484b4c;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181919;
+}
+* {
+    scrollbar-color: #454848 #202222;
+}
+::selection {
+    background-color: #094a97 !important;
+    color: #e4dfd7 !important;
+}
+::-moz-selection {
+    background-color: #094a97 !important;
+    color: #e4dfd7 !important;
+}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Jump Point Search | Shortest Path</title>
+
+	<style type="text/css" media="screen">
+		@import url( https://s0.wp.com/wp-content/themes/pub/rubric/style.css );
+	</style><style class="darkreader darkreader--cors" media="screen">body{background-color:#fff;background-image:url('https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/gradient.gif');background-attachment:fixed;background-position:bottom;background-repeat:repeat-x}#content{margin-right:20em;margin-left:40px;background-color:#fff;padding:.5em;margin-top:160px;border:1px #eee solid}* html #content{margin-top:180px}#header{position:absolute;top:40px;left:0;background-image:url('https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/pen-sm.jpg');background-position:top right;background-repeat:no-repeat;width:80%;margin:0;height:150px;padding-left:45px;font-family:Georgia;font-weight:400;font-size:3em;line-height:1}#menu{width:14em;position:absolute;float:right;top:200px;right:5em;font-size:90%}* html #menu{right:5em}#menu ul{margin-top:0;padding-left:0;margin-left:0;list-style:none;font-weight:700;color:#b54141}#menu h2{font-size:1em}#menu a:link,#menu a:visited{color:#000;border:0}* html #menu a{word-wrap:break-word}#menu ul ul{margin-left:0;list-style:disc;list-style-position:inside;padding-left:.5em;text-indent:0;font-weight:400;color:#000}#menu form{margin:0}#menu form br{display:none}#content h2{font-size:.9em;color:#666;margin-bottom:0;margin-top:0}h3{font-size:1.5em;font-weight:400;margin-bottom:.33em}.storytitle{color:#b54141;margin-top:.25em}.post-categories{display:inline;margin:0;padding:0}.post-categories li{display:inline;margin-left:3px;padding:0}.post .meta{font-size:.85em;color:#666}.post .meta *{margin-top:0}.post .feedback{margin-bottom:3em;border-bottom:1px solid #ccc;padding-bottom:1px}.feedback{clear:both}.sticky{background:#f7f7f7;padding:5px 10px 10px;margin:5px 0 15px 0}.sticky a{border-color:#ccc}#reply-title{font-size:.9em;font-weight:700;color:#666;margin-bottom:0;margin-top:0}.comment-form-author,.comment-form-email,.comment-form-url{overflow:hidden;width:100%}#respond input[type=text]{float:left;margin-right:.5em}#ie7 #respond input[type=text]{float:none;margin-right:0;margin-left:.5em}.comment-form-author label,.comment-form-email label,.comment-form-url label{font-size:10px}.comment-form-comment label{display:none}p.credit{margin-right:20em;margin-left:40px;padding:.5em;font-size:90%}p.credit a:visited,p.credit a:link{border:0}body{font-family:Verdana,Tahoma,Arial,sans-serif;font-size:80%}#content div,p,td,th,li{font-size:1em;line-height:1.65em}a:link,a:visited{text-decoration:none;color:#b54141;border:1px solid #fff}a:hover{border:1px solid #ccc}#content a:hover{background-color:#eee}#comment{width:95%}* html #comment{width:400px}#commentlist li .avatar{float:right;padding:2px;border:1px solid #eee;margin-right:15px}#commentlist li .children{list-style-type:none}img.centered,img.aligncenter{display:block;margin-left:auto;margin-right:auto}img.alignright{padding:4px;margin:0 0 2px 7px;display:inline}img.alignleft{padding:4px;margin:0 7px 2px 0;display:inline}.alignright{float:right}.alignleft{float:left}.aligncenter,div.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{border:1px solid #ddd;text-align:center;background-color:#f3f3f3;padding-top:4px;margin:10px;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.wp-caption img{margin:0;padding:0;border:0}.wp-caption p.wp-caption-text{font-size:11px;line-height:17px;padding:0 4px 5px;margin:0}.linkcat h2{margin-bottom:0;margin-top:0}object,embed{max-width:100%}.comment object,.comment embed{margin:1em 0;max-width:640px}</style><style class="darkreader darkreader--sync" media="screen"></style>
+
+	<link rel="pingback" href="https://harablog.wordpress.com/xmlrpc.php">
+	<meta name="darkreader" content="45f8e85f02ec4f1ab946aff65e28ee83"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #725000 !important;
+    border-color: #cca926 !important;
+    color: #ede1c1 !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #153741 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #071e25 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #0a0909 !important;
+}
+.tou-uknfeu {
+    background-color: #201505 !important;
+}
+.tou-6i3zyv {
+    background-color: #215262 !important;
+}
+div.mermaid-viewer-control-panel .btn {
+  fill: var(--darkreader-neutral-text);
+  background-color: var(--darkreader-neutral-background);
+}
+svg g rect.er {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+  fill-opacity: 0.8 !important;
+  fill: var(--darkreader-selection-background);
+}
+svg rect.er.relationshipLabelBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect, svg g g.nodes polygon {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+  fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0, svg line.messageLine1 {
+  stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+  fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style><meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://ced.sascdn.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="dns-prefetch" href="https://a.teads.tv/">
+<link rel="dns-prefetch" href="https://prebid.media.net/">
+<link rel="dns-prefetch" href="https://adserver-us.adtech.advertising.com/">
+<link rel="dns-prefetch" href="https://fastlane.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://prebid-server.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://hb-api.omnitagjs.com/">
+<link rel="dns-prefetch" href="https://mtrx.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://apex.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://u.openx.net/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Feed" href="https://harablog.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Comments Feed" href="https://harablog.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Jump Point Search Comments Feed" href="https://harablog.wordpress.com/2011/09/07/jump-point-search/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1677072837i&ver=6.5-alpha-57144"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-0-1" href="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_005.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-2-1" href="Jump%20Point%20Search%20Shortest%20Path_files/style.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="wp-block-library-inline-css">
+.has-text-align-justify {
+	text-align:justify;
+}
+.wp-block-cover__image-background.has-parallax {
+	background-size: cover;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-4-1" href="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_003.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-6-1" href="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_002.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--albert-sans: 'Albert Sans', sans-serif;--wp--preset--font-family--alegreya: Alegreya, serif;--wp--preset--font-family--arvo: Arvo, serif;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda', serif;--wp--preset--font-family--cabin: Cabin, sans-serif;--wp--preset--font-family--chivo: Chivo, sans-serif;--wp--preset--font-family--commissioner: Commissioner, sans-serif;--wp--preset--font-family--cormorant: Cormorant, serif;--wp--preset--font-family--courier-prime: 'Courier Prime', monospace;--wp--preset--font-family--crimson-pro: 'Crimson Pro', serif;--wp--preset--font-family--dm-mono: 'DM Mono', monospace;--wp--preset--font-family--dm-sans: 'DM Sans', sans-serif;--wp--preset--font-family--domine: Domine, serif;--wp--preset--font-family--eb-garamond: 'EB Garamond', serif;--wp--preset--font-family--epilogue: Epilogue, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--fira-sans: 'Fira Sans', sans-serif;--wp--preset--font-family--fraunces: Fraunces, serif;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono', monospace;--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans', sans-serif;--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--josefin-sans: 'Josefin Sans', sans-serif;--wp--preset--font-family--jost: Jost, sans-serif;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville', serif;--wp--preset--font-family--libre-franklin: 'Libre Franklin', sans-serif;--wp--preset--font-family--literata: Literata, serif;--wp--preset--font-family--lora: Lora, serif;--wp--preset--font-family--merriweather: Merriweather, serif;--wp--preset--font-family--montserrat: Montserrat, sans-serif;--wp--preset--font-family--newsreader: Newsreader, serif;--wp--preset--font-family--nunito: Nunito, sans-serif;--wp--preset--font-family--open-sans: 'Open Sans', sans-serif;--wp--preset--font-family--overpass: Overpass, sans-serif;--wp--preset--font-family--petrona: Petrona, serif;--wp--preset--font-family--piazzolla: Piazzolla, serif;--wp--preset--font-family--playfair-display: 'Playfair Display', serif;--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;--wp--preset--font-family--poppins: Poppins, sans-serif;--wp--preset--font-family--raleway: Raleway, sans-serif;--wp--preset--font-family--roboto: Roboto, sans-serif;--wp--preset--font-family--roboto-slab: 'Roboto Slab', serif;--wp--preset--font-family--rubik: Rubik, sans-serif;--wp--preset--font-family--sora: Sora, sans-serif;--wp--preset--font-family--source-sans-3: 'Source Sans 3', sans-serif;--wp--preset--font-family--source-serif-4: 'Source Serif 4', serif;--wp--preset--font-family--space-mono: 'Space Mono', monospace;--wp--preset--font-family--texturina: Texturina, serif;--wp--preset--font-family--work-sans: 'Work Sans', sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-albert-sans-font-family{font-family: var(--wp--preset--font-family--albert-sans) !important;}.has-alegreya-font-family{font-family: var(--wp--preset--font-family--alegreya) !important;}.has-arvo-font-family{font-family: var(--wp--preset--font-family--arvo) !important;}.has-bodoni-moda-font-family{font-family: var(--wp--preset--font-family--bodoni-moda) !important;}.has-cabin-font-family{font-family: var(--wp--preset--font-family--cabin) !important;}.has-chivo-font-family{font-family: var(--wp--preset--font-family--chivo) !important;}.has-commissioner-font-family{font-family: var(--wp--preset--font-family--commissioner) !important;}.has-cormorant-font-family{font-family: var(--wp--preset--font-family--cormorant) !important;}.has-courier-prime-font-family{font-family: var(--wp--preset--font-family--courier-prime) !important;}.has-crimson-pro-font-family{font-family: var(--wp--preset--font-family--crimson-pro) !important;}.has-dm-mono-font-family{font-family: var(--wp--preset--font-family--dm-mono) !important;}.has-dm-sans-font-family{font-family: var(--wp--preset--font-family--dm-sans) !important;}.has-domine-font-family{font-family: var(--wp--preset--font-family--domine) !important;}.has-eb-garamond-font-family{font-family: var(--wp--preset--font-family--eb-garamond) !important;}.has-epilogue-font-family{font-family: var(--wp--preset--font-family--epilogue) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-fira-sans-font-family{font-family: var(--wp--preset--font-family--fira-sans) !important;}.has-fraunces-font-family{font-family: var(--wp--preset--font-family--fraunces) !important;}.has-ibm-plex-mono-font-family{font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;}.has-ibm-plex-sans-font-family{font-family: var(--wp--preset--font-family--ibm-plex-sans) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-josefin-sans-font-family{font-family: var(--wp--preset--font-family--josefin-sans) !important;}.has-jost-font-family{font-family: var(--wp--preset--font-family--jost) !important;}.has-libre-baskerville-font-family{font-family: var(--wp--preset--font-family--libre-baskerville) !important;}.has-libre-franklin-font-family{font-family: var(--wp--preset--font-family--libre-franklin) !important;}.has-literata-font-family{font-family: var(--wp--preset--font-family--literata) !important;}.has-lora-font-family{font-family: var(--wp--preset--font-family--lora) !important;}.has-merriweather-font-family{font-family: var(--wp--preset--font-family--merriweather) !important;}.has-montserrat-font-family{font-family: var(--wp--preset--font-family--montserrat) !important;}.has-newsreader-font-family{font-family: var(--wp--preset--font-family--newsreader) !important;}.has-nunito-font-family{font-family: var(--wp--preset--font-family--nunito) !important;}.has-open-sans-font-family{font-family: var(--wp--preset--font-family--open-sans) !important;}.has-overpass-font-family{font-family: var(--wp--preset--font-family--overpass) !important;}.has-petrona-font-family{font-family: var(--wp--preset--font-family--petrona) !important;}.has-piazzolla-font-family{font-family: var(--wp--preset--font-family--piazzolla) !important;}.has-playfair-display-font-family{font-family: var(--wp--preset--font-family--playfair-display) !important;}.has-plus-jakarta-sans-font-family{font-family: var(--wp--preset--font-family--plus-jakarta-sans) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-raleway-font-family{font-family: var(--wp--preset--font-family--raleway) !important;}.has-roboto-font-family{font-family: var(--wp--preset--font-family--roboto) !important;}.has-roboto-slab-font-family{font-family: var(--wp--preset--font-family--roboto-slab) !important;}.has-rubik-font-family{font-family: var(--wp--preset--font-family--rubik) !important;}.has-sora-font-family{font-family: var(--wp--preset--font-family--sora) !important;}.has-source-sans-3-font-family{font-family: var(--wp--preset--font-family--source-sans-3) !important;}.has-source-serif-4-font-family{font-family: var(--wp--preset--font-family--source-serif-4) !important;}.has-space-mono-font-family{font-family: var(--wp--preset--font-family--space-mono) !important;}.has-texturina-font-family{font-family: var(--wp--preset--font-family--texturina) !important;}.has-work-sans-font-family{font-family: var(--wp--preset--font-family--work-sans) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-8-1" href="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_004.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-10-1" href="Jump%20Point%20Search%20Shortest%20Path_files/Untitled.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<script type="text/javascript" id="jetpack_related-posts-js-extra">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_002"></script>
+<script type="text/javascript" id="rlt-proxy-js-after">
+/* <![CDATA[ */
+	window.addEventListener( 'DOMContentLoaded', function() {
+		rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+	} );
+/* ]]> */
+</script>
+<script type="text/javascript" crossorigin="anonymous" src="Jump%20Point%20Search%20Shortest%20Path_files/importmap-polyfill.min.js" id="es-module-shims-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="media-video-jwt-bridge-js-extra">
+/* <![CDATA[ */
+var videopressAjax = {"ajaxUrl":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","bridgeUrl":"\/wp-content\/mu-plugins\/jetpack-plugin\/sun\/jetpack_vendor\/automattic\/jetpack-videopress\/build\/lib\/token-bridge.js","post_id":"898"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="wpcom-actionbar-placeholder-js-extra">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"6057140","postID":"898","siteURL":"http:\/\/harablog.wordpress.com","xhrURL":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"11a5558b77","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https:\/\/s0.wp.com\/wp-content\/js\/wpcom-proxy-request.js?ver=20211021","shortlink":"https:\/\/wp.me\/pppJO-eu","i18n":{"followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar"}};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Jump%20Point%20Search%20Shortest%20Path_files/Untitled"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://harablog.wordpress.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://harablog.wordpress.com/2011/09/07/jump-point-search/">
+<link rel="shortlink" href="https://wp.me/pppJO-eu">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F07%2Fjump-point-search%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F07%2Fjump-point-search%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jump Point Search">
+<meta property="og:url" content="https://harablog.wordpress.com/2011/09/07/jump-point-search/">
+<meta property="og:description" content="This is the final article in my three-part look at symmetry reduction algorithms for speeding up pathfinding on uniform-cost grid maps. Recapping the story so far: Part one introduces the notion of…">
+<meta property="article:published_time" content="2011-09-07T06:32:44+00:00">
+<meta property="article:modified_time" content="2011-09-14T02:24:02+00:00">
+<meta property="og:site_name" content="Shortest Path">
+<meta property="og:image" content="https://harablog.files.wordpress.com/2011/09/jps_natural.png">
+<meta property="og:image:alt" content="">
+<meta property="og:locale" content="en_US">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<meta name="twitter:text:title" content="Jump Point Search">
+<meta name="twitter:image" content="https://harablog.files.wordpress.com/2011/09/jps_natural.png?w=144">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s0.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s0.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://harablog.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://harablog.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://harablog.wordpress.com/osd.xml" title="Shortest Path">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style id="wpcom-hotfix-masterbar-style">
+			@media screen and (min-width: 783px) {
+				#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+					margin-top: 5px;
+				}
+			}
+		</style><style class="darkreader darkreader--sync" media="screen"></style>
+		<meta name="application-name" content="Shortest Path"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Pathfinding and AI in games"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://harablog.wordpress.com/feed/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="description" content="This is the final article in my three-part look at symmetry reduction algorithms for speeding up pathfinding on uniform-cost grid maps. Recapping the story so far: Part one introduces the notion of path symmetry: a property of uniform-cost grid maps which can significantly slow down search. Part two discusses Rectangular Symmetry Reduction (RSR) [2]: a…">
+<style type="text/css">
+#header{
+	background: url(https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/pen-sm.jpg) no-repeat top right;
+}
+#header a {
+	color:#B54141;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+
+			<style>
+			.wordads-ad-wrapper {
+				position: absolute;
+				visibility: hidden;
+				font: normal 11px Arial, sans-serif;
+				letter-spacing: 1px;
+				text-decoration: none;
+				width: 100%;
+				margin: 25px auto;
+				padding: 0;
+				clear: both;
+			}
+			.wordads-ad-title {
+				margin: 0 auto 5px auto;
+			}
+			.wordads-ad-controls {
+				margin: 5px auto 0 auto;
+				text-align: right;
+			}
+			.wordads-ad-controls span {
+				cursor: pointer;
+			}
+			.wordads-ad {
+				width: 300px;
+				max-width: 580px;
+				margin: 0 auto;
+			}
+			.wordads-ad iframe {
+				margin: 0;
+				padding: 0;
+			}
+			.wordads-ad.wordads-ad-responsive {
+				width: 100%;
+			}
+			</style><style class="darkreader darkreader--sync" media="screen"></style>
+		<script type="text/javascript">
+/* <![CDATA[ */
+let wa_smart = { 'network_id': 3905, 'site_id': 474853, 'page_id': 1572546, 'formats': [ { 'id': 110354, 'tagId': 'sas_110354' } ], 'blog_id': 6057140, 'post_id': 898, 'theme': 'pub/rubric', 'target': 'iab_category=IAB1;iab_category=IAB19;wp_blog_id=6057140;language=en', 'inline': { 'title': 'Advertisement', 'gdpr': '<span onclick="__tcfapi( \'showUi\' )">Privacy Settings</span>', 'format_id': 110354, 'max_slots': 20, 'max_blaze_slots': 1, 'enabled': true, 'adflow_enabled': false }, 'openwrap_enabled': true }; wa_smart.cmd = [];
+/* ]]> */
+</script>
+		<script>
+			window.sas_fallback = window.sas_fallback || [];
+			window.sas_fallback.push( { tag: "&lt;div class=&quot;OUTBRAIN wa-ob-widget&quot;data-ob-contentUrl=&quot;https://harablog.wordpress.com/2011/09/07/jump-point-search/&quot;data-widget-id=&quot;AR_1&quot;data-ob-installation-key=&quot;WORDP263NC92GIANECJP6HEPM&quot;data-ob-psub=&quot;entertain&quot;&gt;&lt;/div&gt;&lt;script&gt;window._stq = window._stq || [];window._stq.push( [ \'extra\', { x_wordads_outbrain: \'widget_render_ar_1\', }, ] );&lt;/script&gt;&lt;script src=&quot;https://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;", type: 'belowpost' } );
+		</script>		<script type="text/javascript">
+		function __ATA_CC() {var v = document.cookie.match('(^|;) ?personalized-ads-consent=([^;]*)(;|$)');return v ? 1 : 0;}
+		var __ATA_PP = { 'pt': 1, 'ht': 0, 'tn': 'rubric', 'uloggedin': 0, 'amp': false, 'consent': __ATA_CC(), 'gdpr_applies': true, 'ad': { 'label': { 'text': 'Advertisements' }, 'reportAd': { 'text': 'Report this ad' }, 'privacySettings': { 'text': 'Privacy', 'onClick': function() { window.__tcfapi && window.__tcfapi( 'showUi' ) } } }, 'disabled_slot_formats': [ 'IAD' ], 'siteid': 8982, 'blogid': 6057140, 'js_hint': 'tcf2_test' };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+		<script type="text/javascript">
+		(function(){var g=Date.now||function(){return+new Date};function h(a,b){a:{for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){b=e;break a}b=-1}return 0>b?null:"string"==typeof a?a.charAt(b):a[b]};function k(a,b,c){c=null!=c?"="+encodeURIComponent(String(c)):"";if(b+=c){c=a.indexOf("#");0>c&&(c=a.length);var d=a.indexOf("?");if(0>d||d>c){d=c;var e=""}else e=a.substring(d+1,c);a=[a.substr(0,d),e,a.substr(c)];c=a[1];a[1]=b?c?c+"&"+b:b:c;a=a[0]+(a[1]?"?"+a[1]:"")+a[2]}return a};var l=0;function m(a,b){var c=document.createElement("script");c.src=a;c.onload=function(){b&&b(void 0)};c.onerror=function(){b&&b("error")};a=document.getElementsByTagName("head");var d;a&&0!==a.length?d=a[0]:d=document.documentElement;d.appendChild(c)}function n(a){var b=void 0===b?document.cookie:b;return(b=h(b.split("; "),function(c){return-1!=c.indexOf(a+"=")}))?b.split("=")[1]:""}function p(a){return"string"==typeof a&&0<a.length}
+		function r(a,b,c){b=void 0===b?"":b;c=void 0===c?".":c;var d=[];Object.keys(a).forEach(function(e){var f=a[e],q=typeof f;"object"==q&&null!=f||"function"==q?d.push(r(f,b+e+c)):null!==f&&void 0!==f&&(e=encodeURIComponent(b+e),d.push(e+"="+encodeURIComponent(f)))});return d.filter(p).join("&")}function t(a,b){a||((window.__ATA||{}).config=b.c,m(b.url))}var u=Math.floor(1E13*Math.random()),v=window.__ATA||{};window.__ATA=v;window.__ATA.cmd=v.cmd||[];v.rid=u;v.createdAt=g();var w=window.__ATA||{},x="s.pubmine.com";
+		w&&w.serverDomain&&(x=w.serverDomain);var y="//"+x+"/conf",z=window.top===window,A=window.__ATA_PP&&window.__ATA_PP.gdpr_applies,B="boolean"===typeof A?Number(A):null,C=window.__ATA_PP||null,D=z?document.referrer?document.referrer:null:null,E=z?window.location.href:document.referrer?document.referrer:null,F,G=n("__ATA_tuuid");F=G?G:null;var H=window.innerWidth+"x"+window.innerHeight,I=n("usprivacy"),J=r({gdpr:B,pp:C,rid:u,src:D,ref:E,tuuid:F,vp:H,us_privacy:I?I:null},"",".");
+		(function(a){var b=void 0===b?"cb":b;l++;var c="callback__"+g().toString(36)+"_"+l.toString(36);a=k(a,b,c);window[c]=function(d){t(void 0,d)};m(a,function(d){d&&t(d)})})(y+"?"+J);}).call(this);
+		</script><script src="Jump%20Point%20Search%20Shortest%20Path_files/conf"></script>	<script>
+		var sas_fallback = sas_fallback || [];
+		sas_fallback.push(
+			{ tag: "&lt;div id=&quot;atatags-26942-658542efe1029&quot;&gt;&lt;/div&gt;&lt;script&gt;__ATA.cmd.push(function() {__ATA.initDynamicSlot({id: \'atatags-26942-658542efe1029\',location: 120,formFactor: \'001\',label: {text: \'Advertisements\',},creative: {reportAd: {text: \'Report this ad\',},privacySettings: {text: \'Privacy\',onClick: function() { window.__tcfapi &amp;&amp; window.__tcfapi( \'showUi\' ); },}}});});&lt;/script&gt;", type: 'belowpost' },
+			{ tag: "&lt;div id=&quot;atatags-26942-{{unique_id}}&quot;&gt;&lt;/div&gt;&lt;script&gt;__ATA.cmd.push(function() {__ATA.initDynamicSlot({id: \'atatags-26942-{{unique_id}}\',location: 310,formFactor: \'001\',label: {text: \'Advertisements\',},creative: {reportAd: {text: \'Report this ad\',},privacySettings: {text: \'Privacy\',onClick: function() { window.__tcfapi &amp;&amp; window.__tcfapi( \'showUi\' ); },}}});});&lt;/script&gt;", type: 'inline' }
+		);
+	</script>		<script type="text/javascript">
+
+			window.doNotSellCallback = function() {
+
+				var linkElements = [
+					'a[href="https://wordpress.com/?ref=footer_blog"]',
+					'a[href="https://wordpress.com/?ref=footer_website"]',
+					'a[href="https://wordpress.com/?ref=vertical_footer"]',
+					'a[href^="https://wordpress.com/?ref=footer_segment_"]',
+				].join(',');
+
+				var dnsLink = document.createElement( 'a' );
+				dnsLink.href = 'https://wordpress.com/advertising-program-optout/';
+				dnsLink.classList.add( 'do-not-sell-link' );
+				dnsLink.rel = 'nofollow';
+				dnsLink.style.marginLeft = '0.5em';
+				dnsLink.textContent = 'Do Not Sell or Share My Personal Information';
+
+				var creditLinks = document.querySelectorAll( linkElements );
+
+				if ( 0 === creditLinks.length ) {
+					return false;
+				}
+
+				Array.prototype.forEach.call( creditLinks, function( el ) {
+					el.insertAdjacentElement( 'afterend', dnsLink );
+				});
+
+				return true;
+			};
+
+		</script>
+		<script id="cmp-configuration" type="application/configuration">{"gvlVersion":"31","consentLanguage":"EN","locale":"en","vendorsAll":"EGpq_4__7a_t_y9e_T9ujzGr_vsffdiGIML5Nn3AuRd635OC--wmRom3VtTBUyJAl27IJCAto5M6iKsULVECteY9jEgzkCZpRPwMkA5iL2zrAQvN8zFsfyBTPP9P7u7_Oyf_v7t_27ueefqs9-73r9zsrhETrXPto_8_7aJTf3ZD3v_f3_F-npv9cm37yat__r19_ev139v____v_v__wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAg","vendorsLegInterest":"EGoAsw0KiAPsiQkItBwigQAiCsICKBAAAACQNEBACQMCnYGAS6wkQAgRQADBACAAFGQAIAABIAEIgAkAKBAABAIBAAAAAAIBAAwMAA4ALQQCAAEB0DFMKABQLCBIzIiFMCEKBIICWygQSAoEFcIAixwIoBETBQAIAkAFYAAALFYDEEgJWJBAlhBtAAAQAIBRShUIpOjAEMCZstVOKJtGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAg","ajaxNonce":"742a1a16f1","modulePath":"https:\/\/s0.wp.com\/wp-content\/blog-plugins\/wordads-classes\/js\/cmp\/v2\/","gvlPath":"https:\/\/public-api.wordpress.com\/wpcom\/v2\/sites\/6057140\/cmp\/v3\/vendors\/en\/","_":{"title":"Privacy & Cookies","intro":"We, WordPress.com, and our 778 advertising partners store and\/or access information on your device and also process personal data, like unique identifiers, browsing activity, and other standard information sent by your device including your IP address. This information is collected over time and used for personalised ads, ad measurement, audience insights, and product development specific to our ads program. If this sounds good to you, select \"I Agree!\" below. Otherwise, you can get more information, customize your consent preferences, or decline consent by selecting \"Learn More\". Note that your preferences apply to all websites in the <a href=\"https:\/\/automattic.com\/cookies\/#user-ads-consent\" target=\"_blank\">WordPress.com network<\/a>, and if you change your mind in the future you can update your preferences anytime by visiting the Privacy link displayed under each ad or by using the \"Privacy\" option in the Action Bar located at the bottom-right corner of the screen. One last thing, our partners may process some of your data based on legitimate interests instead of consent but you can object to that by choosing \"Learn More\" and then disabling the Legitimate Interests toggle under any listed Purpose or Partner.","config":"Learn More","accept":"I Agree!","viewPartners":"View Partners","error":"We're sorry but an unexpected error occurred. Please try again later."}}</script><script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_gat._anonymizeIp']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="Jump%20Point%20Search%20Shortest%20Path_files/ga.js"></script>
+<link href="Jump%20Point%20Search%20Shortest%20Path_files/actionbar.css" type="text/css" rel="stylesheet"><style class="darkreader darkreader--cors" media="screen">div#actionbar .no-display{display:none!important}div#actionbar *{box-sizing:border-box;outline:0;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}div#actionbar{background:#fff;position:fixed;bottom:10px;right:10px;border:solid 1px #dcdcde;border-radius:3px;opacity:.98;height:35px;margin:0;padding:0;box-sizing:border-box;line-height:1;z-index:50000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);transition:all .2s ease-in-out;-webkit-backface-visibility:hidden;-webkit-perspective:1000;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}div#actionbar.actnbr-hidden{-webkit-transform:translate3d(0,150px,0);-moz-transform:translate3d(0,150px,0);-o-transform:translate3d(0,150px,0);-ms-transform:translate3d(0,150px,0);transform:translate3d(0,150px,0)}div#actionbar.actnbr-folded{opacity:.7}div#actionbar.actnbr-folded:hover{opacity:1}div#actionbar ul{margin:0;padding:0;line-height:1;text-align:left}div#actionbar li{list-style-type:none;display:inline-block;min-width:30px;margin:0;padding:0;vertical-align:middle;line-height:1}div#actionbar li:before{display:none}div#actionbar li.actnbr-btn{margin:0 2px 0 6px}div#actionbar.actnbr-has-customize.actnbr-has-edit li.actnbr-edit{margin-right:5px;margin-left:-5px}div#actionbar.actnbr-folded li.actnbr-btn{margin-right:-5px}div#actionbar.actnbr-folded.actnbr-has-customize.actnbr-has-edit li.actnbr-edit{margin-right:-3px;margin-left:0}div#actionbar li.actnbr-btn>a{display:block;color:#787c82;font-size:13px;font-weight:400;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;line-height:1;vertical-align:middle;transition:none;position:relative;padding:10px 8px 10px 32px;border:0;box-shadow:none}div#actionbar li.actnbr-btn>a:hover{color:#3c434a;background:0 0}div#actionbar li.actnbr-btn>a .gridicon{fill:#787c82;position:absolute;top:6px;left:5px}div#actionbar li.actnbr-btn a:hover .gridicon{fill:#3c434a}div#actionbar li.actnbr-btn a.actnbr-actn-following,div#actionbar li.actnbr-btn a.actnbr-actn-following:hover{color:#008a20}div#actionbar li.actnbr-btn a.actnbr-actn-following .gridicon,div#actionbar li.actnbr-btn a.actnbr-actn-following:hover .gridicon{fill:#008a20}div#actionbar.actnbr-folded li.actnbr-btn a.actnbr-action .gridicon{top:2px}div#actionbar.actnbr-folded .actnbr-btn span{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-customize{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-stats{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-edit a .gridicon,div#actionbar.actnbr-has-customize.actnbr-folded .actnbr-customize a .gridicon{top:2px}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-edit a .gridicon{left:10px}div#actionbar li.actnbr-ellipsis{position:relative;top:1px;right:2px;cursor:pointer;padding:3px 5px 0 8px}div#actionbar.actnbr-folded li.actnbr-ellipsis{top:2px}div#actionbar .actnbr-ellipsis>.gridicon{fill:#3c434a;transition:all .15s cubic-bezier(.175,.885,.32,1.275);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}div#actionbar .actnbr-ellipsis.actnbr-hidden>.gridicon{fill:#787c82;-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}div#actionbar .actnbr-ellipsis.actnbr-hidden>.gridicon:hover{fill:#3c434a}div#actionbar .actnbr-ellipsis .tip-inner .gridicon{margin:0 5px 0 0;vertical-align:middle;position:relative}div#actionbar .actnbr-popover{font-size:14px;padding:10px;z-index:1000;margin-left:15px;position:absolute;bottom:40px;right:-13px;max-width:320px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif}div#actionbar li.actnbr-btn .actnbr-popover{bottom:47px;right:26px}div#actionbar.actnbr-folded li.actnbr-btn .actnbr-popover{right:21px}div#actionbar .actnbr-hidden .actnbr-popover{display:none}div#actionbar .actnbr-popover.tip-top-left .tip-arrow{bottom:0;right:21px;margin-left:-7px;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}div#actionbar li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:74%}div#actionbar.actnbr-folded li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:85%}div#actionbar .actnbr-popover .tip-arrow{border:10px dashed #dcdcde;height:0;line-height:0;position:absolute;width:0}div#actionbar .actnbr-popover.tip-top-left .tip-arrow::before{bottom:2px;border:10px solid #fff;content:" ";position:absolute;left:50%;margin-left:-10px;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}div#actionbar .actnbr-popover .tip-inner{background-color:#fff;border:1px solid #dcdcde;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,.1),0 0 56px rgba(0,0,0,.075);text-align:center}div#actionbar li.actnbr-btn .actnbr-popover .tip-inner .actnbr-reader a{display:block;margin:0 0 4px 0;font-weight:400;text-decoration:none;color:#3c434a;border:0}div#actionbar li.actnbr-btn .actnbr-popover .tip-inner .actnbr-reader a:before{content:"";font-family:"Noticons";font-size:25px;margin-right:3px;line-height:1;top:7px;position:relative}div#actionbar .tip ul{margin-bottom:10px}div#actionbar .tip li{display:block;border:0}div#actionbar .tip li>a{position:relative;background:inherit;border:0;box-shadow:none;border-radius:0;color:#2e4453;cursor:pointer;display:block;font-size:14px;font-weight:400;margin:0;padding:10px 16px;text-align:left;transition:all .05s ease-in-out;min-width:250px;outline:0;text-decoration:none}div#actionbar li.actnbr-sitename{border-bottom:1px solid #f0f0f0;margin-bottom:10px}div#actionbar .actnbr-ellipsis .actnbr-fold,div#actionbar .actnbr-notice .actnbr-login-nudge{border-top:1px solid #f0f0f0;margin-top:10px}div#actionbar .actnbr-ellipsis .actnbr-folded-following,div#actionbar .actnbr-ellipsis .actnbr-folded-follow{border-bottom:1px solid #f0f0f0;padding-bottom:10px;margin-bottom:10px}div#actionbar .actnbr-notice .actnbr-follow-count{margin-bottom:10px}div#actionbar .actnbr-ellipsis li a:hover .gridicon{fill:#fff}div#actionbar .actnbr-ellipsis li .actnbr-actn-following:hover .gridicon path{fill:#fff}div#actionbar .actnbr-ellipsis li .actnbr-actn-following:hover .gridicon .following-icon-tick{fill:none;stroke:#fff}div#actionbar .actnbr-notice form,div#actionbar .actnbr-notice .actnbr-login-nudge{font-size:12px;color:#2e4453;line-height:17px}div#actionbar .actnbr-notice form{padding:2px 16px 6px}div#actionbar .actnbr-notice .actnbr-login-nudge{padding:10px 16px 5px}div#actionbar .actnbr-notice form input{background:#fff;color:#2e4453;border:1px solid #dcdcde;font-family:inherit;font-size:14px;text-indent:10px;height:40px;width:100%;margin-bottom:12px;padding:0;user-select:text;-webkit-user-select:text}div#actionbar .actnbr-notice form button{background:#3c434a;border-color:#dcdcde;color:#fff;border-style:solid;border-width:1px 1px 2px;cursor:pointer;display:inline-block;margin:0;outline:0;overflow:hidden;font-weight:500;text-overflow:ellipsis;text-decoration:none;vertical-align:top;box-sizing:border-box;font-size:14px;line-height:21px;border-radius:4px;padding:7px 14px 9px;-webkit-appearance:none;-moz-appearance:none;appearance:none;font-family:inherit;text-transform:none;-webkit-font-smoothing:auto;height:auto;width:100%}div#actionbar .actnbr-notice form button[disabled]{background:#bceefd;border-color:#dcdcde;color:#fff}div#actionbar .actnbr-notice .actnbr-button-wrap{text-align:right}div#actionbar .actnbr-notice form button:hover{border-color:#3c434a;color:#fff}div#actionbar .actnbr-notice form button:focus{border-color:#3c434a;box-shadow:0 0 0 2px #dcdcde}div#actionbar .actnbr-notice .actnbr-login-nudge a{color:inherit;text-decoration:underline}div#actionbar .actnbr-notice .actnbr-login-nudge a:hover{color:#3c434a}div#actionbar li.actnbr-sitename a{font-size:14px;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;color:#2e4453;text-decoration:none;text-align:left;border:0;vertical-align:middle;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.7}div#actionbar li.actnbr-sitename img{width:25px;height:25px;vertical-align:middle;margin:-1px 5px 0 0;display:inline;border-radius:0;padding:0}div#actionbar .actnbr-ellipsis li a:hover{background:#3c434a;color:#fff;text-decoration:none;border:0;box-shadow:none}div#actionbar li.actnbr-sitename a:hover{background:0 0;color:#2e4453;margin:0}div#actionbar .actnbr-fold{padding-top:10px}div#actionbar .actnbr-ellipsis li.actnbr-folded-customize{display:none}div#actionbar.actnbr-folded.actnbr-has-customize.actnbr-has-edit .actnbr-ellipsis li.actnbr-folded-customize{display:block}div#actionbar.actnbr-has-follow .actnbr-ellipsis li.actnbr-folded-follow{display:none}div#actionbar .actnbr-notice .tip-inner{padding:0}div#actionbar .actnbr-notice .actnbr-message{padding:15px 20px 20px;width:250px;text-align:center;line-height:20px;color:#2e4453}div#actionbar .actnbr-notice .actnbr-message h3{margin:0 0 10px;font-size:22px;font-weight:400;font-family:inherit;font-style:normal;font-variant:normal;text-transform:none;text-decoration:none;color:#2e4453;padding:0;line-height:1em}div#actionbar .actnbr-notice .actnbr-message a{color:inherit;text-decoration:underline}div#actionbar .actnbr-notice .actnbr-message a:hover{color:#3c434a}div#actionbar .actnbr-theme a{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}div#actionbar .actnbr-follow-bubble .actnbr-site-settings{display:flex;flex-direction:column;color:#2e4453}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a,div#actionbar .actnbr-follow-bubble .actnbr-site-settings a:hover{color:#3c434a}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__setting{padding:10px 15px;display:flex;flex-direction:row;align-items:center}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle{position:relative;display:inline-block;margin-right:12px}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle__input[type=checkbox]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;margin:0;padding:0;z-index:1;border:0;cursor:pointer}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle__track{content:"";display:inline-block;box-sizing:border-box;vertical-align:top;background-color:#fff;border:1px solid #1e1e1e;width:36px;height:18px;border-radius:9px;transition:.2s background ease}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle.is-checked span.actnbr-site-settings__toggle__track{background-color:#000}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle__thumb{display:block;position:absolute;box-sizing:border-box;top:3px;left:3px;width:12px;height:12px;border-radius:50%;transition:.1s transform ease;background-color:#1e1e1e;border:5px solid #1e1e1e}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle.is-checked span.actnbr-site-settings__toggle__thumb{background-color:#fff;border-width:0;transform:translateX(18px)}div#actionbar .actnbr-site-settings__toggle__input[type=checkbox]::before{content:""}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle__input[type=checkbox]:checked{background:0 0}div#actionbar .actnbr-site-settings__details{font-size:12px;padding:0 15px}div#actionbar .actnbr-site-settings__details#email-new-posts-details{display:none}div#actionbar .actnbr-site-settings__details.is-visible#email-new-posts-details{display:block}div#actionbar .segmented-control{display:flex;margin:0;border-radius:2px;list-style:none}div#actionbar .segmented-control__item{flex:1 1 auto;cursor:pointer}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item:first-of-type a.segmented-control__link{border-top-left-radius:2px;border-bottom-left-radius:2px}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item:last-of-type a.segmented-control__link{border-right:solid 1px #c3c4c7;border-top-right-radius:2px;border-bottom-right-radius:2px}div#actionbar .segmented-control__item.is-selected+.segmented-control__item .segmented-control__link{border-left:none}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a.segmented-control__link{display:block;padding:8px 12px;border:solid 1px #c3c4c7;border-right:none;line-height:18px;color:#646970;text-align:center;transition:color .1s linear,background-color .1s linear;min-width:0}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a.segmented-control__link:focus{color:#3c434a;outline:0}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item.is-selected a.segmented-control__link{border:1px solid #3c434a;color:#3c434a}div#actionbar .segmented-control__text{display:block;max-width:100%;color:inherit;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}@media (max-width:660px){div#actionbar{bottom:0;right:0;padding:5px 13px;border-radius:0;width:100%;height:44px}div#actionbar.actnbr-folded{opacity:.9;width:auto;padding:5px 10px}div#actionbar>ul{text-align:right}div#actionbar .actnbr-popover{right:-10px}div#actionbar .actnbr-popover.tip-top-left .tip-arrow{right:17px}div#actionbar li.actnbr-btn .actnbr-popover{right:-3px}div#actionbar li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:53%}div#actionbar.actnbr-folded li.actnbr-btn{margin-right:3px!important}}div#actionbar.actnbr-premium-espresso{right:70px}div#actionbar.actnbr-premium-shelf{left:10px;right:auto}div#actionbar.actnbr-premium-shelf .actnbr-popover{right:auto;left:-35px}div#actionbar.actnbr-premium-shelf .actnbr-popover.tip-top-left .tip-arrow{right:auto;left:29px}div#actionbar.actnbr-premium-shelf li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow,div#actionbar.actnbr-premium-shelf.actnbr-folded li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:26px}div#actionbar.actnbr-premium-shelf li.actnbr-btn .actnbr-popover,div#actionbar.actnbr-premium-shelf.actnbr-folded li.actnbr-btn .actnbr-popover{right:102px;left:-26px}body.has-playbar div#actionbar.actnbr-premium-obsidian{bottom:50px}div#actionbar.actnbr-pub-boardwalk{display:none}body #habla_window_div.habla_window_div_base{margin-right:160px!important}div#translator-launcher{bottom:67px;right:10px;left:auto}@media (min-width:876px){div#o2-dock{right:230px}}@media (max-width:876px){div#o2-dock{z-index:50001}}#scrollUp,.to-top,#back-to-top{bottom:55px;right:18px}#colophon #searchform input.search-field{bottom:65px}#container #masthead #site-branding{z-index:49999;bottom:65px}li#wp-admin-bar-follow,li#wp-admin-bar-admin-bar-likes-widget,ul#wp-admin-bar-blog-secondary{display:none!important}@media print{#actionbar{display:none!important}}@media (prefers-reduced-motion:reduce){div#actionbar,div#actionbar .actnbr-ellipsis>.gridicon,div#actionbar .tip li>a{transition-duration:1ms!important}}</style><style class="darkreader darkreader--sync" media="screen"></style></head>
+
+<body class="post-template-default single single-post postid-898 single-format-standard customizer-styles-applied">
+<div id="rap">
+<h1 id="header"><a href="https://harablog.wordpress.com/">Shortest Path</a></h1>
+
+<div id="content">
+<!-- end header -->
+
+
+<h2>September 7, 2011</h2>
+<div class="post-898 post type-post status-publish format-standard hentry category-pathfinding tag-grids tag-pathfinding tag-symmetry" id="post-898">
+	 <h3 class="storytitle">
+			Jump Point Search		 </h3>
+	<div class="meta">Filed under:  <a href="https://harablog.wordpress.com/category/pathfinding/" rel="category tag">pathfinding</a> — dharabor @ 16:32 <br>Tags: <a href="https://harablog.wordpress.com/tag/grids/" rel="tag">grids</a>, <a href="https://harablog.wordpress.com/tag/pathfinding/" rel="tag">pathfinding</a>, <a href="https://harablog.wordpress.com/tag/symmetry/" rel="tag">symmetry</a><br></div>
+
+	<div class="storycontent">
+		<div style="text-align:justify;">
+This is the final article in my three-part look at symmetry reduction 
+algorithms for speeding up pathfinding on uniform-cost grid maps. 
+Recapping the story so far:<p></p>
+<ul>
+<li>
+<a href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/">Part one</a> introduces the notion of path symmetry: a property of uniform-cost grid maps which can significantly slow down search.
+</li>
+<li>
+<a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/">Part two</a> discusses Rectangular Symmetry Reduction (RSR) <a href="#2">[2]</a>:
+ a simple yet effective preprocessing algorithm that eliminates many 
+path symmetries by decomposing a grid map into a set of empty 
+rectangles.
+</li>
+</ul>
+<p>In this article I describe Jump Point Search (JPS) <a href="#3">[3]</a>:
+ an online symmetry breaking algorithm which speeds up pathfinding on 
+uniform-cost grid maps by “jumping over” many locations that would 
+otherwise need to be explicitly considered. JPS is faster and more 
+powerful than RSR: it can consistently speed up A* search by over an 
+order of magnitude and more. Unlike other similar algorithms JPS 
+requires no preprocessing and has no memory overheads. Further, it is 
+easily combined with most existing speedup techniques — including 
+abstraction and memory heuristics.</p>
+<p>
+<b>Please note:</b> this work was developed in conjunction with <a href="http://www.grastien.net/ban/">Alban Grastien</a>. It forms part of my doctoral research into pathfinding at <a href="http://www.nicta.com.au/">NICTA</a> and The <a href="http://www.anu.edu.au/">Australian National University</a>. Electronic copies of the paper in which this idea was first described are available from <a href="http://users.cecs.anu.edu.au/~dharabor/publications.html">my homepage</a>.
+</p></div>
+<p>
+</p><h2 style="font-size:130%;">The Algorithm</h2>
+<div style="text-align:justify;">
+This section and the next describe the mechanical details and 
+algorithmic properties of Jump Point Search. If you don’t care for such 
+things, feel free to jump ahead and check out some <a href="#screenshots">screenshots</a>.<p></p>
+<p>
+JPS <a href="#3">[3]</a> can be described in terms of two simple pruning
+ rules which are	applied recursively during search: one rule is specific
+ to straight steps, the other for diagonal steps. The key intuition in 
+both cases is to prune the set of immediate neighbours around a node by 
+trying to prove that an optimal path (symmetric or otherwise) exists 
+from the parent of the current node to each neighbour and that path does
+ not involve visiting the current node. Figure 1 outlines the basic 
+idea.
+</p></div>
+<div style="width: auto; border: 1px solid; height: auto; margin: 20px; padding: 15px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="display:table-cell;text-align:justify;">
+<div style="float:right;margin-left:10px;">
+<img src="Jump%20Point%20Search%20Shortest%20Path_files/jps_natural.webp" title="Natural Neighbours">
+</div>
+<div>
+<b>Figure 1: Neighbour Pruning</b><p></p>
+<p>
+Node <b>x</b> is currently being expanded. The arrow indicates the 
+direction of travel from its parent, either straight or diagonal. In 
+both cases we can immediately prune all grey neighbours as these can be 
+reached optimally from the parent of <b>x</b> without ever going through node <b>x</b>.
+</p></div>
+</div>
+</div>
+<p>We will refer to the set of nodes that remain after pruning as the <i>natural neighbours</i>
+ of the current node. These are marked white in Figure 1. Ideally, we 
+only ever want to consider the set of natural neighbours during 
+expansion. However, in some cases, the presence of obstacles may mean 
+that we need to also consider a small set of up to <i>k</i> additional nodes (0 ≤ <i>k</i> ≤ 2). We say that these nodes are  <i>forced neighbours</i> of the current node. Figure 2 gives an overview of this idea. </p>
+<div style="width: auto; border: 1px solid; height: auto; margin: 20px; padding: 15px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="display:table-cell;">
+<div style="float:right;margin-left:10px;">
+<img src="Jump%20Point%20Search%20Shortest%20Path_files/jps_forced.webp" title="Forced Neighbours">
+</div>
+<div style="text-align:justify;">
+<b>Figure 2: Forced Neighbours</b><p></p>
+<p>
+Node <b>x</b> is currently being expanded. The arrow indicates the 
+direction of travel from its parent, either straight or diagonal. Notice
+ that when <b>x</b> is adjacent to an obstacle the highlighted neighbours cannot be pruned; any alternative optimal path, from the parent of <b>x</b> to each of these nodes, is blocked.
+</p></div>
+</div>
+</div>
+<div style="text-align:justify;">
+We apply these pruning rules during search as follows: instead of  
+generating each natural and forced neighbour we instead recursively  
+prune the set of neighbours around each such node.  Intuitively, the 
+objective is to eliminate symmetries by recursively “jumping over” all 
+nodes which can be reached optimally by a path that does not visit the 
+current node.  We stop the recursion when we hit an obstacle or when we 
+find a so-called <i>jump point</i> successor. Jump points are 
+interesting because they have neighbours that cannot be reached  by an 
+alternative symmetric path: the optimal path must go through the current
+ node. <p></p>
+<p>
+The details of the recursive pruning algorithm are reasonably 
+straightforward: to ensure optimality we need only assign an ordering to
+  how we process natural neighbours (straight steps before diagonal). I 
+will not attempt to outline it further here; the full details are in the
+ paper and my aim is only to provide a flavour for the work. Figures 3 
+gives two examples of the pruning algorithm in action.  In the first 
+case we identify a jump point by recursing straight; in the second case 
+we identify a jump point by recursing diagonally.
+</p></div>
+<div style="width: auto; border: 1px solid; height: auto; text-align: center; margin: 20px; padding: 15px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="width:530px;margin:0 auto;">
+<div style="display:table-cell;text-align:center;padding:10px;">
+<img src="Jump%20Point%20Search%20Shortest%20Path_files/jps_recursestraight.webp" title="Jumping Straight" style="width:250px;"><br>
+<b>(a)</b> Jumping Straight
+</div>
+<div style="display:table-cell;padding:10px text-align:center;">
+<img src="Jump%20Point%20Search%20Shortest%20Path_files/jps_recursediagonally.webp" title="Jumping Diagonally" style="width:250px;"><br>
+<b>(b)</b> Jumping Diagonally
+</div>
+</div>
+<div style="padding-top:5px;text-align:justify;">
+<b>Figure 3: Jumping Examples. </b> Node <b>x</b> is currently being expanded. <b>p(x)</b> is its parent. <p></p>
+<p>
+(a) We recursively apply the straight pruning rule and identify  <b>y</b> as a jump point successor of <b>x</b>. This node is interesting because it has a neighbour <b>z</b> that cannot be reached optimally except by a path that visits <b>x</b> then <b>y</b>. The intermediate nodes are never explicitly generated or even evaluated. </p>
+<p>
+(b) We recursively apply the diagonal pruning rule and identify <b>y</b> as a jump point successor of <b>x</b>.
+ Notice that before each diagonal step we first recurse straight (dashed
+ lines). Only if both straight recursions fail to identify a jump point 
+do we step diagonally again. Node <b>w</b>, which is simply a forced neighbour of <b>x</b>, is generated as normal.
+</p></div>
+</div>
+<h2 style="font-size:130%;">Properties and Performance</h2>
+<div style="text-align:justify;">
+Jump Point Search is nice for a number of reasons: <p></p>
+<ol>
+<li>
+It is optimal.
+</li>
+<li>
+It involves no pre-processing.
+</li>
+<li>
+It requires no extra-memory overheads.
+</li>
+<li>
+It can consistently speed up A* search by over 10 times; making it not 
+only competitive with, but often better than, approximate  techniques 
+such as HPA* <a href="#1">[1]</a>.
+</li>
+</ol>
+<p>Properties 1-3 are interesting theoretical results, and rather 
+surprising, but I will not address them further here. My main objective 
+in this article is simply provide a flavour for the work; for a full 
+discussion, including proofs, please see the original paper <a href="#3">[3]</a>. Property 4 is perhaps of broadest practical interest so I will give a short summary of our findings below. </p>
+<p>
+We evaluated JPS on four map sets taken  from <a href="http://web.cs.du.edu/~sturtevant/">Nathan Sturtevant’s</a> freely available pathfinding library, <a href="http://code.google.com/p/hog2/">Hierarchical Open Graph</a>. Two of the benchmarks are realistic, originating from popular <a href="http://www.bioware.com/">BioWare</a> video games <i>Baldur’s Gate II: Shadows of Amn</i> and <i>Dragon Age: Origins</i>. The other two <i>Adaptive Depth</i> and <i>Rooms</i>
+ are synthetic though the former could be described as semi-realistic. 
+In each case we measured the relative speedup of A* + JPS vs. A* alone. </p>
+<p>
+</p><p>Briefly: JPS can speed up A* by a factor of between 3-15 times 
+(Adaptive Depth), 2-30 times (Baldur’s Gate), 3-26 times (Dragon Age) 
+and 3-16 times (Rooms). In each case the lower figure represents average
+ performance for short pathfinding problems and the higher figure for 
+long pathfinding problems (i.e. the longer the optimal path to be found,
+ the more benefit is derived from applying JPS). 		 </p>
+<p>
+What makes these results even more compelling is that in 3 of the 4 
+benchmarks A* + JPS was able to consistently outperform the well known 
+HPA* algorithm <a href="#1">[1]</a>. This is remarkable as A* + JPS is 
+always performing optimal search while HPA* is only performing 
+approximate search. On the remaining benchmark, Dragon Age, we found 
+there was  very little to differentiate the performance of the two 
+algorithms. </p>
+<p>
+<b>Caveat emptor:</b> It is important to highlight at this stage that A*
+ + JPS only achieves these kids of speedups because each benchmark 
+problem set contains a large number of symmetric path segments (usually 
+manifested in the form of large open areas on the map). In such cases 
+JPS can exploit the symmetry and ignore large parts of the search space.
+ This means A* both generates and expands a much smaller number of nodes
+ and consequently reaches the goal much sooner. When there is very 
+little symmetry to exploit however we expect that our gains will be more
+ modest.
+</p></div>
+<h2 style="font-size:130%;"><a name="screenshots">Screenshots</a></h2>
+<div style="text-align:justify;">
+Below in Figure 4 are screenshots of A* + JPS in action. In each case 
+tiles marked red must be explored in order to find the optimal solution 
+(marked in blue).  For comparison, I also show the number of tiles 
+explored by A* + RSR and vanilla A* when solving the same problem 
+instances.
+</div>
+<div style="width: auto; border: 1px solid; height: auto; text-align: center; margin: 20px; padding: 15px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+(Click on an image to view a larger version.)<br>
+<p></p>
+<div style="width:800px;margin:0 auto;">
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/bg_astar.png"><br>
+<img style="width:225px;" src="Jump%20Point%20Search%20Shortest%20Path_files/bg_astar.webp" alt="" title="Search Effort: A* (Baldur's Gate)"></a><br>
+<b>(a)</b> A* (Baldur’s Gate)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/bg_rsr.png"><br>
+<img style="width:225px;" src="Jump%20Point%20Search%20Shortest%20Path_files/bg_rsr.webp" alt="" title="Search Effort: A* + RSR (Baldur's Gate)"></a><br>
+<b>(b)</b> A* + RSR (Baldur’s Gate)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/bg_jps.png"><br>
+<img style="border: 1px solid; width: 224px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" src="Jump%20Point%20Search%20Shortest%20Path_files/bg_jps.webp" alt="" title="Search Effort: A* + JPS (Baldur's Gate)" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></a><br>
+<b>(c)</b> A* + JPS (Baldur’s Gate)
+</div>
+<p></p>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/ad_astar.png"><br>
+<img style="width:225px;" src="Jump%20Point%20Search%20Shortest%20Path_files/ad_astar.webp" alt="" title="Search Effort: A* (Adaptive Depth)"></a><br>
+<b>(d)</b> A* (Adaptive Depth)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/ad_rsr.png"><br>
+<img style="width:225px;" src="Jump%20Point%20Search%20Shortest%20Path_files/ad_rsr.webp" alt="" title="Search Effort: A* + RSR (Adaptive Depth)"></a><br>
+<b>(e)</b> A* + RSR (Adaptive Depth)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/ad_jps.png"><br>
+<img style="border: 1px solid; width: 224px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" src="Jump%20Point%20Search%20Shortest%20Path_files/ad_jps.webp" alt="" title="Search Effort: A* + JPS (Adaptive Depth)" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></a><br>
+<b>(f)</b> A* + JPS (Adaptive Depth)
+</div>
+<p></p>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/rooms_astar.png"><br>
+<img style="width:225px;" src="Jump%20Point%20Search%20Shortest%20Path_files/rooms_astar.webp" alt="" title="Search Effort: A* (Rooms)"></a><br>
+<b>(g)</b> A* (Rooms)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/rooms_rsr.png"><br>
+<img style="width:225px;" src="Jump%20Point%20Search%20Shortest%20Path_files/rooms_rsr.webp" alt="" title="Search Effort: A* + RSR (Rooms)"></a><br>
+<b>(h)</b> A* + RSR (Rooms)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/rooms_jps.png"><br>
+<img style="border: 1px solid; width: 224px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" src="Jump%20Point%20Search%20Shortest%20Path_files/rooms_jps.webp" alt="" title="Search Effort: A* + JPS (Rooms)" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></a><br>
+<b>(i)</b> A* + JPS (Rooms)
+</div>
+</div>
+<div style="text-align:justify;">
+<b>Figure 4: Search Effort.</b> Comparative pathfinding examples from 
+our experimental results. Images in the first column show total nodes 
+expanded by A* (marked red) in order to find the optimal path to the 
+goal (marked blue). Images in the middle and last columns are total 
+nodes expanded by A* + RSR and A* + JPS respectively. Notice that A* + 
+JPS ignores many symmetric	path segments (more than A* + RSR even) and 
+typically reaches the goal with much less effort.
+</div>
+</div>
+<h2 style="font-size:130%;">Final Thoughts</h2>
+<div style="text-align:justify;">
+The explicit identification and elimination of symmetries in pathfinding
+ domains is an idea that until now has received little attention in the 
+academic literature. Approaches for dealing with symmetry, such as Jump 
+Point Search, provide us with powerful new tools for reducing the size 
+of explicit regular search spaces. By eliminating symmetry we speed up 
+not just A* but entire classes of similar pathfinding algorithms. Also, 
+consider: JPS is entirely orthogonal to almost every other speedup 
+technique applicable to grid maps. Thus, there is no reason why we 
+couldn’t combine it, or other similar methods, with hierarchical 
+pathfinding approaches, memory heuristics or even other 
+optimality-preserving state-space reduction	techniques. That means the 
+results presented thus far are only the tip of the iceberg in terms of 
+performant grid-based pathfinding methods. <p></p>
+<p>
+Another exciting aspect of this work is the possibilities it opens for 
+further research. For example: could we pre-process the map and go even 
+faster? Or: are there analogous jumping rules that one could develop for
+ weighted grids?  What about other domains? Could we apply the lessons 
+learned thus far to help solve other interesting search problems? The 
+answers to the first two questions already appear to be positive; the 
+third is something I want to explore in the near future. Regardless of 
+how it all turns out, one thing is certain: it’s an exciting time to be 
+working on pathfinding!
+</p></div>
+<h2> References </h2>
+<div style="text-align:justify;margin:20px;padding:10px;">
+<b><a name="1">[1]</a></b> A. Botea, M. Müller, and J. Schaeffer. <i>Near Optimal Hierarchical Path-finding. </i>In Journal of Game Development (Issue 1, Volume 1), 2004.<p></p>
+<p>
+<b><a name="2">[2]</a></b> D. Harabor, A. Botea, and P. Kilby. <i>Path Symmetries in Uniform-cost Grid Maps. </i>In Symposium on Abstraction Reformulation and Approximation (SARA), 2011.</p>
+<p>
+<b><a name="3">[3]</a></b> D. Harabor and A. Grastien. <i>Online Graph Pruning for Pathfinding on Grid Maps.</i> In National Conference on Artificial Intelligence (AAAI), 2011.</p>
+<p>
+</p></div>
+<div id="atatags-370373-658542efe4601">
+		<script type="text/javascript">
+			__ATA.cmd.push(function() {
+				__ATA.initVideoSlot('atatags-370373-658542efe4601', {
+					sectionId: '370373',
+					format: 'inread'
+				});
+			});
+		</script>
+	</div><span id="wordads-inline-marker" style="display: none;"></span>	<div class="OUTBRAIN wa-ob-widget" data-ob-contenturl="https://harablog.wordpress.com/2011/09/07/jump-point-search/" data-widget-id="AR_1" data-ob-installation-key="WORDP263NC92GIANECJP6HEPM" data-ob-psub="entertain"></div>
+	<script>
+		window._stq = window._stq || [];
+		window._stq.push( [ 'extra', { x_wordads_outbrain: 'widget_render_ar_1', }, ] );
+	</script><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul data-sharing-events-added="true"><li class="share-print"><a rel="nofollow noopener noreferrer" data-shared="" class="share-print sd-button share-icon" href="https://harablog.wordpress.com/2011/09/07/jump-point-search/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-email share-service-visible"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon" href="mailto:?subject=%5BShared%20Post%5D%20Jump%20Point%20Search&amp;body=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F07%2Fjump-point-search%2F&amp;share=email&amp;nb=1" target="_blank" title="Click to email a link to a friend" data-email-share-error-title="Do you have email set up?" data-email-share-error-text="If you're having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-nonce="a6ce697d4d" data-email-share-track-url="https://harablog.wordpress.com/2011/09/07/jump-point-search/?share=email" jetpack-share-click-count="0"><span>Email</span></a></li><li class="share-reddit"><a rel="nofollow noopener noreferrer" data-shared="" class="share-reddit sd-button share-icon" href="https://harablog.wordpress.com/2011/09/07/jump-point-search/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-6057140-898-658542efe4efc" data-src="//widgets.wp.com/likes/index.html?ver=20231208#blog_id=6057140&amp;post_id=898&amp;origin=harablog.wordpress.com&amp;obj_id=6057140-898-658542efe4efc&amp;n=1" data-name="like-post-frame-6057140-898-658542efe4efc" data-title="Like or Reblog"><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-6057140-898-658542efe4efc" src="Jump%20Point%20Search%20Shortest%20Path_files/index.html" height="55px" width="100%" frameborder="0" scrolling="no" title="Like or Reblog"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="790" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/" title="Rectangular Symmetry Reduction" data-origin="898" data-position="0">Rectangular Symmetry Reduction</a></span><time class="jp-relatedposts-post-date" datetime="September 1, 2011" style="display: block;">September 1, 2011</time><span class="jp-relatedposts-post-context">In "pathfinding"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="714" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/" title="Fast Pathfinding via Symmetry&amp;nbsp;Breaking" data-origin="898" data-position="1">Fast Pathfinding via Symmetry&nbsp;Breaking</a></span><time class="jp-relatedposts-post-date" datetime="August 26, 2011" style="display: block;">August 26, 2011</time><span class="jp-relatedposts-post-context">In "pathfinding"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="549" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2010/10/21/aiide-2010-conference-summary/" title="AIIDE 2010 Conference&amp;nbsp;Summary" data-origin="898" data-position="2">AIIDE 2010 Conference&nbsp;Summary</a></span><time class="jp-relatedposts-post-date" datetime="October 21, 2010" style="display: block;">October 21, 2010</time><span class="jp-relatedposts-post-context">In "conference"</span></p></div></div></div>	</div>
+
+	<div class="feedback">
+                        <a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/#comments">Comments (46)</a>	</div>
+
+</div>
+
+
+<h2 id="comments">46 Comments	<a href="#postcomment" title="Leave a comment">»</a>
+</h2>
+
+<ol id="commentlist">
+<li class="comment even thread-even depth-1" id="comment-54">
+	<div id="div-comment-54">
+		<div class="comment-author vcard">
+						<p>The last image rooms_jps.png links to ad_jps.png</p>
+			<p><cite>Comment by <span class="fn"><a href="http://gravatar.com/jonenst" class="url" rel="ugc external nofollow">jonenst</a></span> — September 7, 2011 @ <a href="#comment-54">21:59</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-55">
+	<div id="div-comment-55">
+		<div class="comment-author vcard">
+						<p>@jonenst: fixed. thank you so much for pointing that out!</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — September 7, 2011 @ <a href="#comment-55">23:07</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-56">
+	<div id="div-comment-56">
+		<div class="comment-author vcard">
+						<p><a href="http://news.ycombinator.com/item?id=2969008" rel="nofollow ugc">http://news.ycombinator.com/item?id=2969008</a></p>
+			<p><cite>Comment by <span class="fn"><a href="http://news.ycombinator.com/item?id=2969008" class="url" rel="ugc external nofollow">Name (required)</a></span> — September 7, 2011 @ <a href="#comment-56">23:49</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-57">
+	<div id="div-comment-57">
+		<div class="comment-author vcard">
+						<p>[…] Jump Point Search « Shortest Path (tags: optimization 
+algorithm pathfinding search gamedev)   Share 
+this:StumbleUponDiggRedditLike this:LikeBe the first to like this post. 
+[…]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://blarneyfellow.wordpress.com/2011/09/08/links-for-2011-09-07/" class="url" rel="ugc external nofollow">links for 2011-09-07 « Blarney Fellow</a></span> — September 8, 2011 @ <a href="#comment-57">10:39</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-62">
+	<div id="div-comment-62">
+		<div class="comment-author vcard">
+						<p>The speed-up comes from specializing the general graph search to a uniform grid, right?</p>
+<p>Cayley graphs are one way to say “uniform grid”. To express a 2d 
+rectangular grid, you could give a group presentation, which is 
+something like saying “There are four directions, north, south, east 
+west. North followed by South comes back to the same place, East 
+followed by West comes back to the same place, and North East West South
+ comes back to the same place.”. (Actually, you would say that all 
+directions have inverses because it is a group, and so there would be 
+two generators and one word, but group theory might be too rigid, you 
+might want semigroups or monoids – I just want to point out that there 
+are ways of describing uniform grids.)</p>
+<p>A generalized jump point search algorithm might consume a 
+presentation and output a specialized jump point search algorithm for 
+maps on that grid.</p>
+<p>A hexagonal grid can be presented with three generators, each equal 
+to its own inverse, and going around in a hexagon (abcabc) leads back to
+ the same place. It’s easy to construct hyperbolic grids, too. For 
+example, the 2-3-7 triangle group (there’s an image here <a href="http://en.wikipedia.org/wiki/%282,3,7%29_triangle_group" rel="nofollow ugc">http://en.wikipedia.org/wiki/%282,3,7%29_triangle_group</a>)can
+ be described as having two generators x and y, such that xx comes back 
+to the same place, yyy comes back to the same place and (xy)^7 comes 
+back to the same place. Probably, there is a presentation of the 
+movement of a chess knight, though I don’t know it (I’m pretty sure it’s
+ the same group as the usual 2d rectangular grid, just a different 
+presentation).</p>
+<p>More exotically, the regularity in rolling-cube mazes (as described here: <a href="http://www.logicmazes.com/rc/cubes.html" rel="nofollow ugc">http://www.logicmazes.com/rc/cubes.html</a>) could be captured with a group presentation. Possibly even pathfinding inside of transposition puzzles?</p>
+			<p><cite>Comment by <span class="fn"><a href="http://gravatar.com/johnicholas" class="url" rel="ugc external nofollow">johnicholas</a></span> — September 14, 2011 @ <a href="#comment-62">03:02</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-63">
+	<div id="div-comment-63">
+		<div class="comment-author vcard">
+						<p>Hi John,</p>
+<p>Excellent points. The speedup does indeed come from specialising the 
+graph to uniform grids. At the moment you’d have to cook up, by hand, 
+variants for other types of uniform cost grids (hexagons etc). This is 
+not difficult in most cases but the situation is not ideal. I thus quite
+ like your suggestion for how a generalised solution should work!</p>
+<p>My thoughts for solving this problem have been quite similar: what’s 
+needed is a pre-processing algorithm that generates an appropriate 
+automaton for a given type of map. Said automaton would take a node and 
+generate a set of jump point successors. In the 90s Korf published a 
+paper which tries to do something like this but, iirc, his method was 
+limited to the search spaces of combinatorial puzzles like the Rubik’s 
+Cube. Detecting symmetries in such cases is a bit simpler than in 
+grid-based pathfinding because the goal is fixed and there are no 
+obstacles.</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — September 14, 2011 @ <a href="#comment-63">12:11</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-70">
+	<div id="div-comment-70">
+		<div class="comment-author vcard">
+						<p>Amazing work! I would love to implement this myself but I don’t
+ see how it would work with influence weighted grids in which case it 
+wouldn’t be as useful.</p>
+			<p><cite>Comment by <span class="fn">Henrik Johansson</span> — September 27, 2011 @ <a href="#comment-70">14:39</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-71">
+	<div id="div-comment-71">
+		<div class="comment-author vcard">
+						<p>You might model influence-weighted grids by representing the 
+map as a uniform three-dimensional grid, where everything except a 
+two-dimensional surface is an obstacle. That would make it possible to 
+apply Jump Point Search, but maps without open straightaways would 
+reduce its advantage.</p>
+<p>Possibly it would be useful if the influence spread out in a nice way
+ – taxicab-metric cones, for example – so that the search can jump up 
+and down slopes relatively easily. Possibly it would be useful if you’re
+ willing to heavily discretize the levels of influence, so that the map 
+looks nearly flat with a few contours on it. In that case the search 
+could jump up to the contour, step across it, then jump onward.</p>
+			<p><cite>Comment by <span class="fn"><a href="http://www.johnicholas.com/" class="url" rel="ugc external nofollow">Johnicholas</a></span> — September 30, 2011 @ <a href="#comment-71">03:54</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor even thread-even depth-1" id="comment-84">
+	<div id="div-comment-84">
+		<div class="comment-author vcard">
+						<p>Henrik, </p>
+<p>I think Johnicholas is on the right track. Here is my simple take on the problem:</p>
+<p>If your grid maps contain uniform cost regions, simply treat any 
+neighbour which is of a different terrain type to the current node, as 
+forced. This will allow you to quickly search across a uniform-cost 
+region, stop to expand a node when crossing into a different region, and
+ continue jumping on the other side. I don’t yet know how well this 
+approach works because I haven’t tried. I suspect however that it should
+ be reasonably effective on a typical RTS map such as <a href="http://movingai.com/benchmarks/wc3maps512/nighthaven.jpg" rel="nofollow">this</a> one from Warcraft 3.</p>
+<p>I hope to write a detailed article on this problem in the near future. With, I hope, a better generalisation and some results.</p>
+<p>Stay tuned! :)</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — October 7, 2011 @ <a href="#comment-84">13:57</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-101">
+	<div id="div-comment-101">
+		<div class="comment-author vcard">
+						<p>Just finished implementing JPS into my game’s A* algorithm. 
+Have been experiencing solid 10x-20x speedups in all of my tests, which 
+was great to learn. I imagine JPS will soon become the industry-standard
+ optimization when it comes to uniform grid-based pathfinding. </p>
+<p>Thanks!</p>
+			<p><cite>Comment by <span class="fn"><a href="http://www.zombox.net/" class="url" rel="ugc external nofollow">Tyson Ibele</a></span> — January 5, 2012 @ <a href="#comment-101">06:38</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-102">
+	<div id="div-comment-102">
+		<div class="comment-author vcard">
+						<p>By the way, I can confirm that your last suggestion regarding weighted grids works. </p>
+<p>After grabbing all the neighbors of an expanded node, I do a quick 
+check to see if any of them have a weight that is different than the 
+node being expanded. If they do, they’re marked as forced……. and the 
+paths that are returned will follow the route of least resistance, as 
+expected.</p>
+<p>So…JPS isn’t limited to uniform-cost grids, which is great!</p>
+			<p><cite>Comment by <span class="fn"><a href="http://www.zombox.net/" class="url" rel="ugc external nofollow">Tyson Ibele</a></span> — January 5, 2012 @ <a href="#comment-102">07:50</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-103">
+	<div id="div-comment-103">
+		<div class="comment-author vcard">
+						<p>This looks absolutely great. Have anyone done an implementation
+ one can look at? I’m trying to optimize an Actionscript 3 
+implementation of A* but I don’t understand the syntax in the paper.</p>
+			<p><cite>Comment by <span class="fn"><a href="http://potmo.com/" class="url" rel="ugc external nofollow">Nisse Bergman</a></span> — January 12, 2012 @ <a href="#comment-103">09:23</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-104">
+	<div id="div-comment-104">
+		<div class="comment-author vcard">
+						<p>[…] attempting to pace up my pathfinding and found out A* with 
+JPS. It essentially prunes tiles before to adding them in the direction 
+of available […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://www.qandasystem.info/gamedev/is-jump-point-search-a-with-jps-appliable-to-non-diagonal-grids/" class="url" rel="ugc external nofollow">Is Jump Point Search (A* with JPS) appliable to non-diagonal grids? | Q&amp;A System</a></span> — January 21, 2012 @ <a href="#comment-104">14:36</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-105">
+	<div id="div-comment-105">
+		<div class="comment-author vcard">
+						<p>Amazing work! I implemented A* + JSP as a method to identify a 
+path from a start to a goal that tried to stay as far away from 
+obstacles as it could and saw a huge improvement. Standard A* took about
+ 44 hours to identify the minimum distance on a 1000 by 1000 grid and A*
+ + JSP took merely 17 minutes. Absolutely wonderful!</p>
+			<p><cite>Comment by <span class="fn">HarryChriss</span> — January 28, 2012 @ <a href="#comment-105">01:18</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-106">
+	<div id="div-comment-106">
+		<div class="comment-author vcard">
+						<p>Hello, can this algorithm be used for solving routing problems, eg finds a path between a start point and end-point?</p>
+			<p><cite>Comment by <span class="fn">Prouso01</span> — February 3, 2012 @ <a href="#comment-106">21:13</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-107">
+	<div id="div-comment-107">
+		<div class="comment-author vcard">
+						<p>Nice, I’ll try to implement this.<br>
+Is A* + JPS only efficient with 2D squared grids ?<br>
+What if one is working with hexagonal grid or other map representations ? Will it still be efficient ?</p>
+			<p><cite>Comment by <span class="fn"><a href="http://gravatar.com/roland223" class="url" rel="ugc external nofollow">akismet-50617b23d4317f7edf65af426d146b65</a></span> — May 16, 2012 @ <a href="#comment-107">20:10</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-108">
+	<div id="div-comment-108">
+		<div class="comment-author vcard">
+						<p>This is awesome! Is any source code available? I would greatly appreciate it :)</p>
+			<p><cite>Comment by <span class="fn">Vittorio Romeo</span> — May 31, 2012 @ <a href="#comment-108">01:07</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-109">
+	<div id="div-comment-109">
+		<div class="comment-author vcard">
+						<p>Hi, Vittorio,<br>
+Maybe you might be interested in Jumper, a Lua implementation of JPS.<br>
+See here: <a href="https://github.com/Yonaba/Jumper" rel="nofollow ugc">https://github.com/Yonaba/Jumper</a></p>
+			<p><cite>Comment by <span class="fn">Roland_Yonaba</span> — May 31, 2012 @ <a href="#comment-109">02:25</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-111">
+	<div id="div-comment-111">
+		<div class="comment-author vcard">
+						<p>Hi all,</p>
+<p>Lua Benchmark for Jump Point Search avaliable here: <a href="https://github.com/Yonaba/Jumper-Benchmark" rel="nofollow ugc">https://github.com/Yonaba/Jumper-Benchmark</a><br>
+It uses 2012 Grid-Based Planning Path Competition (GPPC) maps.<br>
+Feel free to give it a spin!</p>
+			<p><cite>Comment by <span class="fn"><a href="http://twitter.com/RYonaba" class="url" rel="ugc external nofollow">Roland Yonaba (@RYonaba)</a></span> — November 5, 2012 @ <a href="#comment-111">05:48</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-112">
+	<div id="div-comment-112">
+		<div class="comment-author vcard">
+						<p>I am interested in applying jump points to minimize number of 
+turns + path length in a straight moves only scenario. Other techniques I
+ found to deal with this problem use, for instance, rectangular 
+symmetry. The ‘only’ problem I haven’t dealt with is transforming 
+diagonal jumps into a optimal  (minimum number of turns + path length) 
+sequence of straight moves.  </p>
+<p>What I’ve thought until now: for minimizing turns, we should use the 
+Manhattan heuristic and add the number of turns needed to perform a jump
+ to the g-factor. Also, maybe the Euclidean heuristic in the g-factor 
+can be replaced with the Manhattan heuristic?<br>
+Besides that, the main problem is transforming a diagonal jump into a 
+sequence of turn-wise optimal moves (that number then would add to the 
+jump node g-score).<br>
+Eg, a simple case where we try to move from S to E:<br>
+(bear in mind that no other jump point was found in the diagonal search until we found E)<br>
+1 0 1 1 1 E<br>
+1 0 1 0 0 0<br>
+1 0 0 0 0 0<br>
+1 0 0 0 0 1<br>
+0 0 0 0 0 0<br>
+S 1 1 0 1 1<br>
+There is already several paths made available by the fact that it is a diagonal jump point (marked with 2’s):<br>
+1 0 1 1 1 E<br>
+1 0 1 2 2 2<br>
+1 0 2 2 2 0<br>
+1 2 2 2 0 1<br>
+2 2 2 0 0 0<br>
+S 1 1 1 1 1<br>
+Under these conditions, what is the best, turn-wise, straight moves only
+ path ?(because the distance covered will be the same under the 
+Manhattan metric) (having in account an initial orientation).<br>
+We can ignore holes in the map (filled with 3’s):<br>
+1 3 1 1 1 E<br>
+1 3 1 0 0 0<br>
+1 0 0 0 0 0<br>
+1 0 0 0 0 1<br>
+0 0 0 0 0 3<br>
+S 1 1 3 1 1<br>
+This case is simple, and a perfect solution with 3 turns + a possible start turn would be the following path (marked P):<br>
+1 3 1 1 1 E<br>
+1 3 1 0 0 P<br>
+1 P P P P P<br>
+1 P 0 0 0 1<br>
+P P 0 0 0 3<br>
+S 1 1 3 1 1<br>
+From there on, I haven’t thought much.</p>
+			<p><cite>Comment by <span class="fn">Coolis</span> — November 11, 2012 @ <a href="#comment-112">00:46</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-115">
+	<div id="div-comment-115">
+		<div class="comment-author vcard">
+						<p>How to use it in  non-uniform grid ?<br>
+In my map ,there are some tiles have more cost than normal-ground (river / hill / wall).</p>
+<p>thx.</p>
+			<p><cite>Comment by <span class="fn">finscn</span> — December 20, 2012 @ <a href="#comment-115">17:46</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-116">
+	<div id="div-comment-116">
+		<div class="comment-author vcard">
+						<p>Can use JPS with RSR ? faster ?<br>
+I used JPS 500 x 700 grids need few seconds on mobile phone. I expect 0.5 seconds to find out XD.</p>
+			<p><cite>Comment by <span class="fn">Terence Mok</span> — March 1, 2013 @ <a href="#comment-116">15:26</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-117">
+	<div id="div-comment-117">
+		<div class="comment-author vcard">
+						<p>[…] implementation is based on the original paper and article 
+on JPS found here: Jump Point Search. The Lua based implementation, 
+Jumper, was used for help with some parts of the […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://gamedev.tutsplus.com/tutorials/implementation/speed-up-a-star-pathfinding-with-the-jump-point-search-algorithm/" class="url" rel="ugc external nofollow">How to Speed Up A* Pathfinding With the Jump Point Search Algorithm | Gamedevtuts+</a></span> — March 13, 2013 @ <a href="#comment-117">01:30</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-124">
+	<div id="div-comment-124">
+		<div class="comment-author vcard">
+						<p>[…] Jump Point Search&nbsp;&nbsp;give best result for PathFinding. […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://jakir.me/some-path-findings-algorithms-you-may-like/" class="url" rel="ugc external nofollow">Some Path Findings Algorithms you may Like « Jakir Hossain</a></span> — March 31, 2013 @ <a href="#comment-124">02:43</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-137">
+	<div id="div-comment-137">
+		<div class="comment-author vcard">
+						<p>[…] Jump Point Search | Shortest Path. […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://engineerdollery.com/2013/06/02/jump-point-search-shortest-path/" class="url" rel="ugc external nofollow">Jump Point Search | Shortest Path | Thoughts of an Engineer</a></span> — June 2, 2013 @ <a href="#comment-137">10:35</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-147">
+	<div id="div-comment-147">
+		<div class="comment-author vcard">
+						<p>As you point out, Jump Point Search may not be effective in a 
+grid with lots of walls.  But, the single point pruning step is very 
+easy to implement and makes a lot more sense than blindly returning all 8
+ neighbours.  I modified my A* neighbours function to do pruning with 
+forced neighbours and with some informal tests found a 2x speed gain 
+over A*.<br>
+I would be very interested to hear your comments.</p>
+			<p><cite>Comment by <span class="fn">Bruce</span> — July 22, 2013 @ <a href="#comment-147">22:38</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-165">
+	<div id="div-comment-165">
+		<div class="comment-author vcard">
+						<p>I implement JPS for my as3 game but it looks slower than normal
+ A* because the it recursive too much in jump() function. My map is 
+about 100×100.</p>
+			<p><cite>Comment by <span class="fn">chuma</span> — September 7, 2013 @ <a href="#comment-165">14:59</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-167">
+	<div id="div-comment-167">
+		<div class="comment-author vcard">
+						<p>This algorithm seems to only find paths that consist purely of 
+horizontal, vertical and diagonal segments. While this may be 
+technically enough for the “shortest path” in a pure grid of squares, 
+it’s rather useless in a practical game where an object can move to any 
+direction, and where the shortest distance is a straight line from point
+ A to point B (rather than first moving eg. horizontally and then 
+diagonally.)<br>
+It’s possible to devise an algorithm that finds these straight lines, 
+forming geometrically the shortest path when measuring the total length 
+of these lines.</p>
+			<p><cite>Comment by <span class="fn"><a href="https://www.facebook.com/juha.nieminen.104" class="url" rel="ugc external nofollow">Juha Nieminen</a></span> — September 24, 2013 @ <a href="#comment-167">17:38</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-176">
+	<div id="div-comment-176">
+		<div class="comment-author vcard">
+						<p>Juha, take a look at Anya*. It is somewhat related to both JPS 
+and Theta* but takes a different approach in finding the turning points.
+ Like JPS, Anya* focuses on obstacles to define turning points to 
+preserve optimality, and like Theta*, it pulls a string to determine the
+ Euclidean shortest path across optimal path space (see also Swamps).</p>
+			<p><cite>Comment by <span class="fn">Starshine</span> — December 10, 2013 @ <a href="#comment-176">22:43</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-180">
+	<div id="div-comment-180">
+		<div class="comment-author vcard">
+						<p>[…] Jump Point Search « Shortest Path A very neat search 
+algorithm that kicks A*'s ass (speeds it up by ~10x) (tags: algorithm) 
+[…]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://hawkdo.com/hellheaven/?p=101" class="url" rel="ugc external nofollow">links for 2011-09-08 | 地狱天堂</a></span> — January 13, 2014 @ <a href="#comment-180">11:34</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-250">
+	<div id="div-comment-250">
+		<div class="comment-author vcard">
+						<p>[…] it works. The website here(Which is all that I could find on the topic of Jump-point searching): <a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/" rel="ugc">https://harablog.wordpress.com/2011/09/07/jump-point-search/</a> doesn’t really explain much about how to prune, and how to determine a Jump-point successor. […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://www.blogosfera.co.uk/2014/05/jump-point-searching-in-detail/" class="url" rel="ugc external nofollow">Jump-Point searching in detail | BlogoSfera</a></span> — May 2, 2014 @ <a href="#comment-250">11:04</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-340">
+	<div id="div-comment-340">
+		<div class="comment-author vcard">
+						<p>[…] looked at Jump Point Search I’m going to go with that. It can’t deal with varied cost of terrain. That’s […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://livingmidnight.com/archives/155" class="url" rel="ugc external nofollow">Pathfinding | Wampus DevBlog</a></span> — August 20, 2014 @ <a href="#comment-340">05:29</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-374">
+	<div id="div-comment-374">
+		<div class="comment-author vcard">
+						<p>It seems the visualizations are not really “fairly” made. Even 
+the jumping straight rule is doing *something* to consider the 
+intermediate nodes and jump through them. It only finds the obstacle 
+which creates the jump destination because it did some work to consider a
+ node and its neighbors.</p>
+<p>Wouldn’t it be more accurate to color all the nodes along the 
+straignt jump paths, even if in a different color? Since it certainly 
+did traverse them?</p>
+			<p><cite>Comment by <span class="fn">jeskeca</span> — September 28, 2014 @ <a href="#comment-374">03:01</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-375">
+	<div id="div-comment-375">
+		<div class="comment-author vcard">
+						<p>@jeskeca:</p>
+<p>During search there are two types of operations that take time:<br>
+(i) evaluating nodes using the heuristic function.<br>
+(ii) maintaining the open list</p>
+<p>In pathfinding the first of these operations is usually very cheap 
+and not a problem (cf. AI Planning where heuristics are very expensive).
+ That means the search time is dominated by open list operations (push, 
+pop and update). Each such operation typically takes O(log2) time. If 
+you look at the literature, practitioners in this area speed up 
+pathfinding by  developing ways to expand fewer nodes. This is also the 
+case for JPS.</p>
+<p>In JPS we use recursive rules to scan the grid and prune nodes based 
+on the result. Obviously scanning the grid is not free; it takes some 
+time but the important thing is that each scanning operation amounts to a
+ few read instructions a handful of branching instructions  This is much
+ cheaper than generating and updating nodes on the open list. Anyway,  I
+ did not want to conflate scanning nodes from the grid with expanding 
+nodes so I did not attempt to visualise this part of the algorithm. I 
+think the pictures included in the article visualise very well the kind 
+of savings you can obtain with JPS.</p>
+<p>You may be interested to know that there is a sequel to the original 
+JPS paper where we look at the overhead from scanning the grid and 
+introduce not only new ways to scan the grid faster but also new ways to
+ eliminate scanning entirely. The result is that we can further improve 
+the performance JPS — often by quite a bit! </p>
+<p>The paper in question can be found here: <a href="http://www.aaai.org/ocs/index.php/ICAPS/ICAPS14/paper/view/7914" rel="nofollow ugc">http://www.aaai.org/ocs/index.php/ICAPS/ICAPS14/paper/view/7914</a><br>
+There is also an associated video recording here:  <a href="https://www.youtube.com/watch?v=NmM4pv8uQwI" rel="nofollow ugc">https://www.youtube.com/watch?v=NmM4pv8uQwI</a></p>
+<p>I expect there soon be will be a writeup on this blog with more details.</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — September 29, 2014 @ <a href="#comment-375">09:41</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-469">
+	<div id="div-comment-469">
+		<div class="comment-author vcard">
+						<p>Tremendous issues here. I am very glad to look your<br>
+post. Thanks so much and I am looking ahead to touch you.<br>
+Will you kindly drop me a e-mail?</p>
+			<p><cite>Comment by <span class="fn"><a href="http://www.drdreiheadphones.com/" class="url" rel="ugc external nofollow">Dr Dre Beats Studio</a></span> — February 19, 2015 @ <a href="#comment-469">22:29</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-479">
+	<div id="div-comment-479">
+		<div class="comment-author vcard">
+						<p>This may be just a misunderstanding, but the diagonal expansion
+ seems off to me. In figure 1, aren’t 6-&gt;x-&gt;5 and 6-&gt;7-&gt;5 
+symmetric optimal paths?</p>
+<p>Therefore shouldn’t 5 and 2 both be pruned?</p>
+<p>My apologies if I am missing something obvious here.</p>
+			<p><cite>Comment by <span class="fn"><a href="https://plus.google.com/100319278894309651947" class="url" rel="ugc external nofollow">Jeremy Diaz</a></span> — March 12, 2015 @ <a href="#comment-479">11:41</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-484">
+	<div id="div-comment-484">
+		<div class="comment-author vcard">
+						<p>[…] There is a topic called Jump Point Search. You could make some research about it. Start checking this and […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://engindenizce.com/?p=63" class="url" rel="ugc external nofollow">A* pathfinding | Engin Deniz Cengiz</a></span> — March 19, 2015 @ <a href="#comment-484">07:03</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-496">
+	<div id="div-comment-496">
+		<div class="comment-author vcard">
+						<p>[…] amount of steps added to the list) to make A* run more 
+quickly. Jump Point Search (JPS), created by Daniel Harabor and Alban 
+Grastien, is an excellent optimization for […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://www.programmingandthings.com/2015/04/25/hello-world/" class="url" rel="ugc external nofollow">Jump Point Search for Hexagons | Programming and Things</a></span> — April 26, 2015 @ <a href="#comment-496">06:31</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-620">
+	<div id="div-comment-620">
+		<div class="comment-author vcard">
+						<p>In Figure 1 (Simple Neighbour Pruning) for diagonal movement, 
+why are cells 2 and 5 allowed? They are accessible from parent via 4 and
+ 7 using the same cost. Am I missing something here?</p>
+			<p><cite>Comment by <span class="fn"><a href="https://plus.google.com/+DmytroKorduban" class="url" rel="ugc external nofollow">Dmytro Korduban</a></span> — January 26, 2016 @ <a href="#comment-620">19:50</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-639">
+	<div id="div-comment-639">
+		<div class="comment-author vcard">
+						<p>[…] can I generalize Jump Point Search to a 3D search […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="http://somepieceof.info/question/programming/3d-search-using-a-jps/" class="url" rel="ugc external nofollow">[ASK] programming - 3D search using A* JPS | Some Piece of Information</a></span> — February 28, 2016 @ <a href="#comment-639">11:00</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-807">
+	<div id="div-comment-807">
+		<div class="comment-author vcard">
+						<p>[…] <a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/" rel="ugc">https://harablog.wordpress.com/2011/09/07/jump-point-search/</a> […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://aaronmillet.wordpress.com/2016/12/12/jump-point-search-faster-than-a/" class="url" rel="ugc external nofollow">Jump Point Search, Faster Than A* – Aaron Millet</a></span> — December 12, 2016 @ <a href="#comment-807">23:43</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4279">
+	<div id="div-comment-4279">
+		<div class="comment-author vcard">
+						<p>I think this could do well with pre-processing.  I am 
+envisioning an int[][] at each node position containing the node indices
+ to be opened from each entry direction.  You can find out ahead of time
+ exactly which indices could be optimally reached via the parent, and 
+prune them.  Then it’s just a matter of “foreach(int index in 
+neighbors[entryDirection]) OpenNodes.Enqueue(index);”  Unless I am not 
+understanding it.  I will have to test it out when I have some spare 
+time.  Thanks for the blog!</p>
+			<p><cite>Comment by <span class="fn">Daniel</span> — August 8, 2018 @ <a href="#comment-4279">12:07</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-8965">
+	<div id="div-comment-8965">
+		<div class="comment-author vcard">
+						<p>[…] there is some magic called Jump Point Search, or JPS for short. This will be implemented […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://makingcomputerdothings.com/creating-a-starcraft-ai-part-13-a-star-is-born/" class="url" rel="ugc external nofollow">Creating a Starcraft AI – Part 13: A star is born | Making Computer Do Things</a></span> — January 25, 2019 @ <a href="#comment-8965">02:43</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-49593">
+	<div id="div-comment-49593">
+		<div class="comment-author vcard">
+						<p><a href="https://novostic.ru/" rel="nofollow ugc">пенсия работающим пенсионерам</a> – баллы для начисления пенсии, баллы для пенсии</p>
+			<p><cite>Comment by <span class="fn"><a href="https://novostic.ru/" class="url" rel="ugc external nofollow">Andrewwalty</a></span> — June 22, 2020 @ <a href="#comment-49593">10:18</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-101422">
+	<div id="div-comment-101422">
+		<div class="comment-author vcard">
+						<p>[…] JPS (Jump Point Search) is a variant of A* that exploits 
+the symmetries in 2D grids that contain lots of open space to avoid 
+queuing/dequeuing huge numbers of extraneous nodes. […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://python.tutorialink.com/fast-pathfinding-and-distance-matrix-in-2d-grid/" class="url" rel="ugc external nofollow">Fast pathfinding and distance matrix in 2d grid – Python</a></span> — December 29, 2021 @ <a href="#comment-101422">15:38</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-109581">
+	<div id="div-comment-109581">
+		<div class="comment-author vcard">
+						<p>[…] it works. The website here(Which is all that I could find on the topic of Jump-point searching): <a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/" rel="ugc">https://harablog.wordpress.com/2011/09/07/jump-point-search/</a> doesn’t really explain much about how to prune, and how to determine a Jump-point successor. […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://newswire.ae/jump-point-searching-in-detail/" class="url" rel="ugc external nofollow">Jump-Point searching in detail - Newswire</a></span> — February 3, 2023 @ <a href="#comment-109581">04:15</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+</ol>
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+	<br>
+
+	<p><a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/feed/"><abbr title="Really Simple Syndication">RSS</abbr> feed for comments on this post.</a>	<a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a>
+</p>
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3><form action="https://harablog.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+
+
+<div id="comment-form__verbum" class="transparent"></div><div class="verbum-form-meta"><input type="hidden" name="comment_post_ID" value="898" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+
+			<input type="hidden" name="highlander_comment_nonce" id="highlander_comment_nonce" value="a5e658084c">
+			<input type="hidden" name="verbum_show_subscription_modal" value=""></div><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b12e711b01"></p><p style="display: none !important;"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1703232240382"><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+
+
+<!-- begin footer -->
+</div>
+
+
+<!-- begin sidebar -->
+<div id="menu">
+
+<ul>
+<li id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://harablog.wordpress.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></li>
+<li id="pages-2" class="widget widget_pages"><h2 class="widgettitle">Pages</h2>
+
+			<ul>
+				<li class="page_item page-item-2"><a href="https://harablog.wordpress.com/about/">About</a></li>
+			</ul>
+
+			</li>
+
+		<li id="recent-posts-2" class="widget widget_recent_entries">
+		<h2 class="widgettitle">Recent Posts</h2>
+
+		<ul>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/10/07/my-apple-iic/">My Apple II/c</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/" aria-current="page">Jump Point Search</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/">Rectangular Symmetry Reduction</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/">Fast Pathfinding via Symmetry&nbsp;Breaking</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/07/11/the-paper/">The Paper</a>
+									</li>
+					</ul>
+
+		</li>
+<li id="categories-320175801" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+
+			<ul>
+					<li class="cat-item cat-item-33525"><a href="https://harablog.wordpress.com/category/conference/">conference</a>
+</li>
+	<li class="cat-item cat-item-47932"><a href="https://harablog.wordpress.com/category/non-technical/">non-technical</a>
+</li>
+	<li class="cat-item cat-item-2263985"><a href="https://harablog.wordpress.com/category/pathfinding/">pathfinding</a>
+</li>
+			</ul>
+
+			</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Meta</h2>
+
+		<ul>
+			<li><a href="https://wordpress.com/start?ref=wplogin">Register</a></li>			<li><a href="https://harablog.wordpress.com/wp-login.php">Log in</a></li>
+			<li><a href="https://harablog.wordpress.com/feed/">Entries feed</a></li>
+			<li><a href="https://harablog.wordpress.com/comments/feed/">Comments feed</a></li>
+
+			<li><a href="https://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>
+		</ul>
+
+		</li>
+
+</ul>
+
+</div>
+
+
+<p class="credit"><cite> <a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a></cite></p>
+
+</div>
+
+<!--  -->
+	<div style="display:none">
+	</div>
+		<!-- CCPA [start] -->
+		<script type="text/javascript">
+			( function () {
+
+				var setupPrivacy = function() {
+
+					// Minimal Mozilla Cookie library
+					// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie/Simple_document.cookie_framework
+					var cookieLib = window.cookieLib = {getItem:function(e){return e&&decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*"+encodeURIComponent(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*([^;]*).*$)|^.*$"),"$1"))||null},setItem:function(e,o,n,t,r,i){if(!e||/^(?:expires|max\-age|path|domain|secure)$/i.test(e))return!1;var c="";if(n)switch(n.constructor){case Number:c=n===1/0?"; expires=Fri, 31 Dec 9999 23:59:59 GMT":"; max-age="+n;break;case String:c="; expires="+n;break;case Date:c="; expires="+n.toUTCString()}return"rootDomain"!==r&&".rootDomain"!==r||(r=(".rootDomain"===r?".":"")+document.location.hostname.split(".").slice(-2).join(".")),document.cookie=encodeURIComponent(e)+"="+encodeURIComponent(o)+c+(r?"; domain="+r:"")+(t?"; path="+t:"")+(i?"; secure":""),!0}};
+
+					// Implement IAB USP API.
+					window.__uspapi = function( command, version, callback ) {
+
+						// Validate callback.
+						if ( typeof callback !== 'function' ) {
+							return;
+						}
+
+						// Validate the given command.
+						if ( command !== 'getUSPData' || version !== 1 ) {
+							callback( null, false );
+							return;
+						}
+
+						// Check for GPC. If set, override any stored cookie.
+						if ( navigator.globalPrivacyControl ) {
+							callback( { version: 1, uspString: '1YYN' }, true );
+							return;
+						}
+
+						// Check for cookie.
+						var consent = cookieLib.getItem( 'usprivacy' );
+
+						// Invalid cookie.
+						if ( null === consent ) {
+							callback( null, false );
+							return;
+						}
+
+						// Everything checks out. Fire the provided callback with the consent data.
+						callback( { version: 1, uspString: consent }, true );
+					};
+
+					// Initialization.
+					document.addEventListener( 'DOMContentLoaded', function() {
+
+						// Internal functions.
+						var setDefaultOptInCookie = function() {
+							var value = '1YNN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 365 * 24 * 60 * 60, '/', domain );
+						};
+
+						var setDefaultOptOutCookie = function() {
+							var value = '1YYN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 24 * 60 * 60, '/', domain );
+						};
+
+						var setDefaultNotApplicableCookie = function() {
+							var value = '1---';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 24 * 60 * 60, '/', domain );
+						};
+
+						var setCcpaAppliesCookie = function( applies ) {
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'ccpa_applies', applies, 24 * 60 * 60, '/', domain );
+						}
+
+						var maybeCallDoNotSellCallback = function() {
+							if ( 'function' === typeof window.doNotSellCallback ) {
+								return window.doNotSellCallback();
+							}
+
+							return false;
+						}
+
+						// Look for usprivacy cookie first.
+						var usprivacyCookie = cookieLib.getItem( 'usprivacy' );
+
+						// Found a usprivacy cookie.
+						if ( null !== usprivacyCookie ) {
+
+							// If the cookie indicates that CCPA does not apply, then bail.
+							if ( '1---' === usprivacyCookie ) {
+								return;
+							}
+
+							// CCPA applies, so call our callback to add Do Not Sell link to the page.
+							maybeCallDoNotSellCallback();
+
+							// We're all done, no more processing needed.
+							return;
+						}
+
+						// We don't have a usprivacy cookie, so check to see if we have a CCPA applies cookie.
+						var ccpaCookie = cookieLib.getItem( 'ccpa_applies' );
+
+						// No CCPA applies cookie found, so we'll need to geolocate if this visitor is from California.
+						// This needs to happen client side because we do not have region geo data in our $SERVER headers,
+						// only country data -- therefore we can't vary cache on the region.
+						if ( null === ccpaCookie ) {
+
+							var request = new XMLHttpRequest();
+							request.open( 'GET', 'https://public-api.wordpress.com/geo/', true );
+
+							request.onreadystatechange = function () {
+								if ( 4 === this.readyState ) {
+									if ( 200 === this.status ) {
+
+										// Got a geo response. Parse out the region data.
+										var data = JSON.parse( this.response );
+										var region      = data.region ? data.region.toLowerCase() : '';
+										var ccpa_applies = ['california', 'colorado', 'connecticut', 'utah', 'virginia'].indexOf( region ) > -1;
+										// Set CCPA applies cookie. This keeps us from having to make a geo request too frequently.
+										setCcpaAppliesCookie( ccpa_applies );
+
+										// Check if CCPA applies to set the proper usprivacy cookie.
+										if ( ccpa_applies ) {
+											if ( maybeCallDoNotSellCallback() ) {
+												// Do Not Sell link added, so set default opt-in.
+												setDefaultOptInCookie();
+											} else {
+												// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+												setDefaultOptOutCookie();
+											}
+										} else {
+											// CCPA does not apply.
+											setDefaultNotApplicableCookie();
+										}
+									} else {
+										// Could not geo, so let's assume for now that CCPA applies to be safe.
+										setCcpaAppliesCookie( true );
+										if ( maybeCallDoNotSellCallback() ) {
+											// Do Not Sell link added, so set default opt-in.
+											setDefaultOptInCookie();
+										} else {
+											// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+											setDefaultOptOutCookie();
+										}
+									}
+								}
+							};
+
+							// Send the geo request.
+							request.send();
+						} else {
+							// We found a CCPA applies cookie.
+							if ( ccpaCookie === 'true' ) {
+								if ( maybeCallDoNotSellCallback() ) {
+									// Do Not Sell link added, so set default opt-in.
+									setDefaultOptInCookie();
+								} else {
+									// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+									setDefaultOptOutCookie();
+								}
+							} else {
+								// CCPA does not apply.
+								setDefaultNotApplicableCookie();
+							}
+						}
+					} );
+				};
+
+				// Kickoff initialization.
+				if ( window.defQueue && defQueue.isLOHP && defQueue.isLOHP === 2020 ) {
+					defQueue.items.push( setupPrivacy );
+				} else {
+					setupPrivacy();
+				}
+
+			} )();
+		</script>
+
+		<!-- CCPA [end] -->
+			<div id="actionbar" class="actnbr-pub-rubric actnbr-has-follow actnbr-hidden">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+						<a class="actnbr-action actnbr-actn-comment" href="https://harablog.wordpress.com/2011/09/07/jump-point-search/#comments">
+							<svg class="gridicon gridicons-comment" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M12 16l-5 5v-5H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2h-7z"></path></g></svg>							<span>Comment						</span>
+						</a>
+					</li>
+									<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z" fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20" style="--darkreader-inline-fill: #79ef8e;" data-darkreader-inline-fill=""></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5" style="--darkreader-inline-stroke: #79ef8e;" data-darkreader-inline-stroke=""></path></svg>
+			<span>Subscribed</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename actnbr-hidden">
+			<a href="https://harablog.wordpress.com/">
+				<img alt="" src="Jump%20Point%20Search%20Shortest%20Path_files/wpcom-gray-white.png" srcset="Jump%20Point%20Search%20Shortest%20Path_files/wpcom-gray-white.png 1x" class="avatar avatar-50" height="50" width="50">				Shortest Path			</a>
+		</li>
+										<div class="actnbr-message no-display"></div>
+									<form method="post" action="https://subscribe.wordpress.com" accept-charset="utf-8" style="display: none;">
+																				<div>
+										<input type="email" name="email" placeholder="Enter your email address" class="actnbr-email-field" aria-label="Enter your email address">
+										</div>
+										<input type="hidden" name="action" value="subscribe">
+										<input type="hidden" name="blog_id" value="6057140">
+										<input type="hidden" name="source" value="https://harablog.wordpress.com/2011/09/07/jump-point-search/">
+										<input type="hidden" name="sub-type" value="actionbar-follow">
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="32ce176f56">										<div class="actnbr-button-wrap">
+											<button type="submit" value="Sign me up">
+												Sign me up											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge actnbr-hidden">
+										<div>
+											Already have a WordPress.com account? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F07%2Fjump-point-search%2F&amp;signup_flow=account">Log in now.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+									<li class="actnbr-btn actnbr-hidden" onclick="javascript:__tcfapi( 'showUi' );">
+						<a class="actnbr-action actnbr-actn-privacy" href="#">
+							<svg class="gridicon gridicons-info-outline" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg>							<span>Privacy						</span>
+						</a>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+									<li class="actnbr-sitename actnbr-hidden">
+			<a href="https://harablog.wordpress.com/">
+				<img alt="" src="Jump%20Point%20Search%20Shortest%20Path_files/wpcom-gray-white.png" srcset="Jump%20Point%20Search%20Shortest%20Path_files/wpcom-gray-white.png 1x" class="avatar avatar-50" height="50" width="50">				Shortest Path			</a>
+		</li>
+								<li class="actnbr-folded-customize actnbr-hidden">
+								<a href="https://harablog.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F07%2Fjump-point-search%2F">
+									<svg class="gridicon gridicons-customize" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z"></path></g></svg>									<span>Customize</span>
+								</a>
+							</li>
+																<li class="actnbr-folded-follow actnbr-hidden">
+												<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z" fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20" style="--darkreader-inline-fill: #79ef8e;" data-darkreader-inline-fill=""></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5" style="--darkreader-inline-stroke: #79ef8e;" data-darkreader-inline-stroke=""></path></svg>
+			<span>Subscribed</span>
+		</a>
+										</li>
+																	<li class="actnbr-signup actnbr-hidden"><a href="https://wordpress.com/start/">Sign up</a></li>
+									<li class="actnbr-login actnbr-hidden"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F07%2Fjump-point-search%2F&amp;signup_flow=account">Log in</a></li>
+																	<li class="actnbr-shortlink actnbr-hidden"><a href="https://wp.me/pppJO-eu">Copy shortlink</a></li>
+																	<li class="flb-report actnbr-hidden">
+										<a href="http://en.wordpress.com/abuse/?report_url=https://harablog.wordpress.com/2011/09/07/jump-point-search/" target="_blank">
+											Report this content										</a>
+									</li>
+																	<li class="actnbr-reader actnbr-hidden">
+										<a href="https://wordpress.com/read/blogs/6057140/posts/898">
+											View post in Reader										</a>
+									</li>
+																	<li class="actnbr-subs actnbr-hidden">
+										<a href="https://subscribe.wordpress.com/">Manage subscriptions</a>
+									</li>
+																		<li class="actnbr-fold actnbr-hidden"><a href="">Collapse this bar</a></li>
+															</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20231122";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.js?v=20231122";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+
+	<script type="text/javascript" src="Jump%20Point%20Search%20Shortest%20Path_files/smart.js" id="smart-tag-lib-js"></script>
+<script type="text/javascript" id="verbum-settings-js-before">
+/* <![CDATA[ */
+window.VerbumComments = {"Log in or provide your name and email to leave a reply.":"Log in or provide your name and email to leave a reply.","Receive web and mobile notifications for posts on this site.":"Receive web and mobile notifications for posts on this site.","Name":"Name","Email (address never made public)":"Email (address never made public)","Website (optional)":"Website (optional)","Leave a reply. (log in optional)":"Leave a reply. (log in optional)","Log in to leave a reply.":"Log in to leave a reply.","Logged in via %s":"Logged in via %s","Log out":"Log out","Email":"Email","(Address never made public)":"(Address never made public)","Instantly":"Instantly","Daily":"Daily","Reply":"Reply","WordPress":"WordPress","Weekly":"Weekly","Notify me of new posts":"Notify me of new posts","Email me new posts":"Email me new posts","Email me new comments":"Email me new comments","Cancel":"Cancel","Write a comment...":"Write a Comment...","Website":"Website","Optional":"Optional","We'll keep you in the loop!":"We'll keep you in the loop!","Loading your comment...":"Loading your comment...","Never miss a beat!":"Never miss a beat!","Interested in getting blog post updates? Simply click the button below to stay in the loop!":"Interested in getting blog post updates? Simply click the button below to stay in the loop!","Enter your email address":"Enter your email address","Subscribe":"Subscribe","Comment sent successfully":"Comment sent successfully","Save my name, email, and website in this browser for the next time I comment.":"Save my name, email, and website in this browser for the next time I comment.","siteId":6057140,"postId":898,"mustLogIn":false,"requireNameEmail":true,"commentRegistration":false,"connectURL":"https:\/\/harablog.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/harablog.wordpress.com\/wp-login.php?action=logout&_wpnonce=95bb545ae2","homeURL":"https:\/\/harablog.wordpress.com\/","subscribeToBlog":true,"subscribeToComment":true,"isJetpackCommentsLoggedIn":false,"jetpackUsername":"","jetpackUserId":0,"jetpackSignature":"","jetpackAvatar":null,"enableBlocks":false,"enableSubscriptionModal":true,"currentLocale":"en","isJetpackComments":false,"allowedBlocks":["core\/paragraph","core\/list","core\/code","core\/list-item","core\/quote","core\/image","core\/embed","core\/quote","core\/code"],"embedNonce":"4ec63470c4","verbumBundleUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/verbum\/dist\/index.js"}
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_003"></script>
+<script type="text/javascript" src="Jump%20Point%20Search%20Shortest%20Path_files/outbrain.js" id="outbrain-js"></script>
+<script type="text/javascript" id="sharing-js-js-extra">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Jump%20Point%20Search%20Shortest%20Path_files/Untitled_004"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<iframe src="Jump%20Point%20Search%20Shortest%20Path_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+	<div id="likes-other-gravatars" class="wpl-new-layout" aria-hidden="true">
+		<div class="likes-text">
+			<span>%d</span>		</div>
+		<ul class="wpl-avatars sd-like-gravatars"></ul>
+	</div>
+
+		<script src="Jump%20Point%20Search%20Shortest%20Path_files/w.js" defer="defer"></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'6057140','blog_tz':'10','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'6057140','v':'wpcom','tz':'10','user_id':'0','post':'898','subd':'harablog'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3BTTVtuWDM4P1prRmthbFFyXU44VCxWcHVjeCZoaWdzU29kNjE9cEJUeCxJeHVGdHRYP2N6eWMtZmVvejZMem1MTkFZaVpnRVZSNiYueWFlWEtLLHNTWnV8bms5c3J3LkMmZFhMYjU3ekgvdC1mQlNkRjJkLFZqZD1lbEMvL35sMEgtel1xYWFSRzcuK34rL243L01idnIzX01dW34/eTJ+TTRuU1EyLmtkeEUyb3dTbWZQPTlXP2xzPS9nNXZjTDU4ZHhGLndPeDUuJWo4L0tvd0JUN0VqQm82Qlt8MnZJWjBnbDJHem5wLw=='}]);
+_stq.push([ 'clickTrackerInit', '6057140', '898' ]);
+</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+<script>
+(function() {
+	'use strict';
+
+	const fetches = {};
+	const promises = {};
+	const urls = {
+		'verbum': 'https://s0.wp.com/wp-content/mu-plugins/verbum/dist/index.js?m=1703182769i&ver=1703182769'
+	};
+	const loaders = {
+		'verbum': () => {
+			fetchExternalScript('verbum');
+			promises['verbum'] = promises['verbum'] || loadWPScript('verbum');
+			return promises['verbum'];
+		},
+		
+	};
+	const scriptExtras = {
+		
+	};
+
+	window.WP_Enqueue_Dynamic_Script = {
+		loadScript: (handle) => {
+			if (!loaders[handle]) {
+				console.error('WP_Enqueue_Dynamic_Script: unregistered script `' + handle + '`.');
+			}
+			return loaders[handle]();
+		}
+	};
+
+	function fetchExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		fetches[handle] = fetches[handle] || fetch(urls[handle], { mode: 'no-cors' });
+		return fetches[handle];
+	}
+
+	function runExtraScript(handle, type, index) {
+		const id = 'wp-enqueue-dynamic-script:' + handle + ':' + type + ':' + (index + 1);
+		const template = document.getElementById(id);
+		if (!template) {
+			return Promise.reject();
+		}
+
+		const script = document.createElement( 'script' );
+		script.innerHTML = template.innerHTML;
+		document.body.appendChild( script );
+		return Promise.resolve();
+	}
+
+	function loadExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		return fetches[handle].then(() => {
+			return new Promise((resolve, reject) => {
+				const script = document.createElement('script');
+				script.onload = () => resolve();
+				script.onerror = (e) => reject(e);
+				script.src = urls[handle];
+				document.body.appendChild(script);
+			});
+		});
+	}
+
+	function loadExtra(handle, pos) {
+		const count = (scriptExtras[handle] && scriptExtras[handle][pos]) || 0;
+		let promise = Promise.resolve();
+
+		for (let i = 0; i < count; i++) {
+			promise = promise.then(() => runExtraScript(handle, pos, i));
+		}
+
+		return promise;
+	}
+
+	function loadWPScript(handle) {
+		return loadExtra(handle, 'before')
+			.then(() => loadExternalScript(handle))
+			.then(() => loadExtra(handle, 'after'));
+	}
+} )();
+</script>
+
+
+
+<style>img#wpstats {
+			position: absolute !important;
+			clip: rect(0, 0, 0, 0);
+			padding: 0 !important;
+			border: 0 !important;
+			height: 0 !important;
+			width: 0 !important;
+			overflow: hidden;
+		}</style><style class="darkreader darkreader--sync" media="screen"></style><img src="Jump%20Point%20Search%20Shortest%20Path_files/g.gif" alt="" id="wpstats"><iframe style="display: none;" name="__tcfapiLocator"></iframe><script src="Jump%20Point%20Search%20Shortest%20Path_files/actionbar.js" defer="defer"></script></body></html>
+<!--
+	generated in 0.211 seconds
+	132044 bytes batcached for 300 seconds
+-->

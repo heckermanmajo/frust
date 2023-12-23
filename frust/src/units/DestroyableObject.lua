@@ -1,0 +1,7 @@
+--- @class DestroyableObject A box, tree, wall, etc. that can be destroyed.
+--- @field on_fire boolean
+--- @field fire_mass number
+--- @field smoke_density number
+--- @field can_be_on_fire boolean
+--- @field public health number  Based on the health it will get different sprites.
+--- @field explosion_radius number How big is the explosion when it explodes.

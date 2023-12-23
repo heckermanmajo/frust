@@ -1,0 +1,1379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 7]>
+<html id="ie7" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<![endif]-->
+<!--[if (gt IE 7) | (!IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" data-lt-installed="true"><!--<![endif]--><head profile="http://gmpg.org/xfn/11"><style class="darkreader darkreader--fallback" media="screen"></style><style class="darkreader darkreader--text" media="screen"></style><style class="darkreader darkreader--invert" media="screen">.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%) grayscale(5%) sepia(10%) !important;
+}</style><style class="darkreader darkreader--inline" media="screen">[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}</style><style class="darkreader darkreader--variables" media="screen">:root {
+   --darkreader-neutral-background: #131415;
+   --darkreader-neutral-text: #d4cec4;
+   --darkreader-selection-background: #094a97;
+   --darkreader-selection-text: #e4dfd7;
+}</style><style class="darkreader darkreader--root-vars" media="screen"></style><style class="darkreader darkreader--user-agent" media="screen">html {
+    background-color: #181919 !important;
+}
+html {
+    color-scheme: dark !important;
+}
+html, body, input, textarea, select, button, dialog {
+    background-color: #181919;
+}
+html, body, input, textarea, select, button {
+    border-color: #70685b;
+    color: #e4dfd7;
+}
+a {
+    color: #408be1;
+}
+table {
+    border-color: #545858;
+}
+::placeholder {
+    color: #aea699;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #3e4008 !important;
+    color: #e4dfd7 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202222;
+    color: #a79f92;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454848;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575b5c;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484b4c;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181919;
+}
+* {
+    scrollbar-color: #454848 #202222;
+}
+::selection {
+    background-color: #094a97 !important;
+    color: #e4dfd7 !important;
+}
+::-moz-selection {
+    background-color: #094a97 !important;
+    color: #e4dfd7 !important;
+}</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Rectangular Symmetry Reduction | Shortest Path</title>
+
+	<style type="text/css" media="screen">
+		@import url( https://s0.wp.com/wp-content/themes/pub/rubric/style.css );
+	</style><style class="darkreader darkreader--cors" media="screen">body{background-color:#fff;background-image:url('https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/gradient.gif');background-attachment:fixed;background-position:bottom;background-repeat:repeat-x}#content{margin-right:20em;margin-left:40px;background-color:#fff;padding:.5em;margin-top:160px;border:1px #eee solid}* html #content{margin-top:180px}#header{position:absolute;top:40px;left:0;background-image:url('https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/pen-sm.jpg');background-position:top right;background-repeat:no-repeat;width:80%;margin:0;height:150px;padding-left:45px;font-family:Georgia;font-weight:400;font-size:3em;line-height:1}#menu{width:14em;position:absolute;float:right;top:200px;right:5em;font-size:90%}* html #menu{right:5em}#menu ul{margin-top:0;padding-left:0;margin-left:0;list-style:none;font-weight:700;color:#b54141}#menu h2{font-size:1em}#menu a:link,#menu a:visited{color:#000;border:0}* html #menu a{word-wrap:break-word}#menu ul ul{margin-left:0;list-style:disc;list-style-position:inside;padding-left:.5em;text-indent:0;font-weight:400;color:#000}#menu form{margin:0}#menu form br{display:none}#content h2{font-size:.9em;color:#666;margin-bottom:0;margin-top:0}h3{font-size:1.5em;font-weight:400;margin-bottom:.33em}.storytitle{color:#b54141;margin-top:.25em}.post-categories{display:inline;margin:0;padding:0}.post-categories li{display:inline;margin-left:3px;padding:0}.post .meta{font-size:.85em;color:#666}.post .meta *{margin-top:0}.post .feedback{margin-bottom:3em;border-bottom:1px solid #ccc;padding-bottom:1px}.feedback{clear:both}.sticky{background:#f7f7f7;padding:5px 10px 10px;margin:5px 0 15px 0}.sticky a{border-color:#ccc}#reply-title{font-size:.9em;font-weight:700;color:#666;margin-bottom:0;margin-top:0}.comment-form-author,.comment-form-email,.comment-form-url{overflow:hidden;width:100%}#respond input[type=text]{float:left;margin-right:.5em}#ie7 #respond input[type=text]{float:none;margin-right:0;margin-left:.5em}.comment-form-author label,.comment-form-email label,.comment-form-url label{font-size:10px}.comment-form-comment label{display:none}p.credit{margin-right:20em;margin-left:40px;padding:.5em;font-size:90%}p.credit a:visited,p.credit a:link{border:0}body{font-family:Verdana,Tahoma,Arial,sans-serif;font-size:80%}#content div,p,td,th,li{font-size:1em;line-height:1.65em}a:link,a:visited{text-decoration:none;color:#b54141;border:1px solid #fff}a:hover{border:1px solid #ccc}#content a:hover{background-color:#eee}#comment{width:95%}* html #comment{width:400px}#commentlist li .avatar{float:right;padding:2px;border:1px solid #eee;margin-right:15px}#commentlist li .children{list-style-type:none}img.centered,img.aligncenter{display:block;margin-left:auto;margin-right:auto}img.alignright{padding:4px;margin:0 0 2px 7px;display:inline}img.alignleft{padding:4px;margin:0 7px 2px 0;display:inline}.alignright{float:right}.alignleft{float:left}.aligncenter,div.aligncenter{display:block;margin-left:auto;margin-right:auto}.wp-caption{border:1px solid #ddd;text-align:center;background-color:#f3f3f3;padding-top:4px;margin:10px;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px}.wp-caption img{margin:0;padding:0;border:0}.wp-caption p.wp-caption-text{font-size:11px;line-height:17px;padding:0 4px 5px;margin:0}.linkcat h2{margin-bottom:0;margin-top:0}object,embed{max-width:100%}.comment object,.comment embed{margin:1em 0;max-width:640px}</style><style class="darkreader darkreader--sync" media="screen"></style>
+
+	<link rel="pingback" href="https://harablog.wordpress.com/xmlrpc.php">
+	<meta name="robots" content="max-image-preview:large">
+<link rel="dns-prefetch" href="https://ced.sascdn.com/">
+<link rel="dns-prefetch" href="https://s0.wp.com/">
+<link rel="dns-prefetch" href="https://s.pubmine.com/">
+<link rel="dns-prefetch" href="https://x.bidswitch.net/">
+<link rel="dns-prefetch" href="https://static.criteo.net/">
+<link rel="dns-prefetch" href="https://ib.adnxs.com/">
+<link rel="dns-prefetch" href="https://aax.amazon-adsystem.com/">
+<link rel="dns-prefetch" href="https://bidder.criteo.com/">
+<link rel="dns-prefetch" href="https://cas.criteo.com/">
+<link rel="dns-prefetch" href="https://gum.criteo.com/">
+<link rel="dns-prefetch" href="https://ads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://gads.pubmatic.com/">
+<link rel="dns-prefetch" href="https://tpc.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://ad.doubleclick.net/">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net/">
+<link rel="dns-prefetch" href="https://www.googletagservices.com/">
+<link rel="dns-prefetch" href="https://cdn.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.g.switchadhub.com/">
+<link rel="dns-prefetch" href="https://delivery.swid.switchadhub.com/">
+<link rel="dns-prefetch" href="https://a.teads.tv/">
+<link rel="dns-prefetch" href="https://prebid.media.net/">
+<link rel="dns-prefetch" href="https://adserver-us.adtech.advertising.com/">
+<link rel="dns-prefetch" href="https://fastlane.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://prebid-server.rubiconproject.com/">
+<link rel="dns-prefetch" href="https://hb-api.omnitagjs.com/">
+<link rel="dns-prefetch" href="https://mtrx.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://apex.go.sonobi.com/">
+<link rel="dns-prefetch" href="https://u.openx.net/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Feed" href="https://harablog.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Comments Feed" href="https://harablog.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Shortest Path » Rectangular Symmetry Reduction Comments Feed" href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/feed/">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script><meta name="darkreader" content="93a2fa8828b244a3b09c5b844e9d1d9b"><style class="darkreader darkreader--override" media="screen">.vimvixen-hint {
+    background-color: #725000 !important;
+    border-color: #cca926 !important;
+    color: #ede1c1 !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #153741 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #071e25 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #0a0909 !important;
+}
+.tou-uknfeu {
+    background-color: #201505 !important;
+}
+.tou-6i3zyv {
+    background-color: #215262 !important;
+}
+div.mermaid-viewer-control-panel .btn {
+  fill: var(--darkreader-neutral-text);
+  background-color: var(--darkreader-neutral-background);
+}
+svg g rect.er {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+  fill-opacity: 0.8 !important;
+  fill: var(--darkreader-selection-background);
+}
+svg rect.er.relationshipLabelBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect, svg g g.nodes polygon {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+  fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0, svg line.messageLine1 {
+  stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+  fill: var(--darkreader-neutral-background) !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style>
+	<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s0.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1677072837i&ver=6.5-alpha-57144"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-0-1" href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_005.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-2-1" href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/style.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="wp-block-library-inline-css">
+.has-text-align-justify {
+	text-align:justify;
+}
+.wp-block-cover__image-background.has-parallax {
+	background-size: cover;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-4-1" href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_004.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-6-1" href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_003.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="global-styles-inline-css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-family--albert-sans: 'Albert Sans', sans-serif;--wp--preset--font-family--alegreya: Alegreya, serif;--wp--preset--font-family--arvo: Arvo, serif;--wp--preset--font-family--bodoni-moda: 'Bodoni Moda', serif;--wp--preset--font-family--cabin: Cabin, sans-serif;--wp--preset--font-family--chivo: Chivo, sans-serif;--wp--preset--font-family--commissioner: Commissioner, sans-serif;--wp--preset--font-family--cormorant: Cormorant, serif;--wp--preset--font-family--courier-prime: 'Courier Prime', monospace;--wp--preset--font-family--crimson-pro: 'Crimson Pro', serif;--wp--preset--font-family--dm-mono: 'DM Mono', monospace;--wp--preset--font-family--dm-sans: 'DM Sans', sans-serif;--wp--preset--font-family--domine: Domine, serif;--wp--preset--font-family--eb-garamond: 'EB Garamond', serif;--wp--preset--font-family--epilogue: Epilogue, sans-serif;--wp--preset--font-family--figtree: Figtree, sans-serif;--wp--preset--font-family--fira-sans: 'Fira Sans', sans-serif;--wp--preset--font-family--fraunces: Fraunces, serif;--wp--preset--font-family--ibm-plex-mono: 'IBM Plex Mono', monospace;--wp--preset--font-family--ibm-plex-sans: 'IBM Plex Sans', sans-serif;--wp--preset--font-family--inter: Inter, sans-serif;--wp--preset--font-family--josefin-sans: 'Josefin Sans', sans-serif;--wp--preset--font-family--jost: Jost, sans-serif;--wp--preset--font-family--libre-baskerville: 'Libre Baskerville', serif;--wp--preset--font-family--libre-franklin: 'Libre Franklin', sans-serif;--wp--preset--font-family--literata: Literata, serif;--wp--preset--font-family--lora: Lora, serif;--wp--preset--font-family--merriweather: Merriweather, serif;--wp--preset--font-family--montserrat: Montserrat, sans-serif;--wp--preset--font-family--newsreader: Newsreader, serif;--wp--preset--font-family--nunito: Nunito, sans-serif;--wp--preset--font-family--open-sans: 'Open Sans', sans-serif;--wp--preset--font-family--overpass: Overpass, sans-serif;--wp--preset--font-family--petrona: Petrona, serif;--wp--preset--font-family--piazzolla: Piazzolla, serif;--wp--preset--font-family--playfair-display: 'Playfair Display', serif;--wp--preset--font-family--plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;--wp--preset--font-family--poppins: Poppins, sans-serif;--wp--preset--font-family--raleway: Raleway, sans-serif;--wp--preset--font-family--roboto: Roboto, sans-serif;--wp--preset--font-family--roboto-slab: 'Roboto Slab', serif;--wp--preset--font-family--rubik: Rubik, sans-serif;--wp--preset--font-family--sora: Sora, sans-serif;--wp--preset--font-family--source-sans-3: 'Source Sans 3', sans-serif;--wp--preset--font-family--source-serif-4: 'Source Serif 4', serif;--wp--preset--font-family--space-mono: 'Space Mono', monospace;--wp--preset--font-family--texturina: Texturina, serif;--wp--preset--font-family--work-sans: 'Work Sans', sans-serif;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-albert-sans-font-family{font-family: var(--wp--preset--font-family--albert-sans) !important;}.has-alegreya-font-family{font-family: var(--wp--preset--font-family--alegreya) !important;}.has-arvo-font-family{font-family: var(--wp--preset--font-family--arvo) !important;}.has-bodoni-moda-font-family{font-family: var(--wp--preset--font-family--bodoni-moda) !important;}.has-cabin-font-family{font-family: var(--wp--preset--font-family--cabin) !important;}.has-chivo-font-family{font-family: var(--wp--preset--font-family--chivo) !important;}.has-commissioner-font-family{font-family: var(--wp--preset--font-family--commissioner) !important;}.has-cormorant-font-family{font-family: var(--wp--preset--font-family--cormorant) !important;}.has-courier-prime-font-family{font-family: var(--wp--preset--font-family--courier-prime) !important;}.has-crimson-pro-font-family{font-family: var(--wp--preset--font-family--crimson-pro) !important;}.has-dm-mono-font-family{font-family: var(--wp--preset--font-family--dm-mono) !important;}.has-dm-sans-font-family{font-family: var(--wp--preset--font-family--dm-sans) !important;}.has-domine-font-family{font-family: var(--wp--preset--font-family--domine) !important;}.has-eb-garamond-font-family{font-family: var(--wp--preset--font-family--eb-garamond) !important;}.has-epilogue-font-family{font-family: var(--wp--preset--font-family--epilogue) !important;}.has-figtree-font-family{font-family: var(--wp--preset--font-family--figtree) !important;}.has-fira-sans-font-family{font-family: var(--wp--preset--font-family--fira-sans) !important;}.has-fraunces-font-family{font-family: var(--wp--preset--font-family--fraunces) !important;}.has-ibm-plex-mono-font-family{font-family: var(--wp--preset--font-family--ibm-plex-mono) !important;}.has-ibm-plex-sans-font-family{font-family: var(--wp--preset--font-family--ibm-plex-sans) !important;}.has-inter-font-family{font-family: var(--wp--preset--font-family--inter) !important;}.has-josefin-sans-font-family{font-family: var(--wp--preset--font-family--josefin-sans) !important;}.has-jost-font-family{font-family: var(--wp--preset--font-family--jost) !important;}.has-libre-baskerville-font-family{font-family: var(--wp--preset--font-family--libre-baskerville) !important;}.has-libre-franklin-font-family{font-family: var(--wp--preset--font-family--libre-franklin) !important;}.has-literata-font-family{font-family: var(--wp--preset--font-family--literata) !important;}.has-lora-font-family{font-family: var(--wp--preset--font-family--lora) !important;}.has-merriweather-font-family{font-family: var(--wp--preset--font-family--merriweather) !important;}.has-montserrat-font-family{font-family: var(--wp--preset--font-family--montserrat) !important;}.has-newsreader-font-family{font-family: var(--wp--preset--font-family--newsreader) !important;}.has-nunito-font-family{font-family: var(--wp--preset--font-family--nunito) !important;}.has-open-sans-font-family{font-family: var(--wp--preset--font-family--open-sans) !important;}.has-overpass-font-family{font-family: var(--wp--preset--font-family--overpass) !important;}.has-petrona-font-family{font-family: var(--wp--preset--font-family--petrona) !important;}.has-piazzolla-font-family{font-family: var(--wp--preset--font-family--piazzolla) !important;}.has-playfair-display-font-family{font-family: var(--wp--preset--font-family--playfair-display) !important;}.has-plus-jakarta-sans-font-family{font-family: var(--wp--preset--font-family--plus-jakarta-sans) !important;}.has-poppins-font-family{font-family: var(--wp--preset--font-family--poppins) !important;}.has-raleway-font-family{font-family: var(--wp--preset--font-family--raleway) !important;}.has-roboto-font-family{font-family: var(--wp--preset--font-family--roboto) !important;}.has-roboto-slab-font-family{font-family: var(--wp--preset--font-family--roboto-slab) !important;}.has-rubik-font-family{font-family: var(--wp--preset--font-family--rubik) !important;}.has-sora-font-family{font-family: var(--wp--preset--font-family--sora) !important;}.has-source-sans-3-font-family{font-family: var(--wp--preset--font-family--source-sans-3) !important;}.has-source-serif-4-font-family{font-family: var(--wp--preset--font-family--source-serif-4) !important;}.has-space-mono-font-family{font-family: var(--wp--preset--font-family--space-mono) !important;}.has-texturina-font-family{font-family: var(--wp--preset--font-family--texturina) !important;}.has-work-sans-font-family{font-family: var(--wp--preset--font-family--work-sans) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-8-1" href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<style id="jetpack-global-styles-frontend-style-inline-css">
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+<link crossorigin="anonymous" rel="stylesheet" id="all-css-10-1" href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_002.css" type="text/css" media="all"><style class="darkreader darkreader--sync" media="screen"></style>
+<script type="text/javascript" id="jetpack_related-posts-js-extra">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled"></script>
+<script type="text/javascript" id="rlt-proxy-js-after">
+/* <![CDATA[ */
+	window.addEventListener( 'DOMContentLoaded', function() {
+		rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+	} );
+/* ]]> */
+</script>
+<script type="text/javascript" crossorigin="anonymous" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/importmap-polyfill.min.js" id="es-module-shims-js" defer="defer" data-wp-strategy="defer"></script>
+<script type="text/javascript" id="media-video-jwt-bridge-js-extra">
+/* <![CDATA[ */
+var videopressAjax = {"ajaxUrl":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","bridgeUrl":"\/wp-content\/mu-plugins\/jetpack-plugin\/sun\/jetpack_vendor\/automattic\/jetpack-videopress\/build\/lib\/token-bridge.js","post_id":"790"};
+/* ]]> */
+</script>
+<script type="text/javascript" id="wpcom-actionbar-placeholder-js-extra">
+/* <![CDATA[ */
+var actionbardata = {"siteID":"6057140","postID":"790","siteURL":"http:\/\/harablog.wordpress.com","xhrURL":"https:\/\/harablog.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"11a5558b77","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https:\/\/s0.wp.com\/wp-content\/js\/wpcom-proxy-request.js?ver=20211021","shortlink":"https:\/\/wp.me\/pppJO-cK","i18n":{"followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/read\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar"}};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_003"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://harablog.wordpress.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/">
+<link rel="shortlink" href="https://wp.me/pppJO-cK">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/?format=json&amp;url=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F01%2Frectangular-symmetry-reduction%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/?format=xml&amp;url=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F01%2Frectangular-symmetry-reduction%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rectangular Symmetry Reduction">
+<meta property="og:url" content="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/">
+<meta property="og:description" content="This is the second of my three-part look into symmetry reduction algorithms for speeding up grid-based pathfinding. In part one I introduced the notion of path symmetry: a property of uniform-cost …">
+<meta property="article:published_time" content="2011-09-01T03:57:13+00:00">
+<meta property="article:modified_time" content="2011-09-14T02:23:17+00:00">
+<meta property="og:site_name" content="Shortest Path">
+<meta property="og:image" content="https://harablog.files.wordpress.com/2011/09/rsr_decomposition.png">
+<meta property="og:image:alt" content="">
+<meta property="og:locale" content="en_US">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<meta name="twitter:text:title" content="Rectangular Symmetry Reduction">
+<meta name="twitter:image" content="https://harablog.files.wordpress.com/2011/09/rsr_decomposition.png?w=144">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://s0.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s0.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://harablog.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://harablog.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://harablog.wordpress.com/osd.xml" title="Shortest Path">
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com">
+		<style id="wpcom-hotfix-masterbar-style">
+			@media screen and (min-width: 783px) {
+				#wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+					margin-top: 5px;
+				}
+			}
+		</style><style class="darkreader darkreader--sync" media="screen"></style>
+		<meta name="application-name" content="Shortest Path"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="Pathfinding and AI in games"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://harablog.wordpress.com/feed/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s0.wp.com/i/favicon.ico"><meta name="description" content="This is the second of my three-part look into symmetry reduction algorithms for speeding up grid-based pathfinding. In part one I introduced the notion of path symmetry: a property of uniform-cost grid maps which can significantly slow down optimal search. In this article I discuss Rectangular Symmetry Reduction (RSR for short): a new pre-processing algorithm…">
+<style type="text/css">
+#header{
+	background: url(https://s0.wp.com/wp-content/themes/pub/rubric/images/rubric/pen-sm.jpg) no-repeat top right;
+}
+#header a {
+	color:#B54141;
+}
+</style><style class="darkreader darkreader--sync" media="screen"></style>
+
+			<style>
+			.wordads-ad-wrapper {
+				position: absolute;
+				visibility: hidden;
+				font: normal 11px Arial, sans-serif;
+				letter-spacing: 1px;
+				text-decoration: none;
+				width: 100%;
+				margin: 25px auto;
+				padding: 0;
+				clear: both;
+			}
+			.wordads-ad-title {
+				margin: 0 auto 5px auto;
+			}
+			.wordads-ad-controls {
+				margin: 5px auto 0 auto;
+				text-align: right;
+			}
+			.wordads-ad-controls span {
+				cursor: pointer;
+			}
+			.wordads-ad {
+				width: 300px;
+				max-width: 580px;
+				margin: 0 auto;
+			}
+			.wordads-ad iframe {
+				margin: 0;
+				padding: 0;
+			}
+			.wordads-ad.wordads-ad-responsive {
+				width: 100%;
+			}
+			</style><style class="darkreader darkreader--sync" media="screen"></style>
+		<script type="text/javascript">
+/* <![CDATA[ */
+let wa_smart = { 'network_id': 3905, 'site_id': 474853, 'page_id': 1572546, 'formats': [ { 'id': 110354, 'tagId': 'sas_110354' } ], 'blog_id': 6057140, 'post_id': 790, 'theme': 'pub/rubric', 'target': 'iab_category=IAB1;iab_category=IAB19;wp_blog_id=6057140;language=en', 'inline': { 'title': 'Advertisement', 'gdpr': '<span onclick="__tcfapi( \'showUi\' )">Privacy Settings</span>', 'format_id': 110354, 'max_slots': 20, 'max_blaze_slots': 1, 'enabled': true, 'adflow_enabled': false }, 'openwrap_enabled': true }; wa_smart.cmd = [];
+/* ]]> */
+</script>
+		<script>
+			window.sas_fallback = window.sas_fallback || [];
+			window.sas_fallback.push( { tag: "&lt;div class=&quot;OUTBRAIN wa-ob-widget&quot;data-ob-contentUrl=&quot;https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/&quot;data-widget-id=&quot;AR_1&quot;data-ob-installation-key=&quot;WORDP263NC92GIANECJP6HEPM&quot;data-ob-psub=&quot;entertain&quot;&gt;&lt;/div&gt;&lt;script&gt;window._stq = window._stq || [];window._stq.push( [ \'extra\', { x_wordads_outbrain: \'widget_render_ar_1\', }, ] );&lt;/script&gt;&lt;script src=&quot;https://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;", type: 'belowpost' } );
+		</script>		<script type="text/javascript">
+		function __ATA_CC() {var v = document.cookie.match('(^|;) ?personalized-ads-consent=([^;]*)(;|$)');return v ? 1 : 0;}
+		var __ATA_PP = { 'pt': 1, 'ht': 0, 'tn': 'rubric', 'uloggedin': 0, 'amp': false, 'consent': __ATA_CC(), 'gdpr_applies': true, 'ad': { 'label': { 'text': 'Advertisements' }, 'reportAd': { 'text': 'Report this ad' }, 'privacySettings': { 'text': 'Privacy', 'onClick': function() { window.__tcfapi && window.__tcfapi( 'showUi' ) } } }, 'disabled_slot_formats': [ 'IAD' ], 'siteid': 8982, 'blogid': 6057140, 'js_hint': 'tcf2_test' };
+		var __ATA = __ATA || {};
+		__ATA.cmd = __ATA.cmd || [];
+		__ATA.criteo = __ATA.criteo || {};
+		__ATA.criteo.cmd = __ATA.criteo.cmd || [];
+		</script>
+		<script type="text/javascript">
+		(function(){var g=Date.now||function(){return+new Date};function h(a,b){a:{for(var c=a.length,d="string"==typeof a?a.split(""):a,e=0;e<c;e++)if(e in d&&b.call(void 0,d[e],e,a)){b=e;break a}b=-1}return 0>b?null:"string"==typeof a?a.charAt(b):a[b]};function k(a,b,c){c=null!=c?"="+encodeURIComponent(String(c)):"";if(b+=c){c=a.indexOf("#");0>c&&(c=a.length);var d=a.indexOf("?");if(0>d||d>c){d=c;var e=""}else e=a.substring(d+1,c);a=[a.substr(0,d),e,a.substr(c)];c=a[1];a[1]=b?c?c+"&"+b:b:c;a=a[0]+(a[1]?"?"+a[1]:"")+a[2]}return a};var l=0;function m(a,b){var c=document.createElement("script");c.src=a;c.onload=function(){b&&b(void 0)};c.onerror=function(){b&&b("error")};a=document.getElementsByTagName("head");var d;a&&0!==a.length?d=a[0]:d=document.documentElement;d.appendChild(c)}function n(a){var b=void 0===b?document.cookie:b;return(b=h(b.split("; "),function(c){return-1!=c.indexOf(a+"=")}))?b.split("=")[1]:""}function p(a){return"string"==typeof a&&0<a.length}
+		function r(a,b,c){b=void 0===b?"":b;c=void 0===c?".":c;var d=[];Object.keys(a).forEach(function(e){var f=a[e],q=typeof f;"object"==q&&null!=f||"function"==q?d.push(r(f,b+e+c)):null!==f&&void 0!==f&&(e=encodeURIComponent(b+e),d.push(e+"="+encodeURIComponent(f)))});return d.filter(p).join("&")}function t(a,b){a||((window.__ATA||{}).config=b.c,m(b.url))}var u=Math.floor(1E13*Math.random()),v=window.__ATA||{};window.__ATA=v;window.__ATA.cmd=v.cmd||[];v.rid=u;v.createdAt=g();var w=window.__ATA||{},x="s.pubmine.com";
+		w&&w.serverDomain&&(x=w.serverDomain);var y="//"+x+"/conf",z=window.top===window,A=window.__ATA_PP&&window.__ATA_PP.gdpr_applies,B="boolean"===typeof A?Number(A):null,C=window.__ATA_PP||null,D=z?document.referrer?document.referrer:null:null,E=z?window.location.href:document.referrer?document.referrer:null,F,G=n("__ATA_tuuid");F=G?G:null;var H=window.innerWidth+"x"+window.innerHeight,I=n("usprivacy"),J=r({gdpr:B,pp:C,rid:u,src:D,ref:E,tuuid:F,vp:H,us_privacy:I?I:null},"",".");
+		(function(a){var b=void 0===b?"cb":b;l++;var c="callback__"+g().toString(36)+"_"+l.toString(36);a=k(a,b,c);window[c]=function(d){t(void 0,d)};m(a,function(d){d&&t(d)})})(y+"?"+J);}).call(this);
+		</script><script src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/conf"></script>	<script>
+		var sas_fallback = sas_fallback || [];
+		sas_fallback.push(
+			{ tag: "&lt;div id=&quot;atatags-26942-658543200f250&quot;&gt;&lt;/div&gt;&lt;script&gt;__ATA.cmd.push(function() {__ATA.initDynamicSlot({id: \'atatags-26942-658543200f250\',location: 120,formFactor: \'001\',label: {text: \'Advertisements\',},creative: {reportAd: {text: \'Report this ad\',},privacySettings: {text: \'Privacy\',onClick: function() { window.__tcfapi &amp;&amp; window.__tcfapi( \'showUi\' ); },}}});});&lt;/script&gt;", type: 'belowpost' },
+			{ tag: "&lt;div id=&quot;atatags-26942-{{unique_id}}&quot;&gt;&lt;/div&gt;&lt;script&gt;__ATA.cmd.push(function() {__ATA.initDynamicSlot({id: \'atatags-26942-{{unique_id}}\',location: 310,formFactor: \'001\',label: {text: \'Advertisements\',},creative: {reportAd: {text: \'Report this ad\',},privacySettings: {text: \'Privacy\',onClick: function() { window.__tcfapi &amp;&amp; window.__tcfapi( \'showUi\' ); },}}});});&lt;/script&gt;", type: 'inline' }
+		);
+	</script>		<script type="text/javascript">
+
+			window.doNotSellCallback = function() {
+
+				var linkElements = [
+					'a[href="https://wordpress.com/?ref=footer_blog"]',
+					'a[href="https://wordpress.com/?ref=footer_website"]',
+					'a[href="https://wordpress.com/?ref=vertical_footer"]',
+					'a[href^="https://wordpress.com/?ref=footer_segment_"]',
+				].join(',');
+
+				var dnsLink = document.createElement( 'a' );
+				dnsLink.href = 'https://wordpress.com/advertising-program-optout/';
+				dnsLink.classList.add( 'do-not-sell-link' );
+				dnsLink.rel = 'nofollow';
+				dnsLink.style.marginLeft = '0.5em';
+				dnsLink.textContent = 'Do Not Sell or Share My Personal Information';
+
+				var creditLinks = document.querySelectorAll( linkElements );
+
+				if ( 0 === creditLinks.length ) {
+					return false;
+				}
+
+				Array.prototype.forEach.call( creditLinks, function( el ) {
+					el.insertAdjacentElement( 'afterend', dnsLink );
+				});
+
+				return true;
+			};
+
+		</script>
+		<script id="cmp-configuration" type="application/configuration">{"gvlVersion":"31","consentLanguage":"EN","locale":"en","vendorsAll":"EGpq_4__7a_t_y9e_T9ujzGr_vsffdiGIML5Nn3AuRd635OC--wmRom3VtTBUyJAl27IJCAto5M6iKsULVECteY9jEgzkCZpRPwMkA5iL2zrAQvN8zFsfyBTPP9P7u7_Oyf_v7t_27ueefqs9-73r9zsrhETrXPto_8_7aJTf3ZD3v_f3_F-npv9cm37yat__r19_ev139v____v_v__wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAg","vendorsLegInterest":"EGoAsw0KiAPsiQkItBwigQAiCsICKBAAAACQNEBACQMCnYGAS6wkQAgRQADBACAAFGQAIAABIAEIgAkAKBAABAIBAAAAAAIBAAwMAA4ALQQCAAEB0DFMKABQLCBIzIiFMCEKBIICWygQSAoEFcIAixwIoBETBQAIAkAFYAAALFYDEEgJWJBAlhBtAAAQAIBRShUIpOjAEMCZstVOKJtGQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAg","ajaxNonce":"742a1a16f1","modulePath":"https:\/\/s0.wp.com\/wp-content\/blog-plugins\/wordads-classes\/js\/cmp\/v2\/","gvlPath":"https:\/\/public-api.wordpress.com\/wpcom\/v2\/sites\/6057140\/cmp\/v3\/vendors\/en\/","_":{"title":"Privacy & Cookies","intro":"We, WordPress.com, and our 778 advertising partners store and\/or access information on your device and also process personal data, like unique identifiers, browsing activity, and other standard information sent by your device including your IP address. This information is collected over time and used for personalised ads, ad measurement, audience insights, and product development specific to our ads program. If this sounds good to you, select \"I Agree!\" below. Otherwise, you can get more information, customize your consent preferences, or decline consent by selecting \"Learn More\". Note that your preferences apply to all websites in the <a href=\"https:\/\/automattic.com\/cookies\/#user-ads-consent\" target=\"_blank\">WordPress.com network<\/a>, and if you change your mind in the future you can update your preferences anytime by visiting the Privacy link displayed under each ad or by using the \"Privacy\" option in the Action Bar located at the bottom-right corner of the screen. One last thing, our partners may process some of your data based on legitimate interests instead of consent but you can object to that by choosing \"Learn More\" and then disabling the Legitimate Interests toggle under any listed Purpose or Partner.","config":"Learn More","accept":"I Agree!","viewPartners":"View Partners","error":"We're sorry but an unexpected error occurred. Please try again later."}}</script><script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_gat._anonymizeIp']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script type="text/javascript" async="" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/ga.js"></script>
+<link href="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/actionbar.css" type="text/css" rel="stylesheet"><style class="darkreader darkreader--cors" media="screen">div#actionbar .no-display{display:none!important}div#actionbar *{box-sizing:border-box;outline:0;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}div#actionbar{background:#fff;position:fixed;bottom:10px;right:10px;border:solid 1px #dcdcde;border-radius:3px;opacity:.98;height:35px;margin:0;padding:0;box-sizing:border-box;line-height:1;z-index:50000;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-o-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0);transition:all .2s ease-in-out;-webkit-backface-visibility:hidden;-webkit-perspective:1000;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}div#actionbar.actnbr-hidden{-webkit-transform:translate3d(0,150px,0);-moz-transform:translate3d(0,150px,0);-o-transform:translate3d(0,150px,0);-ms-transform:translate3d(0,150px,0);transform:translate3d(0,150px,0)}div#actionbar.actnbr-folded{opacity:.7}div#actionbar.actnbr-folded:hover{opacity:1}div#actionbar ul{margin:0;padding:0;line-height:1;text-align:left}div#actionbar li{list-style-type:none;display:inline-block;min-width:30px;margin:0;padding:0;vertical-align:middle;line-height:1}div#actionbar li:before{display:none}div#actionbar li.actnbr-btn{margin:0 2px 0 6px}div#actionbar.actnbr-has-customize.actnbr-has-edit li.actnbr-edit{margin-right:5px;margin-left:-5px}div#actionbar.actnbr-folded li.actnbr-btn{margin-right:-5px}div#actionbar.actnbr-folded.actnbr-has-customize.actnbr-has-edit li.actnbr-edit{margin-right:-3px;margin-left:0}div#actionbar li.actnbr-btn>a{display:block;color:#787c82;font-size:13px;font-weight:400;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;line-height:1;vertical-align:middle;transition:none;position:relative;padding:10px 8px 10px 32px;border:0;box-shadow:none}div#actionbar li.actnbr-btn>a:hover{color:#3c434a;background:0 0}div#actionbar li.actnbr-btn>a .gridicon{fill:#787c82;position:absolute;top:6px;left:5px}div#actionbar li.actnbr-btn a:hover .gridicon{fill:#3c434a}div#actionbar li.actnbr-btn a.actnbr-actn-following,div#actionbar li.actnbr-btn a.actnbr-actn-following:hover{color:#008a20}div#actionbar li.actnbr-btn a.actnbr-actn-following .gridicon,div#actionbar li.actnbr-btn a.actnbr-actn-following:hover .gridicon{fill:#008a20}div#actionbar.actnbr-folded li.actnbr-btn a.actnbr-action .gridicon{top:2px}div#actionbar.actnbr-folded .actnbr-btn span{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-customize{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-stats{display:none}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-edit a .gridicon,div#actionbar.actnbr-has-customize.actnbr-folded .actnbr-customize a .gridicon{top:2px}div#actionbar.actnbr-has-customize.actnbr-has-edit.actnbr-folded .actnbr-edit a .gridicon{left:10px}div#actionbar li.actnbr-ellipsis{position:relative;top:1px;right:2px;cursor:pointer;padding:3px 5px 0 8px}div#actionbar.actnbr-folded li.actnbr-ellipsis{top:2px}div#actionbar .actnbr-ellipsis>.gridicon{fill:#3c434a;transition:all .15s cubic-bezier(.175,.885,.32,1.275);-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}div#actionbar .actnbr-ellipsis.actnbr-hidden>.gridicon{fill:#787c82;-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0)}div#actionbar .actnbr-ellipsis.actnbr-hidden>.gridicon:hover{fill:#3c434a}div#actionbar .actnbr-ellipsis .tip-inner .gridicon{margin:0 5px 0 0;vertical-align:middle;position:relative}div#actionbar .actnbr-popover{font-size:14px;padding:10px;z-index:1000;margin-left:15px;position:absolute;bottom:40px;right:-13px;max-width:320px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif}div#actionbar li.actnbr-btn .actnbr-popover{bottom:47px;right:26px}div#actionbar.actnbr-folded li.actnbr-btn .actnbr-popover{right:21px}div#actionbar .actnbr-hidden .actnbr-popover{display:none}div#actionbar .actnbr-popover.tip-top-left .tip-arrow{bottom:0;right:21px;margin-left:-7px;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}div#actionbar li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:74%}div#actionbar.actnbr-folded li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:85%}div#actionbar .actnbr-popover .tip-arrow{border:10px dashed #dcdcde;height:0;line-height:0;position:absolute;width:0}div#actionbar .actnbr-popover.tip-top-left .tip-arrow::before{bottom:2px;border:10px solid #fff;content:" ";position:absolute;left:50%;margin-left:-10px;border-top-style:solid;border-bottom:none;border-left-color:transparent;border-right-color:transparent}div#actionbar .actnbr-popover .tip-inner{background-color:#fff;border:1px solid #dcdcde;border-radius:4px;box-shadow:0 2px 5px rgba(0,0,0,.1),0 0 56px rgba(0,0,0,.075);text-align:center}div#actionbar li.actnbr-btn .actnbr-popover .tip-inner .actnbr-reader a{display:block;margin:0 0 4px 0;font-weight:400;text-decoration:none;color:#3c434a;border:0}div#actionbar li.actnbr-btn .actnbr-popover .tip-inner .actnbr-reader a:before{content:"";font-family:"Noticons";font-size:25px;margin-right:3px;line-height:1;top:7px;position:relative}div#actionbar .tip ul{margin-bottom:10px}div#actionbar .tip li{display:block;border:0}div#actionbar .tip li>a{position:relative;background:inherit;border:0;box-shadow:none;border-radius:0;color:#2e4453;cursor:pointer;display:block;font-size:14px;font-weight:400;margin:0;padding:10px 16px;text-align:left;transition:all .05s ease-in-out;min-width:250px;outline:0;text-decoration:none}div#actionbar li.actnbr-sitename{border-bottom:1px solid #f0f0f0;margin-bottom:10px}div#actionbar .actnbr-ellipsis .actnbr-fold,div#actionbar .actnbr-notice .actnbr-login-nudge{border-top:1px solid #f0f0f0;margin-top:10px}div#actionbar .actnbr-ellipsis .actnbr-folded-following,div#actionbar .actnbr-ellipsis .actnbr-folded-follow{border-bottom:1px solid #f0f0f0;padding-bottom:10px;margin-bottom:10px}div#actionbar .actnbr-notice .actnbr-follow-count{margin-bottom:10px}div#actionbar .actnbr-ellipsis li a:hover .gridicon{fill:#fff}div#actionbar .actnbr-ellipsis li .actnbr-actn-following:hover .gridicon path{fill:#fff}div#actionbar .actnbr-ellipsis li .actnbr-actn-following:hover .gridicon .following-icon-tick{fill:none;stroke:#fff}div#actionbar .actnbr-notice form,div#actionbar .actnbr-notice .actnbr-login-nudge{font-size:12px;color:#2e4453;line-height:17px}div#actionbar .actnbr-notice form{padding:2px 16px 6px}div#actionbar .actnbr-notice .actnbr-login-nudge{padding:10px 16px 5px}div#actionbar .actnbr-notice form input{background:#fff;color:#2e4453;border:1px solid #dcdcde;font-family:inherit;font-size:14px;text-indent:10px;height:40px;width:100%;margin-bottom:12px;padding:0;user-select:text;-webkit-user-select:text}div#actionbar .actnbr-notice form button{background:#3c434a;border-color:#dcdcde;color:#fff;border-style:solid;border-width:1px 1px 2px;cursor:pointer;display:inline-block;margin:0;outline:0;overflow:hidden;font-weight:500;text-overflow:ellipsis;text-decoration:none;vertical-align:top;box-sizing:border-box;font-size:14px;line-height:21px;border-radius:4px;padding:7px 14px 9px;-webkit-appearance:none;-moz-appearance:none;appearance:none;font-family:inherit;text-transform:none;-webkit-font-smoothing:auto;height:auto;width:100%}div#actionbar .actnbr-notice form button[disabled]{background:#bceefd;border-color:#dcdcde;color:#fff}div#actionbar .actnbr-notice .actnbr-button-wrap{text-align:right}div#actionbar .actnbr-notice form button:hover{border-color:#3c434a;color:#fff}div#actionbar .actnbr-notice form button:focus{border-color:#3c434a;box-shadow:0 0 0 2px #dcdcde}div#actionbar .actnbr-notice .actnbr-login-nudge a{color:inherit;text-decoration:underline}div#actionbar .actnbr-notice .actnbr-login-nudge a:hover{color:#3c434a}div#actionbar li.actnbr-sitename a{font-size:14px;font-weight:700;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;color:#2e4453;text-decoration:none;text-align:left;border:0;vertical-align:middle;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.7}div#actionbar li.actnbr-sitename img{width:25px;height:25px;vertical-align:middle;margin:-1px 5px 0 0;display:inline;border-radius:0;padding:0}div#actionbar .actnbr-ellipsis li a:hover{background:#3c434a;color:#fff;text-decoration:none;border:0;box-shadow:none}div#actionbar li.actnbr-sitename a:hover{background:0 0;color:#2e4453;margin:0}div#actionbar .actnbr-fold{padding-top:10px}div#actionbar .actnbr-ellipsis li.actnbr-folded-customize{display:none}div#actionbar.actnbr-folded.actnbr-has-customize.actnbr-has-edit .actnbr-ellipsis li.actnbr-folded-customize{display:block}div#actionbar.actnbr-has-follow .actnbr-ellipsis li.actnbr-folded-follow{display:none}div#actionbar .actnbr-notice .tip-inner{padding:0}div#actionbar .actnbr-notice .actnbr-message{padding:15px 20px 20px;width:250px;text-align:center;line-height:20px;color:#2e4453}div#actionbar .actnbr-notice .actnbr-message h3{margin:0 0 10px;font-size:22px;font-weight:400;font-family:inherit;font-style:normal;font-variant:normal;text-transform:none;text-decoration:none;color:#2e4453;padding:0;line-height:1em}div#actionbar .actnbr-notice .actnbr-message a{color:inherit;text-decoration:underline}div#actionbar .actnbr-notice .actnbr-message a:hover{color:#3c434a}div#actionbar .actnbr-theme a{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}div#actionbar .actnbr-follow-bubble .actnbr-site-settings{display:flex;flex-direction:column;color:#2e4453}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a,div#actionbar .actnbr-follow-bubble .actnbr-site-settings a:hover{color:#3c434a}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__setting{padding:10px 15px;display:flex;flex-direction:row;align-items:center}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle{position:relative;display:inline-block;margin-right:12px}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle__input[type=checkbox]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;margin:0;padding:0;z-index:1;border:0;cursor:pointer}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle__track{content:"";display:inline-block;box-sizing:border-box;vertical-align:top;background-color:#fff;border:1px solid #1e1e1e;width:36px;height:18px;border-radius:9px;transition:.2s background ease}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle.is-checked span.actnbr-site-settings__toggle__track{background-color:#000}div#actionbar .actnbr-follow-bubble span.actnbr-site-settings__toggle__thumb{display:block;position:absolute;box-sizing:border-box;top:3px;left:3px;width:12px;height:12px;border-radius:50%;transition:.1s transform ease;background-color:#1e1e1e;border:5px solid #1e1e1e}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle.is-checked span.actnbr-site-settings__toggle__thumb{background-color:#fff;border-width:0;transform:translateX(18px)}div#actionbar .actnbr-site-settings__toggle__input[type=checkbox]::before{content:""}div#actionbar .actnbr-follow-bubble .actnbr-site-settings__toggle__input[type=checkbox]:checked{background:0 0}div#actionbar .actnbr-site-settings__details{font-size:12px;padding:0 15px}div#actionbar .actnbr-site-settings__details#email-new-posts-details{display:none}div#actionbar .actnbr-site-settings__details.is-visible#email-new-posts-details{display:block}div#actionbar .segmented-control{display:flex;margin:0;border-radius:2px;list-style:none}div#actionbar .segmented-control__item{flex:1 1 auto;cursor:pointer}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item:first-of-type a.segmented-control__link{border-top-left-radius:2px;border-bottom-left-radius:2px}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item:last-of-type a.segmented-control__link{border-right:solid 1px #c3c4c7;border-top-right-radius:2px;border-bottom-right-radius:2px}div#actionbar .segmented-control__item.is-selected+.segmented-control__item .segmented-control__link{border-left:none}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a.segmented-control__link{display:block;padding:8px 12px;border:solid 1px #c3c4c7;border-right:none;line-height:18px;color:#646970;text-align:center;transition:color .1s linear,background-color .1s linear;min-width:0}div#actionbar .actnbr-follow-bubble .actnbr-site-settings a.segmented-control__link:focus{color:#3c434a;outline:0}div#actionbar .actnbr-follow-bubble .actnbr-site-settings .segmented-control__item.is-selected a.segmented-control__link{border:1px solid #3c434a;color:#3c434a}div#actionbar .segmented-control__text{display:block;max-width:100%;color:inherit;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}@media (max-width:660px){div#actionbar{bottom:0;right:0;padding:5px 13px;border-radius:0;width:100%;height:44px}div#actionbar.actnbr-folded{opacity:.9;width:auto;padding:5px 10px}div#actionbar>ul{text-align:right}div#actionbar .actnbr-popover{right:-10px}div#actionbar .actnbr-popover.tip-top-left .tip-arrow{right:17px}div#actionbar li.actnbr-btn .actnbr-popover{right:-3px}div#actionbar li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:53%}div#actionbar.actnbr-folded li.actnbr-btn{margin-right:3px!important}}div#actionbar.actnbr-premium-espresso{right:70px}div#actionbar.actnbr-premium-shelf{left:10px;right:auto}div#actionbar.actnbr-premium-shelf .actnbr-popover{right:auto;left:-35px}div#actionbar.actnbr-premium-shelf .actnbr-popover.tip-top-left .tip-arrow{right:auto;left:29px}div#actionbar.actnbr-premium-shelf li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow,div#actionbar.actnbr-premium-shelf.actnbr-folded li.actnbr-btn .actnbr-popover.tip-top-left .tip-arrow{left:26px}div#actionbar.actnbr-premium-shelf li.actnbr-btn .actnbr-popover,div#actionbar.actnbr-premium-shelf.actnbr-folded li.actnbr-btn .actnbr-popover{right:102px;left:-26px}body.has-playbar div#actionbar.actnbr-premium-obsidian{bottom:50px}div#actionbar.actnbr-pub-boardwalk{display:none}body #habla_window_div.habla_window_div_base{margin-right:160px!important}div#translator-launcher{bottom:67px;right:10px;left:auto}@media (min-width:876px){div#o2-dock{right:230px}}@media (max-width:876px){div#o2-dock{z-index:50001}}#scrollUp,.to-top,#back-to-top{bottom:55px;right:18px}#colophon #searchform input.search-field{bottom:65px}#container #masthead #site-branding{z-index:49999;bottom:65px}li#wp-admin-bar-follow,li#wp-admin-bar-admin-bar-likes-widget,ul#wp-admin-bar-blog-secondary{display:none!important}@media print{#actionbar{display:none!important}}@media (prefers-reduced-motion:reduce){div#actionbar,div#actionbar .actnbr-ellipsis>.gridicon,div#actionbar .tip li>a{transition-duration:1ms!important}}</style><style class="darkreader darkreader--sync" media="screen"></style></head>
+
+<body class="post-template-default single single-post postid-790 single-format-standard customizer-styles-applied">
+<div id="rap">
+<h1 id="header"><a href="https://harablog.wordpress.com/">Shortest Path</a></h1>
+
+<div id="content">
+<!-- end header -->
+
+
+<h2>September 1, 2011</h2>
+<div class="post-790 post type-post status-publish format-standard hentry category-pathfinding tag-grids tag-pathfinding tag-symmetry" id="post-790">
+	 <h3 class="storytitle">
+			Rectangular Symmetry Reduction		 </h3>
+	<div class="meta">Filed under:  <a href="https://harablog.wordpress.com/category/pathfinding/" rel="category tag">pathfinding</a> — dharabor @ 13:57 <br>Tags: <a href="https://harablog.wordpress.com/tag/grids/" rel="tag">grids</a>, <a href="https://harablog.wordpress.com/tag/pathfinding/" rel="tag">pathfinding</a>, <a href="https://harablog.wordpress.com/tag/symmetry/" rel="tag">symmetry</a><br></div>
+
+	<div class="storycontent">
+		<div style="text-align:justify;">
+This is the second of my three-part look into symmetry reduction algorithms for speeding up grid-based pathfinding.<p></p>
+<p>
+In <a href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/">part one</a>
+ I introduced the notion of path		symmetry: a property of uniform-cost 
+grid maps which can		significantly slow down optimal search. In this 
+article I discuss Rectangular Symmetry Reduction (RSR for	short): a new 
+pre-processing algorithm that explicitly identifies and eliminates 
+symmetries from uniform cost grid maps. RSR <a href="#1">[1]</a> <a href="#2">[2]</a>
+ is simple to understand, quick to apply and has low memory overheads. 
+When combined with a standard search algorithm, such as A*, RSR can 
+speed up optimal pathfinding by anywhere from several factors to an 
+order of magnitude. These characteristics make RSR highly competitive 
+with, and in many cases better than, competing state-of-the-art search 
+space reduction techniques.</p>
+<p>
+Please note: this work was developed in conjunction with <a href="http://abotea.rsise.anu.edu.au/">Adi Botea</a> and <a href="http://users.cecs.anu.edu.au/~pjk/">Philip Kilby</a>. It forms part of my doctoral research into pathfinding at <a href="http://www.nicta.com.au/">NICTA</a> and The <a href="http://www.anu.edu.au/">Australian National University</a>. Electronic copies of the papers in which these ideas were first described are available from <a href="http://users.cecs.anu.edu.au/~dharabor/publications.html">my homepage</a>.
+</p></div>
+<h2 style="font-size:130%;">The Algorithm</h2>
+<div style="text-align:justify;">
+RSR speeds up optimal pathfinding by decomposing an arbitrary 
+uniform-cost grid map into a set of empty rectangles. The idea is to 
+avoid symmetries during search by only ever expanding nodes from the 
+perimeter of each empty rectangle, and never from the interior. To 
+ensure optimal travel through each rectangle we will also add a series 
+of macro edges that allow units to “jump” from one side of a rectangle’s
+ perimeter to the directly opposite side. <p></p>
+<p>
+(This remainder of this section, and the next, give a mechanical 
+overview of the algorithm and its properties. If you’re impatient, or 
+don’t care about such things, you can skip ahead and check out some  <a href="#screenshots">screenshots</a>.)</p>
+<p>
+RSR can be described in 3 simple steps. Steps 1 and 2 are applied 
+offline; their objective is to identify and prune symmetry from the 
+original grid map. The third step is an online node insertion procedure;
+ its objective is to preserve optimality when searching for paths in the
+ symmetry-reduced grid map.
+</p></div>
+<div style="width: auto; border: 1px solid; height: auto; margin: 20px; padding: 5px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="display:table-cell;padding:10px;">
+<b>RSR Step 1: Grid Decomposition</b><br>
+<p></p>
+<div style="float:right;">
+<img src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/rsr_decomposition.webp" style="margin-left:10px;margin-right:0;width:400px;" alt="" title="RSR Step 1: Create an empty rectangle decomposition.">
+</div>
+<div style="text-align:justify;">
+Decompose the grid map into a set of obstacle-free rectangles. The size 
+of the rectangles can vary across a map, depending on the placement of 
+the obstacles. Once the decomposition is complete, prune all nodes from 
+the interior, but not the perimeter, of each empty rectangle.
+</div>
+</div>
+</div>
+<div style="width: auto; border: 1px solid; height: auto; margin: 20px; padding: 5px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="display:table-cell;padding:10px;">
+<b>RSR Step 2: Addition of Macro Edges</b><br>
+<p></p>
+<div style="float:right;">
+<img src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/rsr_macroedges.webp" style="margin-left:10px;margin-right:0;float:right;width:400px;" alt="" title="RSR Step 1: Create an empty rectangle decomposition.">
+</div>
+<div style="text-align:justify;">
+Add a series of <i>macro edges</i> that connect each node on the 
+perimeter of a rectangle with other nodes	from the perimeter. In a 
+4-connected map (shown here for simplicity) a single macro edge between 
+nodes on opposite sides of each rectangle will suffice. If diagonal 
+moves are allowed, a set of macro edges (as described in <a href="#1">[1]</a>) will be needed instead.
+</div>
+</div>
+</div>
+<div style="width: auto; border: 1px solid; height: auto; margin: 20px; padding: 5px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="display:table-cell;padding:10px;">
+<b>RSR Step 3: Online Insertion</b><br>
+<p></p>
+<div style="float:right;">
+<img src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/rsr_insertion.webp" style="margin-left:10px;margin-right:0;float:right;width:400px;" alt="" title="RSR Step 1: Create an empty rectangle decomposition.">
+</div>
+<div style="text-align:justify;">
+When the start or goal is located in the interior of an empty rectangle,
+ we use a temporary node re-insertion procedure. In a 4-connected map 
+(shown here for simplicity) we connect the temporary node, online, to 
+the 4 nearest perimeter nodes. A similar operation, involving sets of 
+edges from each perimeter side, is used when diagonal moves are allowed.
+</div>
+</div>
+</div>
+<h2 style="font-size:130%;">Properties and Performance</h2>
+<div style="text-align:justify;">
+RSR has several attractive properties:<p></p>
+<ol>
+<li>
+It preserves optimality.
+</li>
+<li>
+It has a small memory overhead in practice.
+</li>
+<li>
+Node insertion (Step 3) can be performed in constant time.
+</li>
+<li>
+It can speed up A* search by anywhere from several factors to an order of magnitude.
+</li>
+</ol>
+<p>I will focus on points 2 and 4 in the remainder of this section. A 
+thorough discussion of points 1 and 3 (including proofs) can be found in
+ <a href="#1">[1]</a>.</p>
+<p>
+</p><p><b>Memory Requirements:</b><br>
+In the most straightforward implement of RSR we need to store the id of	the parent rectangle for each of the <i>n</i>
+ traversable nodes in the original grid. We also need to store the 
+origin and dimensions of each rectangle (macro edges can be identified 
+on-the-fly and do not need to be stored explicitly). This means that, in
+ the worst case, we might need to store up to <i>5n</i> integers. In 
+practice however we can usually do much better. For example: there is 
+little benefit in storing or assigning nodes to rectangles with few or 
+no interior nodes (1×1, 2×1, 2×2, 3×2, 3×3 etc.). We can also avoid the 
+parent id overhead altogether and only store the set of identified 
+rectangles. The only downside is that, during insertion (Step 3 above), 
+we now need to search for the parent rectangle of the start and goal — 
+instead of being able to identify it in constant time.</p>
+<p>
+<b>Performance:</b><br>
+We evaluated RSR on a number of benchmark grid map sets taken from <a href="http://web.cs.du.edu/~sturtevant/">Nathan Sturtevant’s</a> freely available pathfinding library, <a href="http://code.google.com/p/hog2/">Hierarchical Open Graph</a>.
+ One of the map sets is from the game Baldur’s Gate II: Shadows of Amn. 
+The other two map sets (Rooms and Adaptive Depth) are both synthetic, 
+though the latter could be described as semi-realistic. I will give only
+ a short summary of our findings; full results and discussion is 
+available in the following papers: <a href="#1">[1]</a> <a href="#2">[2]</a>.</p>
+<p>
+In short: we observed that in most cases RSR can consistently speed up 
+A* search by a factor of between 2-3 times (Baldur’s Gate), 2-5 times 
+(Adaptive Depth) and 5-9 times (Rooms). In some cases the gain can be 
+much higher: up to 30 times.</p>
+<p>
+We found that the extent of the speed gains will be dependent on the 
+topography of the underlying grid map. On maps that feature large open 
+areas or which can be naturally decomposed into rectangular regions, RSR
+ is highly effective. When these conditions do not exist, the observed 
+speed gains are more modest. This performance is competitive with, and 
+often better than, Swamps <a href="#4">[4]</a>; another state-of-the-art
+ search space reduction technique. We did not identify a clear winner 
+(each algorithm has different strengths) but did notice that the two 
+methods are orthogonal and could be easily combined.
+</p></div>
+<h2 style="font-size:130%;"><a name="screenshots">Screenshots</a></h2>
+<div style="text-align:justify;">
+Below are screenshots of A* + RSR in action. In each case tiles marked 
+red must be explored in order to find the optimal solution (marked in 
+blue). For comparison, I also show the number of tiles explored by 
+vanilla A* when solving the same problem instances. I give one example 
+problem from each benchmark set. You can click on each image to make it 
+larger.
+</div>
+<div style="width: auto; border: 1px solid; height: auto; margin: 20px; padding: 5px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left="">
+<div style="width:800px;margin:0 auto;">
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/bg_astar.png"><br>
+<img style="width:225px;" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/bg_astar.webp" alt="" title="Search Effort: A* (Baldur's Gate)"> </a><br>
+<b>(a)</b> A* (Baldur’s Gate)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/ad_astar.png"><br>
+<img style="width:225px;" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/ad_astar.webp" alt="" title="Search Effort: A* (Adaptive Depth)"></a><br>
+<b>(b)</b> A* (Adaptive Depth)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/rooms_astar.png"><br>
+<img style="border: 1px solid; width: 224px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/rooms_astar.webp" alt="" title="Search Effort: A* (Rooms)" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></a><br>
+<b>(c)</b> A* (Rooms)
+</div>
+<p></p>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/bg_rsr.png"><br>
+<img style="width:225px;" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/bg_rsr.webp" alt="" title="Search Effort: A* + RSR (Baldur's Gate)"></a><br>
+<b>(d)</b> A* + RSR (Baldur’s Gate)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/ad_rsr.png"><br>
+<img style="width:225px;" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/ad_rsr.webp" alt="" title="Search Effort: A* + RSR (Adaptive Depth)"></a><br>
+<b>(e)</b> A* + RSR (Adaptive Depth)
+</div>
+<div style="display:table-cell;padding:10px;">
+<a href="https://harablog.files.wordpress.com/2011/09/rooms_rsr.png"><br>
+<img style="border: 1px solid; width: 224px; --darkreader-inline-border-top: currentcolor; --darkreader-inline-border-right: currentcolor; --darkreader-inline-border-bottom: currentcolor; --darkreader-inline-border-left: currentcolor;" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/rooms_rsr.webp" alt="" title="Search Effort: A* + RSR (Rooms)" data-darkreader-inline-border-top="" data-darkreader-inline-border-right="" data-darkreader-inline-border-bottom="" data-darkreader-inline-border-left=""></a><br>
+<b>(f)</b> A* + RSR (Rooms)
+</div>
+</div>
+<div style="padding-top:5px;text-align:justify;">
+<b>Figure 2: Search Effort.</b><br>
+Comparative pathfinding examples from our experimental results.	Images 
+(a) to (c) are total nodes expanded by A* in order to find the optimal 
+path to the goal (marked blue). Images (d) to (f) are total nodes 
+expanded by A* + RSR. The respective domains are (from left to right): 
+Baldur’s Gate, Adaptive Depth and Rooms. Notice that A* + RSR ignores 
+many symmetric path segments and typically reaches the goal with much 
+less effort.
+</div>
+</div>
+<h2 style="font-size:130%;">Next Time</h2>
+<div style="text-align:justify;">
+In the final part of this series I will discuss Jump Point Search <a href="#3">[3]</a>:
+ a similar-yet-different symmetry breaking technique which builds on 
+some of the ideas introduced here. Like RSR, Jump Point Search is highly
+ effective and simple to apply; unlike RSR it can be applied online and 
+has no memory overhead and no pre-processing requirements. In most 
+cases, JPS is also faster than RSR. Stay tuned for that!<p></p>
+<p><a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/">Continue to Part 3</a>.
+</p></div>
+<p>
+</p><h2 style="font-size:130%;"> References </h2>
+<div style="text-align:justify;margin:20px;padding:10px;">
+<b><a name="1">[1]</a></b> D. Harabor, A. Botea, and P. Kilby. <i>Path Symmetries in Uniform-cost Grid Maps.</i> In Symposium on Abstraction Reformulation and Approximation (SARA), 2011.<p></p>
+<p>
+</p><p><b><a name="2">[2]</a></b> D. Harabor and A. Botea. <i>Breaking Path Symmetries in 4-connected Grid Maps.</i> In AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment (AIIDE), 2010.</p>
+<p>
+<b><a name="3">[3]</a></b> D. Harabor and A. Grastien. <i>Online Graph Pruning for Pathfinding on Grid Maps.</i> In National Conference on Artificial Intelligence (AAAI), 2011.</p>
+<p>
+<b><a name="4">[4]</a></b> N. Pochter, A. Zohar, J. S. Rosenschein and A. Felner.	<i>Search Space Reduction Using Swamp Hierarchies.</i> In National Conference on Artificial Intelligence (AAAI), 2010.
+</p></div>
+<div id="atatags-370373-658543201210c">
+		<script type="text/javascript">
+			__ATA.cmd.push(function() {
+				__ATA.initVideoSlot('atatags-370373-658543201210c', {
+					sectionId: '370373',
+					format: 'inread'
+				});
+			});
+		</script>
+	</div><span id="wordads-inline-marker" style="display: none;"></span>	<div class="OUTBRAIN wa-ob-widget" data-ob-contenturl="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/" data-widget-id="AR_1" data-ob-installation-key="WORDP263NC92GIANECJP6HEPM" data-ob-psub="entertain"></div>
+	<script>
+		window._stq = window._stq || [];
+		window._stq.push( [ 'extra', { x_wordads_outbrain: 'widget_render_ar_1', }, ] );
+	</script><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul data-sharing-events-added="true"><li class="share-print"><a rel="nofollow noopener noreferrer" data-shared="" class="share-print sd-button share-icon" href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-email share-service-visible"><a rel="nofollow noopener noreferrer" data-shared="" class="share-email sd-button share-icon" href="mailto:?subject=%5BShared%20Post%5D%20Rectangular%20Symmetry%20Reduction&amp;body=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F01%2Frectangular-symmetry-reduction%2F&amp;share=email&amp;nb=1" target="_blank" title="Click to email a link to a friend" data-email-share-error-title="Do you have email set up?" data-email-share-error-text="If you're having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-nonce="ba01dbf9d9" data-email-share-track-url="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/?share=email" jetpack-share-click-count="0"><span>Email</span></a></li><li class="share-reddit"><a rel="nofollow noopener noreferrer" data-shared="" class="share-reddit sd-button share-icon" href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded" id="like-post-wrapper-6057140-790-6585432012859" data-src="//widgets.wp.com/likes/index.html?ver=20231208#blog_id=6057140&amp;post_id=790&amp;origin=harablog.wordpress.com&amp;obj_id=6057140-790-6585432012859&amp;n=1" data-name="like-post-frame-6057140-790-6585432012859" data-title="Like or Reblog"><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal jp-relatedposts-grid "><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="714" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/" title="Fast Pathfinding via Symmetry&amp;nbsp;Breaking" data-origin="790" data-position="0">Fast Pathfinding via Symmetry&nbsp;Breaking</a></span><time class="jp-relatedposts-post-date" datetime="August 26, 2011" style="display: block;">August 26, 2011</time><span class="jp-relatedposts-post-context">In "pathfinding"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="898" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2011/09/07/jump-point-search/" title="Jump Point Search" data-origin="790" data-position="1">Jump Point Search</a></span><time class="jp-relatedposts-post-date" datetime="September 7, 2011" style="display: block;">September 7, 2011</time><span class="jp-relatedposts-post-context">In "pathfinding"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="549" data-post-format="false"><span class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://harablog.wordpress.com/2010/10/21/aiide-2010-conference-summary/" title="AIIDE 2010 Conference&amp;nbsp;Summary" data-origin="790" data-position="2">AIIDE 2010 Conference&nbsp;Summary</a></span><time class="jp-relatedposts-post-date" datetime="October 21, 2010" style="display: block;">October 21, 2010</time><span class="jp-relatedposts-post-context">In "conference"</span></p></div></div></div>	</div>
+
+	<div class="feedback">
+                        <a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/#comments">Comments (6)</a>	</div>
+
+</div>
+
+
+<h2 id="comments">6 Comments	<a href="#postcomment" title="Leave a comment">»</a>
+</h2>
+
+<ol id="commentlist">
+<li class="comment even thread-even depth-1" id="comment-41">
+	<div id="div-comment-41">
+		<div class="comment-author vcard">
+						<p>This is awesome stuff.</p>
+<p>You can accelerate pathfinding on maps that contain open 
+axis-aligned-rectangles – but what if a game has a similarly 
+exploitable, but different pattern, diagonal rectangles, or trapezoids. 
+If you simply apply the rectangle-based acceleration, you’ll get 
+something (because the diagonal rectangles or trapezoids or whatever 
+will contain rectangles), but not everything that you might get, with a 
+customized heuristic.</p>
+<p>Can you take a description of a pattern – for example, a set of Wang 
+tiles – and precompute a pathfinding algorithm that will be fast if the 
+input matches those tiles?</p>
+			<p><cite>Comment by <span class="fn"><a href="http://gravatar.com/johnicholas" class="url" rel="ugc external nofollow">johnicholas</a></span> — September 3, 2011 @ <a href="#comment-41">00:52</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-45">
+	<div id="div-comment-45">
+		<div class="comment-author vcard">
+						<p>Hi! Thanks for posting.</p>
+<p>You make a good observation: sometimes rectangles are not the best 
+choice for decomposing a map. The good news is that you could, in 
+principle, apply any shape provided it is convex. Convexity is important
+ as otherwise identifying symmetries becomes more difficult. The trick 
+is finding a nice algorithm to identify maximally sized convex regions 
+on the map. There are methods to do this from the computational geometry
+ community but I never got around to playing with them.</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — September 5, 2011 @ <a href="#comment-45">17:43</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment even thread-even depth-1" id="comment-60">
+	<div id="div-comment-60">
+		<div class="comment-author vcard">
+						<p>People are suggesting adding this to Dwarf Fortress here:  <a href="http://www.bay12forums.com/smf/index.php?topic=92732.0" rel="nofollow ugc">http://www.bay12forums.com/smf/index.php?topic=92732.0</a></p>
+<p>Feel free to do tests on DF maps, which are 3D grids.  You can find 
+lots of interesting player-made maps there if you want more test data:  <a href="http://mkv25.net/dfma/" rel="nofollow ugc">http://mkv25.net/dfma/</a></p>
+<p>I’m not sure, but I don’t see any reason why your technique wouldn’t generalize to 3D.</p>
+			<p><cite>Comment by <span class="fn">DF Player</span> — September 12, 2011 @ <a href="#comment-60">15:31</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="comment byuser comment-author-dharabor bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-61">
+	<div id="div-comment-61">
+		<div class="comment-author vcard">
+						<p>Hi DF Player, </p>
+<p>Thank you for pointing out that thread. Very interesting! I’ll take a
+ closer look at both it, and the maps you suggest, as soon as I get a 
+chance. </p>
+<p>Also, you’re right: the method should be straightforward to 
+generalise to 3D environments; you just need to a slightly different set
+ of natural and forced neighbours.</p>
+			<p><cite>Comment by <span class="fn">dharabor</span> — September 12, 2011 @ <a href="#comment-61">16:51</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback even thread-even depth-1" id="comment-9167">
+	<div id="div-comment-9167">
+		<div class="comment-author vcard">
+						<p>[…] about eliminating “uninteresting” nodes from the path 
+search. There is a thing called Rectangular Symmetry Reduction dividing 
+the map to some rectangles (or some large units), and if the start and 
+end points are in […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://makingcomputerdothings.com/creating-a-starcraft-ai-part-14-jump-point-search-for-jumpy-doggos/" class="url" rel="ugc external nofollow">Creating a Starcraft AI – Part 14: Jump point search for jumpy doggos | Making Computer Do Things</a></span> — February 4, 2019 @ <a href="#comment-9167">02:06</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-109751">
+	<div id="div-comment-109751">
+		<div class="comment-author vcard">
+						<p>[…] RSR (Rectangular Symmetry Reduction) is a preprocessing 
+algorithm that reduces a map into “rooms” (or in your case, “hallways”) 
+to form a sort of navigation mesh for your map, reducing the size of the
+ graph. […]</p>
+			<p><cite>Pingback by <span class="fn"><a href="https://python.tutorialink.com/fast-pathfinding-and-distance-matrix-in-2d-grid/" class="url" rel="ugc external nofollow">Fast pathfinding and distance matrix in 2d grid – Python</a></span> — February 26, 2023 @ <a href="#comment-109751">23:30</a></cite> 				<span class="reply">
+									</span>
+			</p>
+		</div>
+	</div>
+</li><!-- #comment-## -->
+</ol>
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+	<br>
+
+	<p><a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/feed/"><abbr title="Really Simple Syndication">RSS</abbr> feed for comments on this post.</a>	<a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a>
+</p>
+
+	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3><form action="https://harablog.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+
+
+<div id="comment-form__verbum" class="transparent"></div><div class="verbum-form-meta"><input type="hidden" name="comment_post_ID" value="790" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+
+			<input type="hidden" name="highlander_comment_nonce" id="highlander_comment_nonce" value="a5e658084c">
+			<input type="hidden" name="verbum_show_subscription_modal" value=""></div><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="26c9d383c5"></p><p style="display: none !important;"><label>Δ<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="1703232288248"><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p></form>	</div><!-- #respond -->
+	
+
+
+<!-- begin footer -->
+</div>
+
+
+<!-- begin sidebar -->
+<div id="menu">
+
+<ul>
+<li id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://harablog.wordpress.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></li>
+<li id="pages-2" class="widget widget_pages"><h2 class="widgettitle">Pages</h2>
+
+			<ul>
+				<li class="page_item page-item-2"><a href="https://harablog.wordpress.com/about/">About</a></li>
+			</ul>
+
+			</li>
+
+		<li id="recent-posts-2" class="widget widget_recent_entries">
+		<h2 class="widgettitle">Recent Posts</h2>
+
+		<ul>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/10/07/my-apple-iic/">My Apple II/c</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/09/07/jump-point-search/">Jump Point Search</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/" aria-current="page">Rectangular Symmetry Reduction</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/08/26/fast-pathfinding-via-symmetry-breaking/">Fast Pathfinding via Symmetry&nbsp;Breaking</a>
+									</li>
+											<li>
+					<a href="https://harablog.wordpress.com/2011/07/11/the-paper/">The Paper</a>
+									</li>
+					</ul>
+
+		</li>
+<li id="categories-320175801" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+
+			<ul>
+					<li class="cat-item cat-item-33525"><a href="https://harablog.wordpress.com/category/conference/">conference</a>
+</li>
+	<li class="cat-item cat-item-47932"><a href="https://harablog.wordpress.com/category/non-technical/">non-technical</a>
+</li>
+	<li class="cat-item cat-item-2263985"><a href="https://harablog.wordpress.com/category/pathfinding/">pathfinding</a>
+</li>
+			</ul>
+
+			</li>
+<li id="meta-2" class="widget widget_meta"><h2 class="widgettitle">Meta</h2>
+
+		<ul>
+			<li><a href="https://wordpress.com/start?ref=wplogin">Register</a></li>			<li><a href="https://harablog.wordpress.com/wp-login.php">Log in</a></li>
+			<li><a href="https://harablog.wordpress.com/feed/">Entries feed</a></li>
+			<li><a href="https://harablog.wordpress.com/comments/feed/">Comments feed</a></li>
+
+			<li><a href="https://wordpress.com/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.com</a></li>
+		</ul>
+
+		</li>
+
+</ul>
+
+</div>
+
+
+<p class="credit"><cite> <a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog at WordPress.com.</a></cite></p>
+
+</div>
+
+<!--  -->
+	<div style="display:none">
+	</div>
+		<!-- CCPA [start] -->
+		<script type="text/javascript">
+			( function () {
+
+				var setupPrivacy = function() {
+
+					// Minimal Mozilla Cookie library
+					// https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie/Simple_document.cookie_framework
+					var cookieLib = window.cookieLib = {getItem:function(e){return e&&decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*"+encodeURIComponent(e).replace(/[\-\.\+\*]/g,"\\$&")+"\\s*\\=\\s*([^;]*).*$)|^.*$"),"$1"))||null},setItem:function(e,o,n,t,r,i){if(!e||/^(?:expires|max\-age|path|domain|secure)$/i.test(e))return!1;var c="";if(n)switch(n.constructor){case Number:c=n===1/0?"; expires=Fri, 31 Dec 9999 23:59:59 GMT":"; max-age="+n;break;case String:c="; expires="+n;break;case Date:c="; expires="+n.toUTCString()}return"rootDomain"!==r&&".rootDomain"!==r||(r=(".rootDomain"===r?".":"")+document.location.hostname.split(".").slice(-2).join(".")),document.cookie=encodeURIComponent(e)+"="+encodeURIComponent(o)+c+(r?"; domain="+r:"")+(t?"; path="+t:"")+(i?"; secure":""),!0}};
+
+					// Implement IAB USP API.
+					window.__uspapi = function( command, version, callback ) {
+
+						// Validate callback.
+						if ( typeof callback !== 'function' ) {
+							return;
+						}
+
+						// Validate the given command.
+						if ( command !== 'getUSPData' || version !== 1 ) {
+							callback( null, false );
+							return;
+						}
+
+						// Check for GPC. If set, override any stored cookie.
+						if ( navigator.globalPrivacyControl ) {
+							callback( { version: 1, uspString: '1YYN' }, true );
+							return;
+						}
+
+						// Check for cookie.
+						var consent = cookieLib.getItem( 'usprivacy' );
+
+						// Invalid cookie.
+						if ( null === consent ) {
+							callback( null, false );
+							return;
+						}
+
+						// Everything checks out. Fire the provided callback with the consent data.
+						callback( { version: 1, uspString: consent }, true );
+					};
+
+					// Initialization.
+					document.addEventListener( 'DOMContentLoaded', function() {
+
+						// Internal functions.
+						var setDefaultOptInCookie = function() {
+							var value = '1YNN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 365 * 24 * 60 * 60, '/', domain );
+						};
+
+						var setDefaultOptOutCookie = function() {
+							var value = '1YYN';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 24 * 60 * 60, '/', domain );
+						};
+
+						var setDefaultNotApplicableCookie = function() {
+							var value = '1---';
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'usprivacy', value, 24 * 60 * 60, '/', domain );
+						};
+
+						var setCcpaAppliesCookie = function( applies ) {
+							var domain = '.wordpress.com' === location.hostname.slice( -14 ) ? '.rootDomain' : location.hostname;
+							cookieLib.setItem( 'ccpa_applies', applies, 24 * 60 * 60, '/', domain );
+						}
+
+						var maybeCallDoNotSellCallback = function() {
+							if ( 'function' === typeof window.doNotSellCallback ) {
+								return window.doNotSellCallback();
+							}
+
+							return false;
+						}
+
+						// Look for usprivacy cookie first.
+						var usprivacyCookie = cookieLib.getItem( 'usprivacy' );
+
+						// Found a usprivacy cookie.
+						if ( null !== usprivacyCookie ) {
+
+							// If the cookie indicates that CCPA does not apply, then bail.
+							if ( '1---' === usprivacyCookie ) {
+								return;
+							}
+
+							// CCPA applies, so call our callback to add Do Not Sell link to the page.
+							maybeCallDoNotSellCallback();
+
+							// We're all done, no more processing needed.
+							return;
+						}
+
+						// We don't have a usprivacy cookie, so check to see if we have a CCPA applies cookie.
+						var ccpaCookie = cookieLib.getItem( 'ccpa_applies' );
+
+						// No CCPA applies cookie found, so we'll need to geolocate if this visitor is from California.
+						// This needs to happen client side because we do not have region geo data in our $SERVER headers,
+						// only country data -- therefore we can't vary cache on the region.
+						if ( null === ccpaCookie ) {
+
+							var request = new XMLHttpRequest();
+							request.open( 'GET', 'https://public-api.wordpress.com/geo/', true );
+
+							request.onreadystatechange = function () {
+								if ( 4 === this.readyState ) {
+									if ( 200 === this.status ) {
+
+										// Got a geo response. Parse out the region data.
+										var data = JSON.parse( this.response );
+										var region      = data.region ? data.region.toLowerCase() : '';
+										var ccpa_applies = ['california', 'colorado', 'connecticut', 'utah', 'virginia'].indexOf( region ) > -1;
+										// Set CCPA applies cookie. This keeps us from having to make a geo request too frequently.
+										setCcpaAppliesCookie( ccpa_applies );
+
+										// Check if CCPA applies to set the proper usprivacy cookie.
+										if ( ccpa_applies ) {
+											if ( maybeCallDoNotSellCallback() ) {
+												// Do Not Sell link added, so set default opt-in.
+												setDefaultOptInCookie();
+											} else {
+												// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+												setDefaultOptOutCookie();
+											}
+										} else {
+											// CCPA does not apply.
+											setDefaultNotApplicableCookie();
+										}
+									} else {
+										// Could not geo, so let's assume for now that CCPA applies to be safe.
+										setCcpaAppliesCookie( true );
+										if ( maybeCallDoNotSellCallback() ) {
+											// Do Not Sell link added, so set default opt-in.
+											setDefaultOptInCookie();
+										} else {
+											// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+											setDefaultOptOutCookie();
+										}
+									}
+								}
+							};
+
+							// Send the geo request.
+							request.send();
+						} else {
+							// We found a CCPA applies cookie.
+							if ( ccpaCookie === 'true' ) {
+								if ( maybeCallDoNotSellCallback() ) {
+									// Do Not Sell link added, so set default opt-in.
+									setDefaultOptInCookie();
+								} else {
+									// Failed showing Do Not Sell link as required, so default to opt-OUT just to be safe.
+									setDefaultOptOutCookie();
+								}
+							} else {
+								// CCPA does not apply.
+								setDefaultNotApplicableCookie();
+							}
+						}
+					} );
+				};
+
+				// Kickoff initialization.
+				if ( window.defQueue && defQueue.isLOHP && defQueue.isLOHP === 2020 ) {
+					defQueue.items.push( setupPrivacy );
+				} else {
+					setupPrivacy();
+				}
+
+			} )();
+		</script>
+
+		<!-- CCPA [end] -->
+			<div id="actionbar" class="actnbr-pub-rubric actnbr-has-follow">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+						<a class="actnbr-action actnbr-actn-comment" href="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/#comments">
+							<svg class="gridicon gridicons-comment" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M12 16l-5 5v-5H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2h-7z"></path></g></svg>							<span>Comment						</span>
+						</a>
+					</li>
+									<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z" fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20" style="--darkreader-inline-fill: #79ef8e;" data-darkreader-inline-fill=""></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5" style="--darkreader-inline-stroke: #79ef8e;" data-darkreader-inline-stroke=""></path></svg>
+			<span>Subscribed</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename">
+			<a href="https://harablog.wordpress.com/">
+				<img alt="" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/wpcom-gray-white.png" srcset="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/wpcom-gray-white.png 1x" class="avatar avatar-50" height="50" width="50">				Shortest Path			</a>
+		</li>
+										<div class="actnbr-message no-display"></div>
+									<form method="post" action="https://subscribe.wordpress.com" accept-charset="utf-8" style="display: none;">
+																				<div>
+										<input type="email" name="email" placeholder="Enter your email address" class="actnbr-email-field" aria-label="Enter your email address">
+										</div>
+										<input type="hidden" name="action" value="subscribe">
+										<input type="hidden" name="blog_id" value="6057140">
+										<input type="hidden" name="source" value="https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/">
+										<input type="hidden" name="sub-type" value="actionbar-follow">
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="32ce176f56">										<div class="actnbr-button-wrap">
+											<button type="submit" value="Sign me up">
+												Sign me up											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge">
+										<div>
+											Already have a WordPress.com account? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F01%2Frectangular-symmetry-reduction%2F&amp;signup_flow=account">Log in now.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+									<li class="actnbr-btn actnbr-hidden" onclick="javascript:__tcfapi( 'showUi' );">
+						<a class="actnbr-action actnbr-actn-privacy" href="#">
+							<svg class="gridicon gridicons-info-outline" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M13 9h-2V7h2v2zm0 2h-2v6h2v-6zm-1-7c-4.41 0-8 3.59-8 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8m0-2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2z"></path></g></svg>							<span>Privacy						</span>
+						</a>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"></path></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+									<li class="actnbr-sitename">
+			<a href="https://harablog.wordpress.com/">
+				<img alt="" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/wpcom-gray-white.png" srcset="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/wpcom-gray-white.png 1x" class="avatar avatar-50" height="50" width="50">				Shortest Path			</a>
+		</li>
+								<li class="actnbr-folded-customize">
+								<a href="https://harablog.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F01%2Frectangular-symmetry-reduction%2F">
+									<svg class="gridicon gridicons-customize" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z"></path></g></svg>									<span>Customize</span>
+								</a>
+							</li>
+																<li class="actnbr-folded-follow">
+												<a class="actnbr-action actnbr-actn-follow " href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path clip-rule="evenodd" d="m4 4.5h12v6.5h1.5v-6.5-1.5h-1.5-12-1.5v1.5 10.5c0 1.1046.89543 2 2 2h7v-1.5h-7c-.27614 0-.5-.2239-.5-.5zm10.5 2h-9v1.5h9zm-5 3h-4v1.5h4zm3.5 1.5h-1v1h1zm-1-1.5h-1.5v1.5 1 1.5h1.5 1 1.5v-1.5-1-1.5h-1.5zm-2.5 2.5h-4v1.5h4zm6.5 1.25h1.5v2.25h2.25v1.5h-2.25v2.25h-1.5v-2.25h-2.25v-1.5h2.25z" fill-rule="evenodd"></path></svg>
+			<span>Subscribe</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="">
+			<svg class="gridicon" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 4.5H4V15C4 15.2761 4.22386 15.5 4.5 15.5H11.5V17H4.5C3.39543 17 2.5 16.1046 2.5 15V4.5V3H4H16H17.5V4.5V12.5H16V4.5ZM5.5 6.5H14.5V8H5.5V6.5ZM5.5 9.5H9.5V11H5.5V9.5ZM12 11H13V12H12V11ZM10.5 9.5H12H13H14.5V11V12V13.5H13H12H10.5V12V11V9.5ZM5.5 12H9.5V13.5H5.5V12Z" fill="#008A20" style="--darkreader-inline-fill: #79ef8e;" data-darkreader-inline-fill=""></path><path class="following-icon-tick" d="M13.5 16L15.5 18L19 14.5" stroke="#008A20" stroke-width="1.5" style="--darkreader-inline-stroke: #79ef8e;" data-darkreader-inline-stroke=""></path></svg>
+			<span>Subscribed</span>
+		</a>
+										</li>
+																	<li class="actnbr-signup"><a href="https://wordpress.com/start/">Sign up</a></li>
+									<li class="actnbr-login"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fharablog.wordpress.com%2F2011%2F09%2F01%2Frectangular-symmetry-reduction%2F&amp;signup_flow=account">Log in</a></li>
+																	<li class="actnbr-shortlink"><a href="https://wp.me/pppJO-cK">Copy shortlink</a></li>
+																	<li class="flb-report">
+										<a href="http://en.wordpress.com/abuse/?report_url=https://harablog.wordpress.com/2011/09/01/rectangular-symmetry-reduction/" target="_blank">
+											Report this content										</a>
+									</li>
+																	<li class="actnbr-reader">
+										<a href="https://wordpress.com/read/blogs/6057140/posts/790">
+											View post in Reader										</a>
+									</li>
+																	<li class="actnbr-subs">
+										<a href="https://subscribe.wordpress.com/">Manage subscriptions</a>
+									</li>
+																		<li class="actnbr-fold"><a href="">Collapse this bar</a></li>
+															</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.css?v=20231122";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "https://s0.wp.com/wp-content/mu-plugins/actionbar/actionbar.js?v=20231122";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+
+	<script type="text/javascript" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/smart.js" id="smart-tag-lib-js"></script>
+<script type="text/javascript" id="verbum-settings-js-before">
+/* <![CDATA[ */
+window.VerbumComments = {"Log in or provide your name and email to leave a reply.":"Log in or provide your name and email to leave a reply.","Receive web and mobile notifications for posts on this site.":"Receive web and mobile notifications for posts on this site.","Name":"Name","Email (address never made public)":"Email (address never made public)","Website (optional)":"Website (optional)","Leave a reply. (log in optional)":"Leave a reply. (log in optional)","Log in to leave a reply.":"Log in to leave a reply.","Logged in via %s":"Logged in via %s","Log out":"Log out","Email":"Email","(Address never made public)":"(Address never made public)","Instantly":"Instantly","Daily":"Daily","Reply":"Reply","WordPress":"WordPress","Weekly":"Weekly","Notify me of new posts":"Notify me of new posts","Email me new posts":"Email me new posts","Email me new comments":"Email me new comments","Cancel":"Cancel","Write a comment...":"Write a Comment...","Website":"Website","Optional":"Optional","We'll keep you in the loop!":"We'll keep you in the loop!","Loading your comment...":"Loading your comment...","Never miss a beat!":"Never miss a beat!","Interested in getting blog post updates? Simply click the button below to stay in the loop!":"Interested in getting blog post updates? Simply click the button below to stay in the loop!","Enter your email address":"Enter your email address","Subscribe":"Subscribe","Comment sent successfully":"Comment sent successfully","Save my name, email, and website in this browser for the next time I comment.":"Save my name, email, and website in this browser for the next time I comment.","siteId":6057140,"postId":790,"mustLogIn":false,"requireNameEmail":true,"commentRegistration":false,"connectURL":"https:\/\/harablog.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/harablog.wordpress.com\/wp-login.php?action=logout&_wpnonce=95bb545ae2","homeURL":"https:\/\/harablog.wordpress.com\/","subscribeToBlog":true,"subscribeToComment":true,"isJetpackCommentsLoggedIn":false,"jetpackUsername":"","jetpackUserId":0,"jetpackSignature":"","jetpackAvatar":null,"enableBlocks":false,"enableSubscriptionModal":true,"currentLocale":"en","isJetpackComments":false,"allowedBlocks":["core\/paragraph","core\/list","core\/code","core\/list-item","core\/quote","core\/image","core\/embed","core\/quote","core\/code"],"embedNonce":"4ec63470c4","verbumBundleUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/verbum\/dist\/index.js"}
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_002"></script>
+<script type="text/javascript" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/outbrain.js" id="outbrain-js"></script>
+<script type="text/javascript" id="sharing-js-js-extra">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+/* ]]> */
+</script>
+<script crossorigin="anonymous" type="text/javascript" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/Untitled_004"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<iframe src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+	<div id="likes-other-gravatars" class="wpl-new-layout" aria-hidden="true">
+		<div class="likes-text">
+			<span>%d</span>		</div>
+		<ul class="wpl-avatars sd-like-gravatars"></ul>
+	</div>
+
+		<script src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/w.js" defer="defer"></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'6057140','blog_tz':'10','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'6057140','v':'wpcom','tz':'10','user_id':'0','post':'790','subd':'harablog'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3BTTVtuWDM4P1prRmthbFFyXU44VCxWcHVjeCZoaWdzU29kNjE9cEJUeCxJeHVGdHRYP2N6eWMtZmVvejZMem1MTkFZaVpnRVZSNiYueWFlWEtLLHNTWnV8bms5c3J3LkMmZFhRVFprZFA5SmkwbS9fcDRYMHYuUjRXTlg5aUxLW092Ji1OZ0h6SVpwbTNdaWptbytSL3dBbFYvMHcmX3cwQkFwc10sV3hYQU9oL2ZULSxXMHZIS1haNlZubjl1aHBobGtjZTNnJS5hLEY2LSZdQWlEVkp0LTlrbXhsM1FSXUpDK0VZc0Z6aQ=='}]);
+_stq.push([ 'clickTrackerInit', '6057140', '790' ]);
+</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<script defer="defer" id="bilmur" data-customproperties="{&quot;logged_in&quot;:&quot;0&quot;,&quot;wptheme&quot;:&quot;pub\/rubric&quot;,&quot;wptheme_is_block&quot;:&quot;0&quot;}" data-provider="wordpress.com" data-service="simple" src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/bilmur.min.js"></script><script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+<script>
+(function() {
+	'use strict';
+
+	const fetches = {};
+	const promises = {};
+	const urls = {
+		'verbum': 'https://s0.wp.com/wp-content/mu-plugins/verbum/dist/index.js?m=1703182769i&ver=1703182769'
+	};
+	const loaders = {
+		'verbum': () => {
+			fetchExternalScript('verbum');
+			promises['verbum'] = promises['verbum'] || loadWPScript('verbum');
+			return promises['verbum'];
+		},
+		
+	};
+	const scriptExtras = {
+		
+	};
+
+	window.WP_Enqueue_Dynamic_Script = {
+		loadScript: (handle) => {
+			if (!loaders[handle]) {
+				console.error('WP_Enqueue_Dynamic_Script: unregistered script `' + handle + '`.');
+			}
+			return loaders[handle]();
+		}
+	};
+
+	function fetchExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		fetches[handle] = fetches[handle] || fetch(urls[handle], { mode: 'no-cors' });
+		return fetches[handle];
+	}
+
+	function runExtraScript(handle, type, index) {
+		const id = 'wp-enqueue-dynamic-script:' + handle + ':' + type + ':' + (index + 1);
+		const template = document.getElementById(id);
+		if (!template) {
+			return Promise.reject();
+		}
+
+		const script = document.createElement( 'script' );
+		script.innerHTML = template.innerHTML;
+		document.body.appendChild( script );
+		return Promise.resolve();
+	}
+
+	function loadExternalScript(handle) {
+		if (!urls[handle]) {
+			return Promise.resolve();
+		}
+
+		return fetches[handle].then(() => {
+			return new Promise((resolve, reject) => {
+				const script = document.createElement('script');
+				script.onload = () => resolve();
+				script.onerror = (e) => reject(e);
+				script.src = urls[handle];
+				document.body.appendChild(script);
+			});
+		});
+	}
+
+	function loadExtra(handle, pos) {
+		const count = (scriptExtras[handle] && scriptExtras[handle][pos]) || 0;
+		let promise = Promise.resolve();
+
+		for (let i = 0; i < count; i++) {
+			promise = promise.then(() => runExtraScript(handle, pos, i));
+		}
+
+		return promise;
+	}
+
+	function loadWPScript(handle) {
+		return loadExtra(handle, 'before')
+			.then(() => loadExternalScript(handle))
+			.then(() => loadExtra(handle, 'after'));
+	}
+} )();
+</script>
+
+
+<iframe style="display: none;" name="__tcfapiLocator"></iframe><style>img#wpstats {
+			position: absolute !important;
+			clip: rect(0, 0, 0, 0);
+			padding: 0 !important;
+			border: 0 !important;
+			height: 0 !important;
+			width: 0 !important;
+			overflow: hidden;
+		}</style><style class="darkreader darkreader--sync" media="screen"></style><img src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/g.gif" alt="" id="wpstats"><script src="Rectangular%20Symmetry%20Reduction%20Shortest%20Path_files/actionbar.js" defer="defer"></script></body></html>

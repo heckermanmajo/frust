@@ -8,8 +8,8 @@ require "src/drawing"
 
 -- map stuff
 require "src/map/map/Map"
-require "src/map/Chunk"
-require "src/map/Tile"
+require "src/map/chunk/Chunk"
+require "src/map/tile/Tile"
 require "src/map/astar_for_graph"
 require "src/map/haastar"
 
@@ -28,12 +28,7 @@ require "src/user_controller"
 CURRENT_MAP = Map.new(32, 32, 3, 3)
 
 function love.load()
-
   for _,t in ipairs(Map.__tests) do t() end
-
-
-
-
   --Search Source, then the save directory
   love.filesystem.setIdentity(love.filesystem.getIdentity(), true)
 end

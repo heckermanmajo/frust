@@ -150,3 +150,12 @@ end
 function Map:getHeightInPixels()
   return self.heightInChunks * self.chunkSizeInTiles * self.tileSizeInPixels
 end
+
+--- For pathfinding we need to know the border-tiles of the chunks.
+---
+function Map:get_border_pairs()
+  -- Problem to solve: we dont want to have the same border twice.
+  -- solution: we dont make it "chunk-wise", but based on the chunk number and size, we generate
+  -- the borders our self and then just request the tiles from the chunks.
+  -- @see Chunk:get_border_tiles(side)
+end

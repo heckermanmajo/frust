@@ -10,6 +10,13 @@
 --- @field public drawablesInMe[] A list of all drawables that are in this chunk.
 --- @field public map Map The parent map. A chunk always needs a map.
 ---
+--- All of these need to be recalculated when the map changes or is loaded:
+---
+--- @field left_border_pairs table<BorderPathfindingNode,Tile[]> the paths to the best nodes to the left chunk of this chunk
+--- @field right_border_pairs table<BorderPathfindingNode,Tile[]> the paths to the best nodes to the right chunk of this chunk
+--- @field top_border_pairs table<BorderPathfindingNode,Tile[]> the paths to the best nodes to the top chunk of this chunk
+--- @field bottom_border_pairs table<BorderPathfindingNode,Tile[]> the paths to the best nodes to the bottom chunk of this chunk
+---
 --- @field public __className string static! the name of the class
 --- @field private __logfile file
 
@@ -71,6 +78,7 @@ function Chunk.fromRepr(raw_chunk_data, map)
   for _, raw_tile in ipairs(raw_chunk_data.tilesAsList) do
     local tile = Tile.fromRepr(raw_tile, raw_chunk_data)
     Tile.checkType(tile)
+    table.insert(newTiles, tile)
     table.insert(newTiles, tile)
     local tile_real_x = math.floor(tile.x / map.tileSizeInPixels)
     local tile_real_y = math.floor(tile.y / map.tileSizeInPixels)
@@ -270,6 +278,9 @@ end
 
 function Chunk:drawClearanceNumbersOnTiles()
   -- todo: dont do this in the draw function
+  -- todo: once done at te star, we only need to update 4 tiles in each direttion
+  --       of any given changed tile instead of all tiles, and even all tiles in a chunk
+  --       This will greatly improve performance
   for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(0) end
   for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(1) end
   for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(2) end
@@ -306,4 +317,30 @@ function Chunk.getTileAtXY(self, x, y)
     error(string.format("No tile at position %s, %s", tile_x, tile_y))
   end
   return potential_tile
+end
+
+-- todo: use this function
+function Chunk:calculate_initial_clearance()
+  for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(0) end
+  for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(1) end
+  for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(2) end
+  for _, tile in ipairs(self.tilesAsList) do tile:checkForClearanceLevel(3) end
+end
+
+
+--- Returns the border tiles of the chunk.
+--- Used for the pathfinding-graph.
+--- @param side string - one of "top", "bottom", "left", "right"
+--- @return Tile[]
+function Chunk:get_border_tiles(side)
+  local allowed_sides = { "top", "bottom", "left", "right" }
+  assert(inTable(side, allowed_sides), "side must be one of " .. table.concat(allowed_sides, ", "))
+  local border_tiles = {}
+  for _, tile in ipairs(self.tilesAsList) do
+    if side == "top" and tile.getRelativeYNumToChunk() == 0 then table.insert(border_tiles, tile) end
+    if side == "bottom" and tile.getRelativeYNumToChunk() == self.map.chunkSizeInTiles - 1 then table.insert(border_tiles, tile) end
+    if side == "left" and tile.getRelativeXNumToChunk() == 0 then table.insert(border_tiles, tile) end
+    if side == "right" and tile.getRelativeXNumToChunk() == self.map.chunkSizeInTiles - 1 then table.insert(border_tiles, tile) end
+  end
+  return border_tiles
 end

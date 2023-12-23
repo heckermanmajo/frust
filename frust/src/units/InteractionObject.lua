@@ -1,0 +1,2 @@
+--- @class InteractionObject Object that soldiers can interact with like MG, turret, health crates, etc.
+--- They can interact once or man it. then they are attached to it, f.e. MG.

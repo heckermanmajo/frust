@@ -26,33 +26,29 @@ function inTable(value, table)
     return false
 end
 
--- TODO: THIS IS NOT WORKING
+-- TODO: test this function
 -- tostring of table
-function serializeTable(val, name, skipnewlines, depth)
-    skipnewlines = skipnewlines or false
-    depth = depth or 10
-
-    local tmp = string.rep(" ", depth)
-
-    if name then tmp = tmp .. name .. " = " end
-
-    if type(val) == "table" then
-        tmp = tmp .. "{" .. (not skipnewlines and "\n" or "")
-
-        for k, v in pairs(val) do
-            tmp =  tmp .. serializeTable(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
+function serializeTable(tbl, seen)
+    seen = seen or {}  -- Table to keep track of visited tables
+    if type(tbl) == "table" then
+        if seen[tbl] then
+            return "recursion"
         end
-
-        tmp = tmp .. string.rep(" ", depth) .. "}"
-    elseif type(val) == "number" then
-        tmp = tmp .. tostring(val)
-    elseif type(val) == "string" then
-        tmp = tmp .. string.format("%q", val)
-    elseif type(val) == "boolean" then
-        tmp = tmp .. (val and "true" or "false")
+        seen[tbl] = true
+        local result = "{"
+        local first = true
+        for k, v in pairs(tbl) do
+            if not first then
+                result = result .. ", "
+            end
+            result = result .. "[" .. serialize(k, seen) .. "]=" .. serialize(v, seen)
+            first = false
+        end
+        result = result .. "}"
+        return result
+    elseif type(tbl) == "string" then
+        return string.format("%q", tbl)
     else
-        tmp = tmp .. "\"[inserializeable datatype:" .. type(val) .. "]\""
+        return tostring(tbl)
     end
-
-    return tmp
 end
