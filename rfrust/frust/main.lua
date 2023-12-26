@@ -13,9 +13,9 @@ require "classes/map/Map"
 require "classes/map/Chunk"
 require "classes/map/Tile"
 
-require "loaders/MapLoader"
-require "loaders/ChunkLoader"
-require "loaders/TileLoader"
+---!debug:start
+require "classes/map/MapTests"
+---!debug:end
 
 require "scenes/rts_editor/UserController"
 require "scenes/rts_editor/RtsEditor"

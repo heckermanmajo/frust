@@ -32,6 +32,7 @@ end
 --- @param drawableObject DrawableProtocol
 function draw(drawableObject)
   ---!debug:start
+  assert(Camera ~= nil, "Camera must be defined")
   DrawableProtocol.check(drawableObject)
   ---!debug:end
   -- if Camera.is_in_viewport(drawableObject) == false then return end

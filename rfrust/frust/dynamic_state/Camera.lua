@@ -1,3 +1,7 @@
+--- @class Camera The camera is used to move the view over the screen.
+--- @field public zoom number
+--- @field public x number
+--- @field public y number
 Camera = {
   zoom = 1,
   x = 0,

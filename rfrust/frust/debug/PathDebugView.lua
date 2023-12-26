@@ -1,0 +1,3 @@
+--[[
+ Draw paths on tiles.
+]]

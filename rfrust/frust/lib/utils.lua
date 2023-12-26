@@ -8,70 +8,95 @@
 
 Utils = {}
 
+---------------------------------------------------------------------------------
 --- Check if a value is a positive number.
+---
 --- @param value number
+---
 --- @return nil
+---
 --- @raise error if value is not a positive number
-function Utils.positive_number(value)
-    assert(type(value) == "number", "value must be a number")
-    if value < 0 then
-        error("value must be positive")
-    end
+---------------------------------------------------------------------------------
+function Utils.assert_positive_number(value)
+  assert(type(value) == "number", "value must be a number")
+  if value < 0 then
+    error("value must be positive")
+  end
 end
 
-function Utils.number(value)
-    assert(type(value) == "number", "value must be a number")
+---------------------------------------------------------------------------------
+--- Check if a value is a number.
+---
+--- @param value number
+---
+--- @return nil
+---
+--- @raise error if value is not a number
+---------------------------------------------------------------------------------
+function Utils.assert_number(value)
+  assert(type(value) == "number", "value must be a number")
 end
 
-function Utils.positive_integer(value)
-    assert(type(value) == "number", "value must be a number")
-    if value < 0 then
-        error("value must be positive")
-    end
-    if value ~= math.floor(value) then
-        error("value must be an integer")
-    end
+function Utils.assert_positive_integer(value)
+  assert(type(value) == "number", "value must be a number")
+  if value < 0 then
+    error("value must be positive")
+  end
+  if value ~= math.floor(value) then
+    error("value must be an integer")
+  end
 end
 
-function Utils.integer(value)
-    assert(type(value) == "number", "value must be a number")
-    if value ~= math.floor(value) then
-        error("value must be an integer")
-    end
+function Utils.assert_integer(value)
+  assert(type(value) == "number", "value must be a number")
+  if value ~= math.floor(value) then
+    error("value must be an integer")
+  end
 end
 
-
-function Utils.in_table(value, table)
-    assert(type(table) == "table", "table must be a table")
-    for _, v in pairs(table) do
-        if v == value then
-            return true
-        end
+function Utils.assert_in_table(value, table)
+  assert(type(table) == "table", "table must be a table")
+  local found = false
+  for _, v in ipairs(table) do
+    -- list like tables
+    if v == value then
+      found = true
+      break
     end
-    return false
+  end
+  for _, v in pairs(table) do
+    -- map like tables
+    if v == value then
+      found = true
+      break
+    end
+  end
+  if not found then
+    error("value must be in table, but is " .. tostring(value))
+  end
 end
 
-function Utils.serialize_table(tbl, seen)
-    seen = seen or {}  -- Table to keep track of visited tables
-    if type(tbl) == "table" then
-        if seen[tbl] then
-            return "recursion"
-        end
-        seen[tbl] = true
-        local result = "{"
-        local first = true
-        for k, v in pairs(tbl) do
-            if not first then
-                result = result .. ", "
-            end
-            result = result .. "[" .. serialize(k, seen) .. "]=" .. serialize(v, seen)
-            first = false
-        end
-        result = result .. "}"
-        return result
-    elseif type(tbl) == "string" then
-        return string.format("%q", tbl)
-    else
-        return tostring(tbl)
+function Utils.assert_serialize_table(tbl, seen)
+  seen = seen or {}  -- Table to keep track of visited tables
+  if type(tbl) == "table" then
+    if seen[tbl] then
+      return "recursion"
     end
+    seen[tbl] = true
+    local result = "{"
+    local first = true
+    for k, v in pairs(tbl) do
+      if not first then
+        result = result .. ", "
+      end
+      result = result .. "[" .. serialize(k, seen) .. "]=" .. serialize(v, seen)
+      first = false
+    end
+    result = result .. "}"
+    return result
+  elseif type(tbl) == "string" then
+    return string.format("%q", tbl)
+  else
+    return tostring(tbl)
+  end
 end

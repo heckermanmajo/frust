@@ -143,6 +143,15 @@ Frust Build 10.0:
 ---------
 
 
+Frust Build XX.0:
+---------
+Campaign-map:
+- Ressourcen
+- Ressourcen zu gebieten hinzufügen
+- Divisionen zusammen stellen
+
+
+
 Longer distance Features:
 - Building
 - Formations

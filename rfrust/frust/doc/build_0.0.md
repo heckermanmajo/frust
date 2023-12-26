@@ -13,3 +13,8 @@ Frust Build 0.0
 - debug info
 - simple map loading -> use to non-recursive repr functions
 - place obstacles (user controller) (water/stone) - load and save
+
+TODOS
+------
+- import camera and view map
+- start: Load and save map with tests

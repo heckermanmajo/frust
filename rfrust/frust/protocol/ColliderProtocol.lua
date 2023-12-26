@@ -14,10 +14,10 @@ function ColliderProtocol.check(object)
   if object.__className ~= nil then
     assert(inTable("Collider", object.__protocols), "object must implement and allow Collider protocol")
   end
-  Utils.positive_number(object.x)
-  Utils.positive_number(object.y)
-  Utils.positive_number(object.width)
-  Utils.positive_number(object.height)
+  Utils.assert_positive_number(object.x)
+  Utils.assert_positive_number(object.y)
+  Utils.assert_positive_number(object.width)
+  Utils.assert_positive_number(object.height)
 end
 
 --- Check if two colliders are overlapping (colliding).
