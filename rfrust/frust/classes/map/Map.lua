@@ -36,7 +36,9 @@ function Map.new(-- todo: create chunks from input data
   map.chunk_map = {}
   map.tile_map = {}
 
+  -- for all chunks in the len (go left to right)
   for x = 0, len_of_map_in_chunks - 1 do
+    -- for all chunks in the height (go top to bottom)
     for y = 0, height_of_map_in_chunks - 1 do
 
       -- create the chunk (but dont set the tiles yet)
@@ -50,8 +52,11 @@ function Map.new(-- todo: create chunks from input data
 
       -- Create the tiles of the chunk
       local tiles_of_chunk = {}
+      -- for all tiles in the chunk (go left to right)
       for _x = 0, size_of_chunks_in_tiles - 1 do
+        -- for all tiles in the chunk (go top to bottom)
         for _y = 0, size_of_chunks_in_tiles - 1 do
+          -- calculate the absolute position of the tile, since the current position is the relative number to the chunk
           local absolute_tile_x = x * size_of_chunks_in_tiles * size_of_tiles_in_pixels + _x * size_of_tiles_in_pixels
           local absolute_tile_y = y * size_of_chunks_in_tiles * size_of_tiles_in_pixels + _y * size_of_tiles_in_pixels
           local tile = Tile.new(
@@ -62,10 +67,14 @@ function Map.new(-- todo: create chunks from input data
             Tile.TileTypes.GRASS, -- set all tiles to grass on default
             chunk
           )
+          -- add the tile to the tile associative table in the Mamp-Class instance
+          -- this way we can access the tiles directly by their position
           if map.tile_map[_x] == nil then
             map.tile_map[_x] = {}
           end
           map.tile_map[_x][_y] = tile
+
+          -- add the tiles also into a list for fast iteration over all tiles
           table.insert(tiles_of_chunk, tile)
         end
       end
@@ -109,12 +118,14 @@ function Map:check()
   Utils.assert_positive_integer(self.height_of_map_in_chunks)
   assert(type(self.chunks) == "table", "self.chunks must be a table, but is " .. type(self.chunks))
 
+  -- check all chunks in the chunks-list
   for _, chunk in pairs(self.chunks) do
     assert(type(chunk) == "table")
     assert(getmetatable(chunk) == Chunk)
     chunk:check()
   end
 
+  -- assert that all chunks are in the chunk_map
   for x, chunk_map in pairs(self.chunk_map) do
     Utils.assert_positive_integer(x)
     assert(math.floor(x / self.size_of_chunks_in_tiles) == 0)
@@ -126,6 +137,14 @@ function Map:check()
       assert(getmetatable(chunk) == Chunk)
       chunk:check()
     end
+  end
+
+  -- check that the chunks in the chunk_map are the same as in the chunks-list
+  for _, chunk in pairs(self.chunks) do
+    local number_position_instead_of_pixels_x = math.floor(chunk.x / (self.size_of_chunks_in_tiles * self.size_of_tiles_in_pixels))
+    local number_position_instead_of_pixels_y = math.floor(chunk.y / (self.size_of_chunks_in_tiles * self.size_of_tiles_in_pixels))
+    assert(self.chunk_map[number_position_instead_of_pixels_x] ~= nil)
+    assert(self.chunk_map[number_position_instead_of_pixels_x][number_position_instead_of_pixels_y] ~= nil)
   end
 
   return nil
