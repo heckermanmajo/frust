@@ -1,3 +1,11 @@
+--------------------------------------------------------------------------------
+--- Prints a statement if in debug mode.
+--- All Debug prints are removed by the preprocessor in release mode.
+--- @param log string
+--------------------------------------------------------------------------------
+DEBUGLOG = function (log)
+  print(log)
+end
 
 require "lib/utils"
 require "lib/astar_for_chunks"

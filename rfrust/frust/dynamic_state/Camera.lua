@@ -1,15 +1,25 @@
+------------------------------------------------------------------------
 --- @class Camera The camera is used to move the view over the screen.
 --- @field public zoom number
 --- @field public x number
 --- @field public y number
+------------------------------------------------------------------------
 Camera = {
   zoom = 1,
   x = 0,
   y = 0,
 }
 
+---@type number the padding around the viewport
 local padding = 100
 
+--------------------------------------------------------------------------------
+--- Check if a drawable is in the viewport.
+---
+--- @param drawable table
+---
+--- @return boolean
+--------------------------------------------------------------------------------
 function Camera.is_in_viewport(drawable)
   -- TODO: check collider...
   -- checkDrawable(drawable)
@@ -21,10 +31,11 @@ function Camera.is_in_viewport(drawable)
   )
 end
 
+--------------------------------------------------------------------------------
 --- Move the camera if the mouse is at the edge of the screen.
+---
 --- @return nil
---- @usage
---- function love.update(dt)
+--------------------------------------------------------------------------------
 function Camera.moveTheScreenWhenMouseIsAtTheEdgeOfTheScreen()
   local x, y = love.mouse.getPosition()
   local speed = 10
@@ -48,9 +59,13 @@ local lastFrameMouseX = 0
 local lastFrameMouseY = 0
 local speed = 10
 
+
+--------------------------------------------------------------------------------
 --- Move the camera if the middle mouse is pressed.
 --- Uses local module-variables to store the state of the mouse.
+---
 --- @return nil
+--------------------------------------------------------------------------------
 function Camera.moveTheScreenWhenMiddleMouseIsPressed()
   local x, y = love.mouse.getPosition()
   if love.mouse.isDown(3) then
@@ -66,11 +81,13 @@ function Camera.moveTheScreenWhenMiddleMouseIsPressed()
   lastFrameMouseY = y
 end
 
-
+--------------------------------------------------------------------------------
 function Camera.getMouseXAfterCameraTransformation()
   return love.mouse.getX() / Camera.zoom + Camera.x
 end
 
+
+--------------------------------------------------------------------------------
 function Camera.getMouseYAfterCameraTransformation()
   return love.mouse.getY() / Camera.zoom + Camera.y
 end

@@ -1,3 +1,4 @@
+--------------------------------------------------------------------------
 --- @class Map
 --- @field chunks Chunk[]
 --- @field chunk_map table<number,<table<number, Chunk>>
@@ -6,6 +7,7 @@
 --- @field size_of_chunks_in_tiles number
 --- @field len_of_map_in_chunks number
 --- @field height_of_map_in_chunks number
+--------------------------------------------------------------------------
 Map = {}
 Map.__index = Map
 
@@ -37,14 +39,14 @@ function Map.new(-- todo: create chunks from input data
   map.tile_map = {}
 
   -- for all chunks in the len (go left to right)
-  for x = 0, len_of_map_in_chunks - 1 do
+  for chunk_x_num = 0, len_of_map_in_chunks - 1 do
     -- for all chunks in the height (go top to bottom)
-    for y = 0, height_of_map_in_chunks - 1 do
+    for chunk_y_num = 0, height_of_map_in_chunks - 1 do
 
       -- create the chunk (but dont set the tiles yet)
       local chunk = Chunk.new(
-        x * size_of_chunks_in_tiles * size_of_tiles_in_pixels,
-        y * size_of_chunks_in_tiles * size_of_tiles_in_pixels,
+        chunk_x_num * size_of_chunks_in_tiles * size_of_tiles_in_pixels,
+        chunk_y_num * size_of_chunks_in_tiles * size_of_tiles_in_pixels,
         size_of_chunks_in_tiles,
         size_of_tiles_in_pixels,
         map
@@ -57,8 +59,8 @@ function Map.new(-- todo: create chunks from input data
         -- for all tiles in the chunk (go top to bottom)
         for _y = 0, size_of_chunks_in_tiles - 1 do
           -- calculate the absolute position of the tile, since the current position is the relative number to the chunk
-          local absolute_tile_x = x * size_of_chunks_in_tiles * size_of_tiles_in_pixels + _x * size_of_tiles_in_pixels
-          local absolute_tile_y = y * size_of_chunks_in_tiles * size_of_tiles_in_pixels + _y * size_of_tiles_in_pixels
+          local absolute_tile_x = chunk_x_num * size_of_chunks_in_tiles * size_of_tiles_in_pixels + _x * size_of_tiles_in_pixels
+          local absolute_tile_y = chunk_y_num * size_of_chunks_in_tiles * size_of_tiles_in_pixels + _y * size_of_tiles_in_pixels
           local tile = Tile.new(
             absolute_tile_x,
             absolute_tile_y,
@@ -69,10 +71,12 @@ function Map.new(-- todo: create chunks from input data
           )
           -- add the tile to the tile associative table in the Mamp-Class instance
           -- this way we can access the tiles directly by their position
-          if map.tile_map[_x] == nil then
-            map.tile_map[_x] = {}
+          local absolute_tile_x_num = math.floor(absolute_tile_x / size_of_tiles_in_pixels)
+          local absolute_tile_y_num = math.floor(absolute_tile_y / size_of_tiles_in_pixels)
+          if map.tile_map[absolute_tile_x_num] == nil then
+            map.tile_map[absolute_tile_x_num] = {}
           end
-          map.tile_map[_x][_y] = tile
+          map.tile_map[absolute_tile_x_num][absolute_tile_y_num] = tile
 
           -- add the tiles also into a list for fast iteration over all tiles
           table.insert(tiles_of_chunk, tile)
@@ -85,10 +89,10 @@ function Map.new(-- todo: create chunks from input data
       chunk:check()
 
       -- add the chunk to the mapping on its position
-      if map.chunk_map[x] == nil then
-        map.chunk_map[x] = {}
+      if map.chunk_map[chunk_x_num] == nil then
+        map.chunk_map[chunk_x_num] = {}
       end
-      map.chunk_map[x][y] = chunk
+      map.chunk_map[chunk_x_num][chunk_y_num] = chunk
 
       -- add the chunk to the list of chunks for fast iteration
       table.insert(map.chunks, chunk)
@@ -123,20 +127,6 @@ function Map:check()
     assert(type(chunk) == "table")
     assert(getmetatable(chunk) == Chunk)
     chunk:check()
-  end
-
-  -- assert that all chunks are in the chunk_map
-  for x, chunk_map in pairs(self.chunk_map) do
-    Utils.assert_positive_integer(x)
-    assert(math.floor(x / self.size_of_chunks_in_tiles) == 0)
-    assert(type(chunk_map) == "table")
-    for y, chunk in pairs(chunk_map) do
-      Utils.assert_positive_integer(y)
-      assert(math.floor(y / self.size_of_chunks_in_tiles) == 0)
-      assert(type(chunk) == "table")
-      assert(getmetatable(chunk) == Chunk)
-      chunk:check()
-    end
   end
 
   -- check that the chunks in the chunk_map are the same as in the chunks-list
@@ -196,17 +186,75 @@ end
 --- @see Map.repr()
 --------------------------------------------------------------------------
 function Map.from_repr(raw_table_data)
-  assert(type(raw_table_data) == "table")
-  if raw_table_data.__className__ ~= "Map" then
-    error("raw_table_data.__className__ must be \"Map\"")
+
+  assert(type(raw_table_data) == "table", "raw_table_data must be a table, but is " .. type(raw_table_data))
+
+  if raw_table_data.__class_name__ ~= "Map" then
+    error("raw_table_data.__class_name__ must be \"Map\"")
   end
+
   if raw_table_data.__version__ ~= 0.1 then
     error("raw_table_data.__version__ must be 0.1")
   end
+
   -- todo: read all chunks
   -- todo: then read all tiles from each chunk
   -- todo: check that all needed chunks exist
 
+  local map = setmetatable({}, Map)
+
+  map.size_of_tiles_in_pixels = raw_table_data.size_of_tiles_in_pixels
+  Utils.assert_positive_integer(raw_table_data.size_of_chunks_in_tiles)
+
+  map.size_of_chunks_in_tiles = raw_table_data.size_of_chunks_in_tiles
+  Utils.assert_positive_integer(raw_table_data.size_of_chunks_in_tiles)
+
+  map.len_of_map_in_chunks = raw_table_data.len_of_map_in_chunks
+  Utils.assert_positive_integer(raw_table_data.len_of_map_in_chunks)
+
+  map.height_of_map_in_chunks = raw_table_data.height_of_map_in_chunks
+  Utils.assert_positive_integer(raw_table_data.height_of_map_in_chunks)
+
+  map.chunks = {}
+  map.chunk_map = {}
+  map.tile_map = {}
+  map.tiles = {}
+
+  for _, raw_chunk in ipairs(raw_table_data.chunks) do
+    local chunk = Chunk.from_repr(raw_chunk, map)
+    table.insert(map.chunks, chunk)
+    --insert all chunks into the tiles list
+    for _, tile in ipairs(chunk.tiles) do
+      table.insert(map.tiles, tile)
+    end
+  end
+
+  -- insert all tiles into the tile_map
+  --- @param tile Tile
+  for _, tile in ipairs(map.tiles) do
+    local number_position_instead_of_pixels_x = math.floor(tile.x / map.size_of_tiles_in_pixels)
+    local number_position_instead_of_pixels_y = math.floor(tile.y / map.size_of_tiles_in_pixels)
+    if map.tile_map[number_position_instead_of_pixels_x] == nil then
+      map.tile_map[number_position_instead_of_pixels_x] = {}
+    end
+    map.tile_map[number_position_instead_of_pixels_x][number_position_instead_of_pixels_y] = tile
+  end
+
+  -- insert all chunks into the chunk_map
+  --- @param chunk Chunk
+  for _, chunk in ipairs(map.chunks) do
+    local number_position_instead_of_pixels_x = math.floor(chunk.x / (map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels))
+    local number_position_instead_of_pixels_y = math.floor(chunk.y / (map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels))
+
+    if map.chunk_map[number_position_instead_of_pixels_x] == nil then
+      map.chunk_map[number_position_instead_of_pixels_x] = {}
+    end
+    map.chunk_map[number_position_instead_of_pixels_x][number_position_instead_of_pixels_y] = chunk
+  end
+
+  map:check()
+
+  return map
 
 end
 
@@ -285,10 +333,11 @@ function Map:get_tile_at_x_y_pixel(x, y, allow_nil)
   local _x = math.floor(x / self.size_of_tiles_in_pixels)
   local _y = math.floor(y / self.size_of_tiles_in_pixels)
 
-  if not self:tile_exists_at_x_y_pixel(_x, _y) then
+  if not self:tile_exists_at_x_y_pixel(x, y) then
     if allow_nil == nil then
       return nil
     else
+      DEBUGLOG("looking for tile at x=" .. x .. " y=" .. y)
       error("tile does not exist at x=" .. _x .. " y=" .. _y)
     end
   end
@@ -349,6 +398,18 @@ end
 --- @see Tile.get_traverse_cost
 --------------------------------------------------------------------------
 function Map:get_path_from_to(from_x, from_y, to_x, to_y, traveler) -- todo: implement
+
 end
 
+--------------------------------------------------------------------------
+--- Draws the Map.
+---
+--- @return nil
+---
+--- @see Camera Uses the camera to only loop over the visible chunks.
+--- @see ColliderProtocol We use the collider protocol to check if a chunk is visible (if they collide with the camera).
+--------------------------------------------------------------------------
+function Map:draw()
+
+end
 

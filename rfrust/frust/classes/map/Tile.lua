@@ -94,25 +94,29 @@ end
 ---
 --- Creates a new Tile from a string representation of a Tile.
 ---
---- @param repr string The representation of the Tile.
+--- @param raw_repr_table string The representation of the Tile.
 --- @param parent_chunk Chunk The chunk that the Tile belongs to.
 --- @return Tile The Tile.
 ---
 --- @see Tile.repr()
 -----------------------------------------------------------------------------
-function Tile.from_repr(repr, parent_chunk)
-  assert(type(repr) == "table")
+function Tile.from_repr(raw_repr_table, parent_chunk)
+
+  assert(type(raw_repr_table) == "table")
   assert(type(parent_chunk) == "table")
   assert(getmetatable(parent_chunk) == Chunk)
   parent_chunk:check()
+
   --- @type Tile
   local tile = setmetatable({}, Tile)
-  tile.x = repr.x
-  tile.y = repr.y
-  tile.width = repr.width
-  tile.height = repr.height
-  tile.type = repr.tile_type
+
+  tile.x = raw_repr_table.x
+  tile.y = raw_repr_table.y
+  tile.width = raw_repr_table.width
+  tile.height = raw_repr_table.height
+  tile.tile_type = raw_repr_table.tile_type
   tile.chunk = parent_chunk
+
   tile:check()
   return tile
 end

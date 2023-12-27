@@ -1,17 +1,21 @@
+------------------------------------------------------------
 --- @class Animation
 --- @field frames table<love.Quad>
 --- @field speed number
 --- @field timer number
 --- @field currentFrame number
----
----
+------------------------------------------------------------
 Animation = {}
 Animation.__index = Animation
 
+------------------------------------------------------------
 --- Create a new animation
+---
 --- @param frames table<love.Quad>
 --- @param speed number
+---
 --- @return Animation
+------------------------------------------------------------
 function Animation.new(frames, speed)
   local self = setmetatable({}, Animation)
   self.frames = frames or {}
@@ -21,9 +25,13 @@ function Animation.new(frames, speed)
   return self
 end
 
+-----------------------------------------------------------------
 --- Update the animation.
+---
 --- @param dt number
+---
 --- @return nil
+-----------------------------------------------------------------
 function Animation:update(dt)
   self.timer = self.timer + dt
   if self.timer > self.speed then
@@ -32,13 +40,19 @@ function Animation:update(dt)
   end
 end
 
+-----------------------------------------------------------------
 --- Get the current frame of the animation.
 --- Used to draw the animation.
+---
 --- @return love.Quad
---- @return number
+-----------------------------------------------------------------
 function Animation:getCurrentFrame()
   return self.frames[self.currentFrame]
 end
+
+
+
+
 
 -- EXAMPLE
 if false then

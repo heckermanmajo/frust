@@ -74,7 +74,6 @@ function Chunk:check()
     -- so when we reach the end of the row x is reset to 0 and y is increased by 32
     local last_tile = nil
     for i, tile in ipairs(self.tiles) do
-      print("tile " .. i .. ": ")
       if last_tile == nil then
         assert(tile.x - self.x == 0, "tile " .. i .. " is not in the right order, got x=" .. tile.x .. " but expected x=0")
         assert(tile.y - self.y == 0, "tile " .. i .. " is not in the right order, got y=" .. tile.y .. " but expected y=0")
@@ -128,6 +127,31 @@ end
 ---
 --- @see Chunk.repr
 --------------------------------------------------------------------------
-function Chunk:from_repr(raw_repr_data)
-  -- todo: implement
+function Chunk.from_repr(raw_repr_data, parent_map)
+  assert(type(raw_repr_data) == "table")
+  assert(raw_repr_data.__class_name__ == "Chunk")
+  assert(raw_repr_data.__version__ == 0.1)
+
+  local chunk = setmetatable({}, Chunk)
+  chunk.x = raw_repr_data.x
+  chunk.y = raw_repr_data.y
+  chunk.size_of_chunks_in_tiles = raw_repr_data.size_of_chunks_in_tiles
+  chunk.tile_size_in_pixels = raw_repr_data.tile_size_in_pixels
+
+  assert(type(parent_map) == "table")
+  assert(getmetatable(parent_map) == Map)
+  chunk.map = parent_map
+
+  chunk.tiles = {}
+  for _, tile_repr in pairs(raw_repr_data.tiles) do
+    local raw_repr_table_for_tile = tile_repr
+    local parent_chunk_of_tile = chunk
+    local tile = Tile.from_repr(raw_repr_table_for_tile, parent_chunk_of_tile)
+    table.insert(chunk.tiles, tile)
+  end
+
+  chunk:check()
+
+  return chunk
+
 end
