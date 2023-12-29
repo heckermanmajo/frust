@@ -6,6 +6,8 @@
 --- @field in_table fun(value: any, table: table): boolean
 --- @field serialize_table fun(tbl: table, seen: table): string
 
+-- todo: update all error messages...
+
 Utils = {}
 
 ---------------------------------------------------------------------------------
@@ -17,10 +19,11 @@ Utils = {}
 ---
 --- @raise error if value is not a positive number
 ---------------------------------------------------------------------------------
-function Utils.assert_positive_number(value)
-  assert(type(value) == "number", "value must be a number")
+function Utils.assert_positive_number(value, message)
+  local _message = message or ""
+  assert(type(value) == "number", "TYPECHECK: [value must be a number] " .. _message)
   if value < 0 then
-    error("value must be positive")
+    error("TYPECHECK: [value must be positive] " .. _message)
   end
 end
 

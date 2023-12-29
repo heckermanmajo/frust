@@ -22,7 +22,7 @@ local padding = 100
 --------------------------------------------------------------------------------
 function Camera.is_in_viewport(drawable)
   -- TODO: check collider...
-  -- checkDrawable(drawable)
+  ColliderProtocol.check(drawable)
   return (
     drawable.x + drawable.width > Camera.x - padding
       and drawable.x < Camera.x + love.graphics.getWidth() / Camera.zoom + padding
@@ -57,7 +57,7 @@ end
 local middleMouseWasPressedLastFrame = false
 local lastFrameMouseX = 0
 local lastFrameMouseY = 0
-local speed = 10
+local speed = 2
 
 
 --------------------------------------------------------------------------------
@@ -90,4 +90,9 @@ end
 --------------------------------------------------------------------------------
 function Camera.getMouseYAfterCameraTransformation()
   return love.mouse.getY() / Camera.zoom + Camera.y
+end
+
+
+function Camera.get_xyz()
+  return Camera.x, Camera.y, Camera.zoom
 end

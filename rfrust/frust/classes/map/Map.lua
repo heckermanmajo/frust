@@ -3,6 +3,8 @@
 --- @field chunks Chunk[]
 --- @field chunk_map table<number,<table<number, Chunk>>
 --- @field tile_map table<number,<table<number, Tile>>
+--- @field chunks_for_path_finding table<table<Chunk>> All chunks in rows.
+--- @field tiles_for_path_finding table<table<Tile>> All tiles in rows (for the simple path finding).
 --- @field size_of_tiles_in_pixels number
 --- @field size_of_chunks_in_tiles number
 --- @field len_of_map_in_chunks number
@@ -98,6 +100,34 @@ function Map.new(-- todo: create chunks from input data
       table.insert(map.chunks, chunk)
     end
   end
+
+  -- get all chunks for path finding into one table
+  map.chunks_for_path_finding = {}
+  for x = 0, map.height_of_map_in_chunks - 1 do
+    local row = {}
+    for y = 0, map.len_of_map_in_chunks - 1 do
+      local actual_x = x * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
+      local actual_y = y * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
+      local chunk = map:get_chunk_at_x_y_pixel(actual_x, actual_y)
+      chunk:check()
+      table.insert(row, chunk)
+    end
+    table.insert(map.chunks_for_path_finding, row)
+  end
+
+  map.tiles_for_path_finding = {}
+  for x = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+    local row = {}
+    for y = 0, map.len_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+      local actual_x = x * map.size_of_tiles_in_pixels
+      local actual_y = y * map.size_of_tiles_in_pixels
+      local tile = map:get_tile_at_x_y_pixel(actual_x, actual_y)
+      tile:check()
+      table.insert(row, tile)
+    end
+    table.insert(map.tiles_for_path_finding, row)
+  end
+
 
   -- create all the tiles
   map:check()
@@ -250,6 +280,34 @@ function Map.from_repr(raw_table_data)
       map.chunk_map[number_position_instead_of_pixels_x] = {}
     end
     map.chunk_map[number_position_instead_of_pixels_x][number_position_instead_of_pixels_y] = chunk
+  end
+
+  -- get all chunks for path finding into one table
+  map.chunks_for_path_finding = {}
+  for x = 0, map.height_of_map_in_chunks - 1 do
+    local row = {}
+    for y = 0, map.len_of_map_in_chunks - 1 do
+      local actual_x = x * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
+      local actual_y = y * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
+      local chunk = map:get_chunk_at_x_y_pixel(actual_x, actual_y)
+      chunk:check()
+      table.insert(row, chunk)
+    end
+    table.insert(map.chunks_for_path_finding, row)
+  end
+
+
+  map.tiles_for_path_finding = {}
+  for x = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+    local row = {}
+    for y = 0, map.len_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+      local actual_x = x * map.size_of_tiles_in_pixels
+      local actual_y = y * map.size_of_tiles_in_pixels
+      local tile = map:get_tile_at_x_y_pixel(actual_x, actual_y)
+      tile:check()
+      table.insert(row, tile)
+    end
+    table.insert(map.tiles_for_path_finding, row)
   end
 
   map:check()
@@ -411,5 +469,82 @@ end
 --------------------------------------------------------------------------
 function Map:draw()
 
+  for _, c in ipairs(self.chunks) do
+    if Camera.is_in_viewport(c) then
+      c:draw()
+    end
+  end
+
 end
 
+--------------------------------------------------------------------------
+--- Returns a list of all pairs of chunks that are connected to each other.
+---
+--- This is useful for the path finding.
+---
+--- @return table<table<Chunk>> A list of pairs of chunks that are connected to each other.
+--------------------------------------------------------------------------
+function Map:get_chunk_connection_pairs()
+  -- we start at the top left and always go right and down
+  local result = {}
+  for x = 0, self.len_of_map_in_chunks - 1 do
+
+    for y = 0, self.height_of_map_in_chunks - 1 do
+
+      local ALLOW_NIL_RETURN = true
+      local PIXEL_SIZE_OF_CHUNK = self.size_of_chunks_in_tiles * self.size_of_tiles_in_pixels
+      local chunk = self:get_chunk_at_x_y_pixel(
+        x * PIXEL_SIZE_OF_CHUNK,
+        y * PIXEL_SIZE_OF_CHUNK
+      )
+
+      local right_chunk = self:get_chunk_at_x_y_pixel(
+        (x + 1) * PIXEL_SIZE_OF_CHUNK,
+        y * PIXEL_SIZE_OF_CHUNK,
+        ALLOW_NIL_RETURN
+      )
+
+      local down_chunk = self:get_chunk_at_x_y_pixel(
+        x * PIXEL_SIZE_OF_CHUNK,
+        (y + 1) * PIXEL_SIZE_OF_CHUNK,
+        ALLOW_NIL_RETURN
+      )
+
+      if right_chunk ~= nil then
+        table.insert(result, { chunk, right_chunk })
+      end
+
+      if down_chunk ~= nil then
+        table.insert(result, { chunk, down_chunk })
+      end
+
+    end  -- for y = 0, self.height_of_map_in_chunks - 1 do
+
+  end  -- for x = 0, self.len_of_map_in_chunks - 1 do
+
+end
+
+--------------------------------------------------------------------------
+--- Saves the map to the file with the given file_name.
+---
+--- @param file_name string The name of the file to save the map to.
+---
+--- @return nil
+--------------------------------------------------------------------------
+function Map:save_to_file(file_name)
+  local file = io.open(file_name, "w")
+  file:write("return ".. self:repr(file_name))
+  file:close()
+end
+
+--------------------------------------------------------------------------
+--- Loads a map from the file with the given file_name.
+---
+--- @param file_name string The name of the file to load the map from.
+---
+--- @return Map The loaded map.
+--------------------------------------------------------------------------
+function Map.load_map_from_file(file_name)
+  local map = dofile(file_name)
+  return Map.from_repr(map)
+end

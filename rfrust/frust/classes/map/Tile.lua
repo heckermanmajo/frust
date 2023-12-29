@@ -1,6 +1,7 @@
 
 --- @type love.graphics.Image the tile texture atlas, contains all tile images
 local tileTextureAtlas = love.graphics.newImage("assets/img/tiles.png")
+local defaultGras = love.graphics.newImage("assets/img/gras_outline.png")
 
 --- @class Tile A simple tile of a game world.
 --- @field public x number the x position in absolute pixels
@@ -22,6 +23,8 @@ Tile = {
     GREEN_OUTLINE = love.graphics.newQuad(0, 0, 32, 32, tileTextureAtlas:getDimensions()),
     BLUE_OUTLINE = love.graphics.newQuad(32, 0, 32, 32, tileTextureAtlas:getDimensions()),
     RED_OUTLINE = love.graphics.newQuad(64, 0, 32, 32, tileTextureAtlas:getDimensions()),
+
+    WATER = love.graphics.newQuad(26*32, 0, 32, 32, tileTextureAtlas:getDimensions()),
   }
 }
 Tile.__index = Tile
@@ -146,10 +149,17 @@ end
 --------------------------------------------------------------------------
 --- Returns the image to draw for the tile.
 ---
---- @return love.graphics.Quad The image to draw for the tile.
+--- @return love.graphics.Quad, love.graphics.Image The image to draw for the tile and te quad of the image.
 --------------------------------------------------------------------------
 function Tile:get_image_to_draw()
   -- correct: return Tile.TileAssets[self.type]
   -- but for now:
-  return Tile.TileAssets.GREEN_OUTLINE
+  if self.tile_type == Tile.TileTypes.WATER then
+    return Tile.TileAssets.WATER, tileTextureAtlas
+  elseif self.tile_type == Tile.TileTypes.GRASS then
+    --return Tile.TileAssets.GREEN_OUTLINE, tileTextureAtlas
+    return love.graphics.newQuad(0, 0, 32, 32, 32,32), defaultGras
+  end
+  -- (0, 0, 32, 32, {32,32}), defaultGras
+  --return Tile.TileAssets.GREEN_OUTLINE, tileTextureAtlas
 end
