@@ -296,7 +296,6 @@ function Map.from_repr(raw_table_data)
     table.insert(map.chunks_for_path_finding, row)
   end
 
-
   map.tiles_for_path_finding = {}
   for x = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
     local row = {}
@@ -455,7 +454,8 @@ end
 --- @see Tile.is_traversable
 --- @see Tile.get_traverse_cost
 --------------------------------------------------------------------------
-function Map:get_path_from_to(from_x, from_y, to_x, to_y, traveler) -- todo: implement
+function Map:get_path_from_to(from_x, from_y, to_x, to_y, traveler)
+  -- todo: implement
 
 end
 
@@ -533,7 +533,7 @@ end
 --------------------------------------------------------------------------
 function Map:save_to_file(file_name)
   local file = io.open(file_name, "w")
-  file:write("return ".. self:repr(file_name))
+  file:write("return " .. self:repr(file_name))
   file:close()
 end
 
@@ -545,6 +545,21 @@ end
 --- @return Map The loaded map.
 --------------------------------------------------------------------------
 function Map.load_map_from_file(file_name)
-  local map = dofile(file_name)
+  local file_content = io.open(file_name, "r"):read("*a")
+  local map = loadstring(file_content)()
   return Map.from_repr(map)
+end
+
+
+
+function Map.get_all_save_names()
+  -- love list dir get all saves
+  local dir = "saves"
+  local files = love.filesystem.getDirectoryItems(dir)
+  local result = {}
+  for k, file in ipairs(files) do
+    print(k, file)
+    table.insert(result, file)
+  end
+  return result
 end

@@ -21,12 +21,24 @@ require "classes/map/ChunkAstar"
 require "classes/map/Tile"
 require "classes/map/TileAstar"
 
+require "ui/Button"
+
 ---!debug:start
 require "classes/map/MapTests"
 ---!debug:end
 
 require "scenes/rts_editor/UserController"
 require "scenes/rts_editor/RtsEditor"
+
+
+-- love list dir get all saves
+local dir = "saves"
+local files = love.filesystem.getDirectoryItems( dir )
+for k, file in ipairs(files) do
+  print( k, file )
+end
+
+
 Scene = RtsEditor
 -- todo: other scenes
 

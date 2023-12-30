@@ -1,7 +1,7 @@
 -- A* algorithm implementation in Lua
 
 -- how to make a astar for tiles??
--- use tile-maps as input
+-- todo use tile-maps as input
 
 -- Node structure
 local Node = {
@@ -75,14 +75,18 @@ local function reconstructPath(goal)
   return path
 end
 
+
+
 -- A* algorithm function
 function astar(start, goal, map)
+
   local openList = {}
   local closedList = {}
 
   table.insert(openList, start)
 
   while #openList > 0 do
+
     local current = getLowestF(openList)
 
     if current.x == goal.x and current.y == goal.y then
@@ -129,8 +133,21 @@ function astar(start, goal, map)
   end
 
   return nil  -- No path found
+
 end
 
+
+
+do
+
+  -- load a test map for the tile
+
+
+end
+
+
+
+--[[
 do
   -- Test case for A* algorithm
 
@@ -207,3 +224,4 @@ do
 
   print("Test passed: A* algorithm successfully found the path.")
 end
+]]--
