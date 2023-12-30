@@ -3,18 +3,31 @@
 -- how to make a astar for tiles??
 -- todo use tile-maps as input
 
+
+--- @class Node
+--- @field x number
+--- @field y number
+--- @field g number
+--- @field h number
+--- @field f number
+--- @field parent nil
+--- @field instance Tile
+
+--[[
 -- Node structure
 local Node = {
-  x = 0,  -- relative index num of the given map, not a x in pixels
-  y = 0,  -- relative index num of the given map, not a y in pixels
+  x = 0, -- relative index num of the given map, not a x in pixels
+  y = 0, -- relative index num of the given map, not a y in pixels
   g = 0, -- Cost from the start node to this node
   h = 0, -- Heuristic: estimated cost from this node to the goal
   f = 0, -- Total cost (g + h)
-  parent = nil
+  parent = nil,
+  instance = nil, -- the tile instance, representing the node
 }
+]]--
 
 -- Function to create a new node
-local function newNode(x, y)
+local function newNode(x, y, instance)
   local node = {}
   node.x = x
   node.y = y
@@ -24,6 +37,7 @@ local function newNode(x, y)
   node.worldPositionX = 0
   node.worldPositionY = 0
   node.parent = nil
+  node.instance = instance
   return node
 end
 
@@ -69,8 +83,9 @@ local function reconstructPath(goal)
   local path = {}
   local current = goal
   while current do
-    table.insert(path, 1, current)
+    table.insert(path, 1, current.instance)
     current = current.parent
+    -- todo: only insert the tile instance, not the node
   end
   return path
 end
@@ -78,7 +93,14 @@ end
 
 
 -- A* algorithm function
-function astar(start, goal, map)
+--- @param start_tile Tile
+--- @param goal_tile Tile
+--- @param map Tile[][]
+function astar(start_tile, goal_tile, map, unit)
+
+  -- +1 since lua starts at 1
+  local start = newNode(start_tile:get_x_number() + 1, start_tile:get_y_number() + 1, start_tile)
+  local goal = newNode(goal_tile:get_x_number() + 1, goal_tile:get_y_number() + 1, goal_tile)
 
   local openList = {}
   local closedList = {}
@@ -108,14 +130,24 @@ function astar(start, goal, map)
     for _, neighbor in ipairs(neighbors) do
       if neighbor.x >= 1 and neighbor.x <= #map[1] and neighbor.y >= 1 and neighbor.y <= #map then
         -- Check if the neighbor is traversable and not in the closed list
-        if not nodeInList(neighbor, closedList) then
-          local worldPosX = map[neighbor.y][neighbor.x][1]
-          local worldPosY = map[neighbor.y][neighbor.x][2]
+        --print("GOT neighbor.x: " .. neighbor.x .. ", neighbor.y: " .. neighbor.y)
+        local tile = map[neighbor.y][neighbor.x]
+        --if not nodeInList(neighbor, closedList) then
+         -- print("NOT in CLOSED LIST neighborNode.x: " .. neighbor.x .. ", neighborNode.y: " .. neighbor.y)
+        --end
+        --if tile:is_traversable(unit) then
+        --  print ("CHECK tile: " .. tile:repr())
+        --end
+        if not nodeInList(neighbor, closedList) and tile:is_traversable(unit) then
+          --print ("CHECK tile: " .. tile:repr())
+          local worldPosX = tile.x
+          local worldPosY = tile.y
           local distanceFromNeighborToCurrent = math.sqrt((current.worldPositionX - worldPosX) ^ 2 + (current.worldPositionY - worldPosY) ^ 2)
           local tentativeG = current.g + distanceFromNeighborToCurrent
 
-          local neighborNode = newNode(neighbor.x, neighbor.y)
+          local neighborNode = newNode(neighbor.x, neighbor.y, tile)
           if not nodeInList(neighborNode, openList) or tentativeG < neighborNode.g then
+
             neighborNode.parent = current
             neighborNode.g = tentativeG
             neighborNode.h = calculateHeuristic(neighborNode, goal)
@@ -124,6 +156,7 @@ function astar(start, goal, map)
             neighborNode.worldPositionY = worldPosY
 
             if not nodeInList(neighborNode, openList) then
+              --print("ADD to OPENLIST neighborNode.x: " .. neighborNode.x .. ", neighborNode.y: " .. neighborNode.y)
               table.insert(openList, neighborNode)
             end
           end
@@ -136,12 +169,31 @@ function astar(start, goal, map)
 
 end
 
-
-
 do
 
   -- load a test map for the tile
+  local someMap = Map.new(
+    32,
+    32,
+    3,
+    3
+  )
 
+  --get the path, unit can be nil
+  local path = astar(
+    someMap:get_tile_at_x_y_pixel(0, 0),
+    someMap:get_tile_at_x_y_pixel(300, 300),
+    someMap.tiles_for_path_finding,
+    nil
+  )
+
+  for _, node in ipairs(path) do
+    print(string.format("{x= %s, y= %s},", node.x, node.y))
+  end
+
+  -- todo: add more tests...
+
+  --os.exit()
 
 end
 

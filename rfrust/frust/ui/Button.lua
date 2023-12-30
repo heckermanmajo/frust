@@ -6,10 +6,15 @@
 --- @field text string The text to display on the button.
 --- @field onclick function The function to call when the button is clicked.
 --- @field is_hovered boolean Whether the mouse is hovering over the button.
-
+--- @field cool_down number The cool down time in seconds.
+--- @field label string The label of the button.
+---
+--- @field instances table<string, Button> ::STATIC:: A table of all instances of Button.
+--- @field mouse_is_consumed boolean ::STATIC:: Whether the mouse is consumed by a button, this allows other control elements to ignore the mouse if it is over a button.
 Button = {}
 Button.__index = Button
 Button.instances = {}
+Button.mouse_is_consumed = false
 
 ----------------------------------------------------------------------------
 --- Creates a new Button.
@@ -76,6 +81,8 @@ function Button:update(dt)
       y <= self.y + self.height
   ) then
     self.is_hovered = true
+    -- consume mouse -> other can elements ignore it
+    Button.mouse_is_consumed = true
   else
     self.is_hovered = false
   end
@@ -111,6 +118,7 @@ end
 --- @return nil
 ----------------------------------------------------------------------------
 function Button.update_all(dt)
+  Button.mouse_is_consumed = false
   for _, button in pairs(Button.instances) do
     button:update(dt)
   end

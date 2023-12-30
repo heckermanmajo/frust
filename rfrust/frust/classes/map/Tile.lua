@@ -132,7 +132,7 @@ end
 --- @return boolean true if the tile is traversable, false otherwise
 --------------------------------------------------------------------------
 function Tile:is_traversable(traveler)
-  return self.type == Tile.TileType.GRASS
+  return self.tile_type == Tile.TileTypes.GRASS
 end
 
 --------------------------------------------------------------------------
@@ -144,6 +144,14 @@ end
 --------------------------------------------------------------------------
 function Tile:get_traverse_cost(traveler)
   return 1
+end
+
+function Tile:get_x_number()
+  return self.x / self.width
+end
+
+function Tile:get_y_number()
+  return self.y / self.height
 end
 
 --------------------------------------------------------------------------

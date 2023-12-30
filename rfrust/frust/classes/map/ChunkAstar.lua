@@ -49,7 +49,16 @@ local function nodeInList(node, list)
   return false
 end
 
--- Function to get the node with the lowest f value from the list
+---------------------------------------------------------------------------------
+--- Function to get the node with the lowest f value from the list
+--- f is the sum of g and h
+--- g is the distance from the start node to the current node
+--- h is the heuristic — estimated distance from the current node to the end node
+---
+---@param list Node[]
+---
+--- @return Node
+---------------------------------------------------------------------------------
 local function getLowestF(list)
   local lowest = list[1]
   for _, node in ipairs(list) do
@@ -60,7 +69,14 @@ local function getLowestF(list)
   return lowest
 end
 
--- Function to reconstruct the path from the goal to the start
+------------------------------------------------------------------------------
+--- Function to reconstruct the path from the goal to the start
+--- This function is called when the goal node is found
+---
+--- @param goal Node
+---
+--- @return Node[]
+------------------------------------------------------------------------------
 local function reconstructPath(goal)
   local path = {}
   local current = goal
@@ -73,7 +89,9 @@ end
 
 -- A* algorithm function
 function astar(start, goal, map)
+  --- @type Node[] List of nodes to be evaluated
   local openList = {}
+  --- @type Node[] List of nodes already evaluated
   local closedList = {}
 
   table.insert(openList, start)
