@@ -147,11 +147,11 @@ function Tile:get_traverse_cost(traveler)
 end
 
 function Tile:get_x_number()
-  return self.x / self.width
+  return math.floor(self.x / self.width)
 end
 
 function Tile:get_y_number()
-  return self.y / self.height
+  return math.floor(self.y / self.height)
 end
 
 --------------------------------------------------------------------------

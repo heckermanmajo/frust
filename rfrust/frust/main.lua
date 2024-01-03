@@ -7,6 +7,8 @@ DEBUGLOG = function(log)
   print(log)
 end
 
+local VERSION = "0.0"
+
 require "lib/utils"
 
 require "protocol/ColliderProtocol"
@@ -23,13 +25,18 @@ require "classes/map/TileAstar"
 
 require "ui/Button"
 
----!debug:start
-require "classes/map/MapTests"
----!debug:end
+require "classes/mob/Soldier"
+
+require "classes/faction/Faction"
 
 require "scenes/rts_editor/UserController"
 require "scenes/rts_editor/RtsEditor"
+require "scenes/rts_battle/RtsBattle"
 
+
+---!debug:start
+require "classes/map/MapTests"
+---!debug:end
 
 -- love list dir get all saves
 local dir = "saves"
@@ -38,9 +45,18 @@ for k, file in ipairs(files) do
   print( k, file )
 end
 
-
-Scene = RtsEditor
--- todo: other scenes
+-- check if the cmd argument is "battle"
+-- if it is, then load the battle scene
+-- if it is not, then load the editor scene
+if arg[2] == "battle" then
+  -- set title
+  love.window.setTitle("Frust " .. VERSION .. " - Battle")
+  Scene = RtsBattle
+else
+  Scene = RtsEditor
+  -- set title
+  love.window.setTitle("Frust " .. VERSION .. " - Editor")
+end
 
 function love.load()
   Scene.load()
@@ -75,6 +91,11 @@ function love.draw()
   local xcam = Camera.getMouseXAfterCameraTransformation()
   local ycam = Camera.getMouseYAfterCameraTransformation()
   love.graphics.print("xcam: " .. xcam .. " ycam: " .. ycam, 0, 60)
+  -- debug info version and scene
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.rectangle("fill", 0, 80, 300, 20)
+  love.graphics.setColor(255, 255, 255)
+  love.graphics.print("Version: " .. VERSION .. " Scene: " .. Scene.name, 0, 80)
 
 
 end

@@ -72,7 +72,7 @@ Frust Build 0.0
 - place obstacles (user controller) (water/stone) [load and save]
 
 
-Frust Build 1.0: First Gameplay
+Frust Build 0.1: First Gameplay
 ---------
 - simple sounds -> load resources in the local files they belong to
 - no building

@@ -103,9 +103,9 @@ function Map.new(-- todo: create chunks from input data
 
   -- get all chunks for path finding into one table
   map.chunks_for_path_finding = {}
-  for x = 0, map.height_of_map_in_chunks - 1 do
+  for y = 0, map.height_of_map_in_chunks - 1 do
     local row = {}
-    for y = 0, map.len_of_map_in_chunks - 1 do
+    for x = 0, map.len_of_map_in_chunks - 1 do
       local actual_x = x * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
       local actual_y = y * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
       local chunk = map:get_chunk_at_x_y_pixel(actual_x, actual_y)
@@ -116,9 +116,9 @@ function Map.new(-- todo: create chunks from input data
   end
 
   map.tiles_for_path_finding = {}
-  for x = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+  for y = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
     local row = {}
-    for y = 0, map.len_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+    for x = 0, map.len_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
       local actual_x = x * map.size_of_tiles_in_pixels
       local actual_y = y * map.size_of_tiles_in_pixels
       local tile = map:get_tile_at_x_y_pixel(actual_x, actual_y)
@@ -284,9 +284,9 @@ function Map.from_repr(raw_table_data)
 
   -- get all chunks for path finding into one table
   map.chunks_for_path_finding = {}
-  for x = 0, map.height_of_map_in_chunks - 1 do
+  for y = 0, map.height_of_map_in_chunks - 1 do
     local row = {}
-    for y = 0, map.len_of_map_in_chunks - 1 do
+    for x = 0, map.len_of_map_in_chunks - 1 do
       local actual_x = x * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
       local actual_y = y * map.size_of_chunks_in_tiles * map.size_of_tiles_in_pixels
       local chunk = map:get_chunk_at_x_y_pixel(actual_x, actual_y)
@@ -297,9 +297,9 @@ function Map.from_repr(raw_table_data)
   end
 
   map.tiles_for_path_finding = {}
-  for x = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+  for y = 0, map.height_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
     local row = {}
-    for y = 0, map.len_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
+    for x = 0, map.len_of_map_in_chunks * map.size_of_chunks_in_tiles - 1 do
       local actual_x = x * map.size_of_tiles_in_pixels
       local actual_y = y * map.size_of_tiles_in_pixels
       local tile = map:get_tile_at_x_y_pixel(actual_x, actual_y)
@@ -455,8 +455,12 @@ end
 --- @see Tile.get_traverse_cost
 --------------------------------------------------------------------------
 function Map:get_path_from_to(from_x, from_y, to_x, to_y, traveler)
-  -- todo: implement
-
+  return tile_astar(
+    self:get_tile_at_x_y_pixel(from_x, from_y),
+    self:get_tile_at_x_y_pixel(to_x, to_y),
+    self.tiles_for_path_finding,
+    traveler
+  )
 end
 
 --------------------------------------------------------------------------
@@ -550,8 +554,6 @@ function Map.load_map_from_file(file_name)
   return Map.from_repr(map)
 end
 
-
-
 function Map.get_all_save_names()
   -- love list dir get all saves
   local dir = "saves"
@@ -562,4 +564,12 @@ function Map.get_all_save_names()
     table.insert(result, file)
   end
   return result
+end
+
+function Map:get_width_in_pixels()
+  return self.len_of_map_in_chunks * self.size_of_chunks_in_tiles * self.size_of_tiles_in_pixels
+end
+
+function Map:get_height_in_pixels()
+  return self.height_of_map_in_chunks * self.size_of_chunks_in_tiles * self.size_of_tiles_in_pixels
 end

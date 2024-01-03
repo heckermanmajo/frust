@@ -96,7 +96,7 @@ end
 --- @param start_tile Tile
 --- @param goal_tile Tile
 --- @param map Tile[][]
-function astar(start_tile, goal_tile, map, unit)
+function tile_astar(start_tile, goal_tile, map, unit)
 
   -- +1 since lua starts at 1
   local start = newNode(start_tile:get_x_number() + 1, start_tile:get_y_number() + 1, start_tile)
@@ -138,7 +138,7 @@ function astar(start_tile, goal_tile, map, unit)
         --if tile:is_traversable(unit) then
         --  print ("CHECK tile: " .. tile:repr())
         --end
-        if not nodeInList(neighbor, closedList) and tile:is_traversable(unit) then
+        if not nodeInList(neighbor, closedList) and tile and tile:is_traversable(unit) then
           --print ("CHECK tile: " .. tile:repr())
           local worldPosX = tile.x
           local worldPosY = tile.y
@@ -180,7 +180,7 @@ do
   )
 
   --get the path, unit can be nil
-  local path = astar(
+  local path = tile_astar(
     someMap:get_tile_at_x_y_pixel(0, 0),
     someMap:get_tile_at_x_y_pixel(300, 300),
     someMap.tiles_for_path_finding,

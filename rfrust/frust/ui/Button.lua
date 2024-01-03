@@ -52,15 +52,19 @@ end
 ----------------------------------------------------------------------------
 function Button:draw()
   if self.is_hovered then
-    love.graphics.setColor(1, 0, 1)
+    love.graphics.setColor(0.4, 0.4, 0.4)
   else
     love.graphics.setColor(0, 0, 0)
   end
   -- todo: text centering
   love.graphics.rectangle("fill", self.x, self.y, self.width, self.height)
 
-  love.graphics.setColor(0.6, 0.3, 0.3)
+  love.graphics.setColor(1, 1, 1)
   love.graphics.print(self.text, self.x, self.y)
+
+  -- draw white border(rectangle) around button
+  love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
+
 
   love.graphics.setColor(1, 1, 1)
 end

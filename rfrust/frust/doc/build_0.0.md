@@ -1,16 +1,16 @@
 Frust Build 0.0
 ---------
 - [x] not too big maps (32*32 tiles) * 3 * 3 
-- [ ] no advanced pathfinding (only astar for tiles)
-  - [ ] for now put all tiles into the astar algo.
-- [ ] we can only do 3 path-findings per frame
+- [x] no advanced pathfinding (only astar for tiles)
+  - [x] for now put all tiles into the astar algo.
+- [x] we can only do 3 path-findings per frame
 - [x] but chunking (needed for efficient collision)
 - [x] map movement -> move the map with middle mouse
 - [x] Camera
 - [x] draw and collision protocol
-- [ ] do random path-findings
-- [ ] do random obstacles
-- [ ] display the paths
+- [x] do random path-findings
+- [x] do random obstacles
+- [x] display the paths
 - [x] scroll in/out
 - [x] debug info
 - [x] simple map loading -> use to non-recursive repr functions
